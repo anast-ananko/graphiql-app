@@ -1,15 +1,11 @@
 import { useRef, useEffect, FC } from 'react';
 import CodeMirror from 'codemirror';
 
+import { ICodeMirror } from '../../interfaces/code-mirror';
+
 import './code-mirror.scss';
 
-import 'codemirror-graphql/mode';
-
-interface Props {
-  onChange: (value: string) => void;
-}
-
-const CodeMirrorGraphQL: FC<Props> = ({ onChange }) => {
+const CodeMirrorGraphQL: FC<ICodeMirror> = ({ onChange }) => {
   const editorRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
