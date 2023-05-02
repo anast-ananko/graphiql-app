@@ -3,28 +3,28 @@ import { createApi } from '@reduxjs/toolkit/query/react';
 import { gql } from 'graphql-request';
 import { graphqlRequestBaseQuery } from '@rtk-query/graphql-request-base-query';
 import { API_BASE_URL } from '../../constants/apiConstants';
-import appStore from '..';
+import { RootState } from '..';
 import { HeadersKeys } from '../../interfaces/headersSlice.interfaces';
 
 export const graphqlApi = createApi({
   reducerPath: 'StarWars API',
   baseQuery: graphqlRequestBaseQuery({
     url: API_BASE_URL,
-    prepareHeaders: (headers) => {
-      /*
-      const userHeaders = appStore.getState().userHeaders.value;
-      const keys = Object.keys(userHeaders) as HeadersKeys[];
-
-      if (keys.length) {
+    prepareHeaders: (headers, { getState }) => {
+      const userHeaders = (getState() as RootState)?.userHeaders.value;
+      if (userHeaders) {
         const keys = Object.keys(userHeaders) as HeadersKeys[];
-        keys.forEach((key) => headers.set(key, userHeaders[key] as string));
+
+        if (keys.length) {
+          const keys = Object.keys(userHeaders) as HeadersKeys[];
+          keys.forEach((key) => headers.set(key, userHeaders[key] as string));
+        }
       }
-      */
       return headers;
     },
   }),
   endpoints: (builder) => ({
-    getResponse: builder.query<string, { queryString: string; variables?: any }>({
+    getGraphql: builder.query<string, { queryString: string; variables?: any }>({
       query: ({ queryString, variables }) => ({
         document: gql`
           ${queryString}
@@ -39,6 +39,6 @@ export const graphqlApi = createApi({
   }),
 });
 
-export const { useGetResponseQuery } = graphqlApi;
+export const { useGetGraphqlQuery } = graphqlApi;
 
 export default graphqlApi;
