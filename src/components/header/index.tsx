@@ -29,7 +29,7 @@ const Header: FC = () => {
               sx={{
                 mr: 2,
                 ml: 2,
-                display: { xs: 'none', md: 'flex' },
+                // display: { xs: 'none', md: 'flex' },
                 fontFamily: 'Nunito',
                 fontWeight: 700,
                 letterSpacing: '.1rem',
