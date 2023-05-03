@@ -12,25 +12,12 @@ const Main: FC = () => {
     <Grid
       container
       spacing={2}
-      maxWidth={{ xs: '300px', sm: '520px', md: '880px', lg: '1180px' }}
-      sx={{ margin: '0 auto', backgroundColor: '#e7ebea' }}
+      maxWidth={{ xs: '300px', sm: '520px', md: '880px', lg: '1180px', xl: '1500px' }}
       className="main__container"
     >
-      <Grid item xs={12} md={4} lg={4}>
-        <Explorer />
-      </Grid>
-      <Grid item container xs={12} md={8} lg={8} className="main__content">
-        <Grid
-          item
-          container
-          xs={12}
-          md={12}
-          lg={6}
-          sx={{ mr: { xs: 1, md: 1, lg: 0 }, pt: 1, backgroundColor: '#FFF' }}
-          className="explorer"
-        >
-          <Editor />
-        </Grid>
+      <Explorer />
+      <Grid item container xs={12} md={8} lg={8} xl={9} className="main__content">
+        <Editor />
         <Grid item xs={12} md={12} lg={6}>
           <Response />
         </Grid>
