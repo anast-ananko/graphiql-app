@@ -6,6 +6,7 @@ import Welcome from './pages/welcome';
 import SignIn from './pages/sign-in';
 import SignUp from './pages/sign-up';
 import NotFound from './pages/not-found';
+import TestApi from './pages/testApi';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -14,6 +15,7 @@ const router = createBrowserRouter(
       <Route path="main" element={<Main />} />
       <Route path="login" element={<SignIn />} />
       <Route path="registration" element={<SignUp />} />
+      <Route path="testApi" element={<TestApi />} />
       <Route path="*" element={<NotFound />} />
     </Route>
   )
