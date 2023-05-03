@@ -8,9 +8,12 @@ import 'codemirror-graphql/hint';
 import 'codemirror/theme/dracula.css';
 
 import { ICodeMirror } from '../../../interfaces/code-mirror';
+import { updateQuery } from '../../../store/features/editorSlice';
+import { useAppDispatch } from '../../../hooks/hook';
 
 const CodeMirrorGraphQL: FC<ICodeMirror> = ({ onChange }) => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     const editor = CodeMirror.fromTextArea(textareaRef.current!, {
@@ -23,6 +26,7 @@ const CodeMirrorGraphQL: FC<ICodeMirror> = ({ onChange }) => {
 
     editor.on('change', (instance) => {
       onChange(instance.getValue());
+      dispatch(updateQuery(instance.getValue()));
     });
 
     return () => {

@@ -23,6 +23,7 @@
         display: flex;
         margin: 10px;
         width: 220px !important;
+        
         & :first-child {
             margin-right: 10px;
         }
@@ -50,5 +51,14 @@
 
     &:focus {
         outline: none;
+    }
+}
+
+.headers {
+    display: flex;
+    flex-direction: column;
+
+    &__header {
+        margin-bottom: 10px;
     }
 }

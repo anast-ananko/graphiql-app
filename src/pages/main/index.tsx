@@ -1,13 +1,28 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { Grid } from '@mui/material';
 
 import Editor from '../../components/editor';
 import Explorer from '../../components/explorer';
 import Response from '../../components/response';
+import { useGetGraphqlQuery } from '../../store/services/graphQlApi';
+import { useAppSelector } from '../../hooks/hook';
 
 import './main.scss';
 
 const Main: FC = () => {
+  const [graphqlQuery, setGraphqlQuery] = useState<string>('');
+  const { data, isError, isFetching } = useGetGraphqlQuery(
+    {
+      queryString: graphqlQuery,
+    },
+    { skip: !graphqlQuery }
+  );
+  const { query } = useAppSelector((state) => state.editorReducer);
+
+  const getData = (): void => {
+    setGraphqlQuery(query);
+  };
+
   return (
     <Grid
       container
@@ -17,10 +32,8 @@ const Main: FC = () => {
     >
       <Explorer />
       <Grid item container xs={12} md={8} lg={8} xl={9} className="main__content">
-        <Editor />
-        <Grid item xs={12} md={12} lg={6}>
-          <Response />
-        </Grid>
+        <Editor getData={getData} />
+        <Response data={data} isError={isError} isFetching={isFetching} />
       </Grid>
     </Grid>
   );

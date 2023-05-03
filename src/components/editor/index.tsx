@@ -11,11 +11,15 @@ import Headers from './headers';
 
 import './editor.scss';
 
-const Editor: FC = () => {
+interface IEditor {
+  getData: () => void;
+}
+
+const Editor: FC<IEditor> = ({ getData }) => {
   const [activeButton, setActiveButton] = useState<number>(1);
   const [value, setValue] = useState<string>('');
-
-  const handleChange = (value: string) => {
+ 
+  const handleChange = (value: string): void => {
     setValue(value);
   };
 
@@ -33,7 +37,7 @@ const Editor: FC = () => {
         <CodeMirrorGraphQL onChange={handleChange} />
       </Grid>
       <Grid item xs={2} lg={2}>
-          <Button variant="contained" endIcon={<SendIcon />} className="editor__button"></Button>
+          <Button variant="contained" endIcon={<SendIcon />} className="editor__button"  onClick={getData}></Button>
       </Grid>
       <Grid item xs={12} lg={12} className="editor__options">
           <div className="options__buttons">
