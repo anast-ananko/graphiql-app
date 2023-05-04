@@ -11,13 +11,15 @@ import './main.scss';
 
 const Main: FC = () => {
   const [graphqlQuery, setGraphqlQuery] = useState<string>('');
+  const { query, variables } = useAppSelector((state) => state.editorReducer);
+
   const { data, isError, isFetching } = useGetGraphqlQuery(
     {
       queryString: graphqlQuery,
+      variables,
     },
     { skip: !graphqlQuery }
   );
-  const { query } = useAppSelector((state) => state.editorReducer);
 
   const getData = (): void => {
     setGraphqlQuery(query);
