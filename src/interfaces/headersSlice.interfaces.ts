@@ -10,4 +10,8 @@ interface QueryVariables {
   [key: string]: string;
 }
 
-export type { HeadersKeys, UserHeaders, QueryVariables };
+interface UserHeadersInitialState {
+  value: UserHeaders;
+}
+
+export type { HeadersKeys, UserHeaders, QueryVariables, UserHeadersInitialState };

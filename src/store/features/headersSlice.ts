@@ -1,9 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { UserHeaders } from '../../interfaces/headersSlice.interfaces';
+import { UserHeaders, UserHeadersInitialState } from '../../interfaces/headersSlice.interfaces';
 
-interface UserHeadersInitialState {
-  value: UserHeaders;
-}
 const initialUserHeadersState: UserHeadersInitialState = {
   value: {},
 };

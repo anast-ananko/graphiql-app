@@ -1,10 +1,13 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { createApi } from '@reduxjs/toolkit/query/react';
 import { gql } from 'graphql-request';
 import { graphqlRequestBaseQuery } from '@rtk-query/graphql-request-base-query';
-import { API_BASE_URL } from '../../constants/apiConstants';
+
+import { API_BASE_URL, SCHEMA_INTROSPECTION_QUERY } from '../../constants/apiConstants';
+
 import { RootState } from '..';
 import { HeadersKeys, UserHeaders, QueryVariables } from '../../interfaces/headersSlice.interfaces';
+import { SchemaIntrospectionResponse } from '../../interfaces/graphqlApi.interfaces';
+import { Root as RootResponseModel } from '../../interfaces/apiModel.interfaces';
 
 export const graphqlApi = createApi({
   reducerPath: 'StarWars API',
@@ -33,14 +36,26 @@ export const graphqlApi = createApi({
         `,
         variables: { ...variables },
       }),
-      transformResponse: (responseData: any): string => {
+      transformResponse: (responseData: RootResponseModel): string => {
         const responseString = JSON.stringify(responseData, null, 2);
         return responseString;
       },
     }),
+    getSchema: builder.query<SchemaIntrospectionResponse, string | void>({
+      query: (queryString?: string) => ({
+        document: gql`
+          ${queryString ?? SCHEMA_INTROSPECTION_QUERY}
+        `,
+      }),
+    }),
   }),
 });
 
-export const { useGetGraphqlQuery } = graphqlApi;
+export const {
+  useGetGraphqlQuery,
+  useGetSchemaQuery,
+  useLazyGetGraphqlQuery,
+  useLazyGetSchemaQuery,
+} = graphqlApi;
 
 export default graphqlApi;
