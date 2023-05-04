@@ -9,7 +9,6 @@ const Headers: FC = () => {
 
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>, key: string): void => {
     let header;
-    dispatch(updateHeaders({}));
     if (key === 'authorization') {
       if (!event.target.value) {
         header = { ...value };
