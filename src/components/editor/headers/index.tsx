@@ -10,17 +10,37 @@ const Headers: FC = () => {
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>, key: string): void => {
     let header;
     dispatch(updateHeaders({}));
-    if (key === 'authorization' && event.target.value) {
-      header = { ...value, Authorization: event.target.value };
+    if (key === 'authorization') {
+      if (!event.target.value) {
+        header = { ...value };
+        delete header.Authorization;
+      } else {
+        header = { ...value, Authorization: event.target.value };
+      }
     }
     if (key === 'access-control-origin') {
-      header = { ...value, 'Access-Control-Allow-Origin': event.target.value };
+      if (!event.target.value) {
+        header = { ...value };
+        delete header['Access-Control-Allow-Origin'];
+      } else {
+        header = { ...value, 'Access-Control-Allow-Origin': event.target.value };
+      }
     }
     if (key === 'access-control-credentials') {
-      header = { ...value, 'Access-Control-Allow-Credentials': event.target.value };
+      if (!event.target.value) {
+        header = { ...value };
+        delete header['Access-Control-Allow-Credentials'];
+      } else {
+        header = { ...value, 'Access-Control-Allow-Credentials': event.target.value };
+      }
     }
     if (key === 'connection') {
-      header = { ...value, Connection: event.target.value };
+      if (!event.target.value) {
+        header = { ...value };
+        delete header.Connection;
+      } else {
+        header = { ...value, Connection: event.target.value };
+      }
     }
     dispatch(updateHeaders(header));
   };
