@@ -1,8 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface IEditorInitialState {
-  query: string;
-}
+import { IEditorInitialState } from '../../interfaces/editorSlice';
+
 const initialState: IEditorInitialState = {
   query: '',
 };

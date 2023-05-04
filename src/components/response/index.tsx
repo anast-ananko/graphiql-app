@@ -1,13 +1,9 @@
 import { FC } from 'react';
 import { Grid } from '@mui/material';
 
-import './response.scss';
+import { IResponse } from '../../interfaces/responseComponent';
 
-interface IResponse {
-  data: string | undefined;
-  isError: boolean;
-  isFetching: boolean;
-}
+import './response.scss';
 
 const Response: FC<IResponse> = ({ data, isError, isFetching }) => {
   return (

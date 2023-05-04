@@ -8,12 +8,9 @@ import classNames from 'classnames';
 import CodeMirrorGraphQL from './code-mirror';
 import Variables from './variables';
 import Headers from './headers';
+import { IEditor } from '../../interfaces/editorComponent';
 
 import './editor.scss';
-
-interface IEditor {
-  getData: () => void;
-}
 
 const Editor: FC<IEditor> = ({ getData }) => {
   const [activeButton, setActiveButton] = useState<number>(1);
