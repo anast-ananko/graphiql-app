@@ -9,7 +9,7 @@ import { HeadersKeys, UserHeaders, QueryVariables } from '../../interfaces/heade
 import { SchemaIntrospectionResponse } from '../../interfaces/graphqlApi.interfaces';
 import { Root as RootResponseModel } from '../../interfaces/apiModel.interfaces';
 
-export const graphqlApi = createApi({
+const graphqlApi = createApi({
   reducerPath: 'StarWars API',
   baseQuery: graphqlRequestBaseQuery({
     url: API_BASE_URL,
