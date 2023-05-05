@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { UserHeaders, UserHeadersInitialState } from '../../interfaces/headersSlice.interfaces';
+import { RootState } from '..';
 
 const initialUserHeadersState: UserHeadersInitialState = {
   value: {},
@@ -15,5 +16,12 @@ const headersSlice = createSlice({
   },
 });
 
-export const { updateHeaders } = headersSlice.actions;
+const { updateHeaders } = headersSlice.actions;
+
+const selectHeaders = (state: RootState) => {
+  return state.userHeaders.value;
+};
+
+export { updateHeaders, selectHeaders };
+
 export default headersSlice.reducer;
