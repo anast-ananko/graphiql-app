@@ -1,12 +1,15 @@
 @import "../../styles/variables";
 
 .main {
-    //background-color: $backgraund-color-base;
     padding-top: 20px;
-}
-
-.main__container {
-    border: 1px solid $border-color-grey;
-    border-radius: 5px;
-    //margin: 0 auto;
+    
+    &__container {
+        background-color: #e7ebea;
+        border: 1px solid $border-color-grey;
+        border-radius: 5px;
+        margin: 0 auto !important;
+        min-height: 600px;
+        max-height: 800px;
+        padding-bottom: 20px;
+    }
 }
