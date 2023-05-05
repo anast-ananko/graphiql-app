@@ -13,7 +13,7 @@ const Headers: FC = () => {
   const [accessControlAllowCredentials, setAccessControlAllowCredentials] = useState<string>(
     value?.['Access-Control-Allow-Credentials'] || ''
   );
-  const [connection, setConnection] = useState<string>(value?.Connection || '');
+  const [accept, setAccept] = useState<string>(value?.Accept || '');
 
   const dispatch = useAppDispatch();
 
@@ -33,8 +33,8 @@ const Headers: FC = () => {
       setAccessControlAllowOrigin(event.target.value);
     } else if (key === 'Access-Control-Allow-Credentials') {
       setAccessControlAllowCredentials(event.target.value);
-    } else if (key === 'Connection') {
-      setConnection(event.target.value);
+    } else if (key === 'Accept') {
+      setAccept(event.target.value);
     }
   };
 
@@ -71,13 +71,13 @@ const Headers: FC = () => {
         />
       </div>
       <div className="headers__header">
-        <label htmlFor="connection-input" className="header__label">
-          Connection:{' '}
+        <label htmlFor="accept-input" className="header__label">
+          Accept:{' '}
         </label>
         <input
           id="connection-input"
-          value={connection}
-          onChange={(event) => handleInput(event, 'Connection')}
+          value={accept}
+          onChange={(event) => handleInput(event, 'Accept')}
         />
       </div>
     </div>
