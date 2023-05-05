@@ -11,7 +11,12 @@ import './main.scss';
 
 const Main: FC = () => {
   const [graphqlQuery, setGraphqlQuery] = useState<string>('');
-  const { query, variables } = useAppSelector((state) => state.editorReducer);
+  const { query, variablesString } = useAppSelector((state) => state.editorReducer);
+
+  let variables;
+  try {
+    variables = JSON.parse(variablesString);
+  } catch {}
 
   const { data, isError, isFetching } = useGetGraphqlQuery(
     {
