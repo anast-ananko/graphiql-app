@@ -1,12 +1,13 @@
+import './header.scss';
 import { FC } from 'react';
-import { AppBar, Container, Toolbar, Typography, ThemeProvider } from '@mui/material';
+import { signOut } from 'firebase/auth';
+import { auth } from '../../firebase.ts';
+import { NavLink } from 'react-router-dom';
+import { AppBar, Container, Toolbar, Typography, ThemeProvider, Button } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
-
 import Logo from '../logo';
 
-import './header.scss';
-
-const Header: FC = () => {
+const Header: FC = ({ user }) => {
   const theme = createTheme({
     palette: {
       primary: {
@@ -14,6 +15,35 @@ const Header: FC = () => {
       },
     },
   });
+
+  const userSignOut = () => {
+    signOut(auth)
+      .then(() => console.log('sign out successful'))
+      .catch((error) => console.log(error));
+  };
+
+  const buttons: JSX.Element = user ? (
+    <Button
+      variant="outlined"
+      sx={{ backgroundColor: '#F9F871', color: 'black' }}
+      onClick={userSignOut}
+    >
+      Sign out
+    </Button>
+  ) : (
+    <>
+      <NavLink to="/login">
+        <Button variant="outlined" sx={{ backgroundColor: '#B9F181', color: 'black' }}>
+          Sign in
+        </Button>
+      </NavLink>
+      <NavLink to="/registration">
+        <Button variant="outlined" sx={{ backgroundColor: '#B9F181', color: 'black' }}>
+          Sign up
+        </Button>
+      </NavLink>
+    </>
+  );
 
   return (
     <ThemeProvider theme={theme}>
@@ -39,6 +69,7 @@ const Header: FC = () => {
             >
               GraphiQL
             </Typography>
+            {buttons}
           </Toolbar>
         </Container>
       </AppBar>
