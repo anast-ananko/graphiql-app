@@ -1,6 +1,6 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-import { AddErrorAction, ErrorsState } from '../../interfaces/errorsSlice.interfaces';
+import { ErrorsState, UserError } from '../../interfaces/errorsSlice.interfaces';
 import { RootState } from '..';
 
 const initialErrorsState: ErrorsState = {
@@ -11,7 +11,7 @@ const errorsSlice = createSlice({
   name: 'error',
   initialState: initialErrorsState,
   reducers: {
-    addError: (state, action: AddErrorAction) => {
+    addError: (state, action: PayloadAction<UserError>) => {
       state.value.push(action.payload);
     },
     clearErrors: (state) => {

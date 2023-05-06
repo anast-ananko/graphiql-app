@@ -9,9 +9,4 @@ interface ErrorsState {
   value: UserError[];
 }
 
-interface AddErrorAction {
-  payload: UserError;
-  type: string;
-}
-
-export type { ErrorsState, AddErrorAction, UserError };
+export type { ErrorsState, UserError };
