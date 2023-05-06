@@ -5,7 +5,6 @@ import { updateHeaders } from '../../store/features/headersSlice';
 
 import './testApi.style.scss';
 import { selectErrorsArray } from '../../store/features/errorsSlice';
-import ErrorsDialog from '../../components/ErrorsDialog';
 
 const testQuery = `query AllFilms($first: Int) {
   allFilms(first: $first) {
@@ -55,7 +54,6 @@ const TestApi: FC = () => {
   return (
     <>
       <h1>Test Api</h1>
-      <ErrorsDialog></ErrorsDialog>
       <div className="control-panel">
         <button
           className="control-panel__add-header-button"

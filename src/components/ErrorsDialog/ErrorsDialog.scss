@@ -1,4 +1,5 @@
-.error-dialog {
-  height: 300px;
-  min-height: 150px;
+.errors-dialog {
+  max-height: 100vh;
+  height: min-content;
+  overflow: auto;
 }

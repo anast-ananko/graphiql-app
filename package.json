@@ -26,8 +26,8 @@
     "sass": "^1.62.1"
   },
   "devDependencies": {
-    "@rtk-query/graphql-request-base-query": "^2.2.0",
     "@types/codemirror": "^5.60.7",
+    "@rtk-query/graphql-request-base-query": "^2.2.0",
     "@types/node": "^18.16.3",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",

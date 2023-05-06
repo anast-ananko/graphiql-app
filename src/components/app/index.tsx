@@ -1,11 +1,17 @@
 import { RouterProvider } from 'react-router-dom';
 
 import router from '../../router';
+import ErrorsDialog from '../errorsDialog';
 
 import './App.scss';
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <>
+      <ErrorsDialog></ErrorsDialog>
+      <RouterProvider router={router} />;
+    </>
+  );
 }
 
 export default App;

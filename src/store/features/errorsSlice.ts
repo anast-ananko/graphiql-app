@@ -2,6 +2,7 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 import { ErrorsState, UserError } from '../../interfaces/errorsSlice.interfaces';
 import { RootState } from '..';
+import { convertMessageToReadableString } from '../../utils/errorHandling';
 
 const initialErrorsState: ErrorsState = {
   value: [],
@@ -12,7 +13,9 @@ const errorsSlice = createSlice({
   initialState: initialErrorsState,
   reducers: {
     addError: (state, action: PayloadAction<UserError>) => {
-      state.value.push(action.payload);
+      const userError = action.payload;
+      userError.message = convertMessageToReadableString(userError.message);
+      state.value.push(userError);
     },
     clearErrors: (state) => {
       state.value = [];
