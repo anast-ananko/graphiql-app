@@ -1,8 +1,8 @@
+import './sign-in.scss';
 import { ChangeEvent, FC, FormEvent, useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase.ts';
-
-import './sign-in.scss';
+import { Navigate } from 'react-router-dom';
 
 const SignIn: FC = () => {
   const [email, setEmail] = useState<string>('');
@@ -17,6 +17,7 @@ const SignIn: FC = () => {
 
   return (
     <div>
+      {/*{user && <Navigate to="/dashboard" replace={true} />}*/}
       <form onSubmit={signIn}>
         <h1>Login</h1>
         <input
