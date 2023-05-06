@@ -7,7 +7,11 @@ type HeadersKeys =
 type UserHeaders = Partial<Record<HeadersKeys, string>> | undefined;
 
 interface QueryVariables {
-  [key: string]: string;
+  [key: string]: string | number;
 }
 
-export type { HeadersKeys, UserHeaders, QueryVariables };
+interface UserHeadersInitialState {
+  value: UserHeaders;
+}
+
+export type { HeadersKeys, UserHeaders, QueryVariables, UserHeadersInitialState };

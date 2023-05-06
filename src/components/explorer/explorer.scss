@@ -1,9 +1,9 @@
 @import "../../styles/variables";
 
 .explorer {
-   border-radius: 5px;
-}
+   min-height: 200px;
 
-.explorer__title {
-    font-size: $font-size-xlg;    
+   &__title {
+        font-size: $font-size-xlg;    
+    }
 }
