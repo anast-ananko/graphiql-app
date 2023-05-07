@@ -1,26 +1,17 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { FC, Suspense, lazy, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useGetGraphqlQuery, useGetSchemaQuery } from '../../store/services/graphQlApi';
 import { updateHeaders } from '../../store/features/headersSlice';
 
 import './testApi.style.scss';
+import { selectErrorsArray } from '../../store/features/errorsSlice';
+import ErrorsDialog from '../../components/ErrorsDialog';
 
-const testQuery = `query Query {
-  allFilms {
+const testQuery = `query AllFilms($first: Int) {
+  allFilms(first: $first) {
     films {
+      id
       title
-      director
-      releaseDate
-      speciesConnection {
-        species {
-          name
-          classification
-          homeworld {
-            name
-          }
-        }
-      }
     }
   }
 }`;
@@ -47,6 +38,7 @@ const TestApi: FC = () => {
   const { data, isError, isFetching } = useGetGraphqlQuery(
     {
       queryString: graphqlQuery,
+      variables: { first: 5 },
     },
     { skip: !graphqlQuery }
   );
@@ -57,9 +49,13 @@ const TestApi: FC = () => {
     useState();
   const doc = useGetSchemaQuery(introspectionQuery);
 
+  // app Errors
+  const appErrors = useSelector(selectErrorsArray);
+
   return (
     <>
       <h1>Test Api</h1>
+      <ErrorsDialog></ErrorsDialog>
       <div className="control-panel">
         <button
           className="control-panel__add-header-button"
@@ -84,10 +80,26 @@ const TestApi: FC = () => {
         <button
           className="control-panel__make-query-button"
           onClick={() => {
+            setGraphqlQuery('invalid');
+          }}
+        >
+          Make invalid query
+        </button>
+        <button
+          className="control-panel__make-query-button"
+          onClick={() => {
             setIntrospectionQuery(testIntrospectionQuery);
           }}
         >
           Make custom IntrospectionQuery
+        </button>
+        <button
+          className="control-panel__make-query-button"
+          onClick={() => {
+            setIntrospectionQuery('');
+          }}
+        >
+          Make invalid custom IntrospectionQuery
         </button>
         <div className="panel-container">
           <div className="panel panel--documentation">
@@ -98,6 +110,19 @@ const TestApi: FC = () => {
               )}
               ;
             </Suspense>
+          </div>
+
+          <div className="panel panel--errors">
+            <h2 className="panel__title">Errors panel</h2>
+            <div>
+              {appErrors &&
+                appErrors.map((error) => (
+                  <div key={error.message + error.stack}>
+                    <h4>Error!!!</h4>
+                    {error.message}
+                  </div>
+                ))}
+            </div>
           </div>
 
           <div className="panel panel--response">
