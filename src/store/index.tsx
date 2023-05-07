@@ -3,12 +3,14 @@ import { setupListeners } from '@reduxjs/toolkit/dist/query';
 import graphqlApi from './services/graphQlApi';
 import updateHeadersReducer from './features/headersSlice';
 import editorReducer from './features/editorSlice';
+import langReducer from './features/langSlice';
 
 const appStore = configureStore({
   reducer: {
     [graphqlApi.reducerPath]: graphqlApi.reducer,
     userHeaders: updateHeadersReducer,
-    editorReducer: editorReducer,
+    editorReducer,
+    langReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(graphqlApi.middleware),
   devTools: process.env.NODE_ENV !== 'production',
