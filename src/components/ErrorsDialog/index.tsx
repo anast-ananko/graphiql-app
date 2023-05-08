@@ -1,5 +1,7 @@
 import { useState, forwardRef, useEffect, FC } from 'react';
-import Button from '@mui/material/Button';
+import { clearErrors, selectErrorsArray } from '../../store/features/errorsSlice';
+import { useAppDispatch, useAppSelector } from '../../hooks/hook';
+
 import Dialog from '@mui/material/Dialog';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -8,10 +10,12 @@ import Typography from '@mui/material/Typography';
 import CloseIcon from '@mui/icons-material/Close';
 import Slide from '@mui/material/Slide';
 import { TransitionProps } from '@mui/material/transitions';
+import Pagination from '@mui/material/Pagination';
+import Alert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
 
-import './ErrorsDialog.scss';
-import { clearErrors, selectErrorsArray } from '../../store/features/errorsSlice';
-import { useAppDispatch, useAppSelector } from '../../hooks/hook';
+import { paginationStyle } from './errorsDialog.style';
+import './errorsDialog.scss';
 
 const Transition = forwardRef(function Transition(
   props: TransitionProps & {
@@ -24,23 +28,35 @@ const Transition = forwardRef(function Transition(
 
 const ErrorsDialog: FC = () => {
   const dispatch = useAppDispatch();
-  const [open, setOpen] = useState(false);
-  const appErrors = useAppSelector(selectErrorsArray);
+  const [isOpen, setIsOpen] = useState(false);
+  const userErrors = useAppSelector(selectErrorsArray);
+  const [currentUserError, setCurrentUserError] = useState(userErrors?.[0]);
 
   useEffect(() => {
-    setOpen(!!appErrors.length);
-  }, [appErrors]);
+    if (!isOpen && userErrors.length) {
+      setIsOpen(true);
+      setCurrentUserError(userErrors?.[0]);
+    }
+
+    if (isOpen && !userErrors.length) {
+      setIsOpen(false);
+    }
+  }, [userErrors, isOpen]);
 
   const handleClose = () => {
     dispatch(clearErrors());
   };
 
+  const handlePageChange = (_: React.ChangeEvent<unknown>, value: number) => {
+    setCurrentUserError(userErrors?.[value - 1]);
+  };
+
   return (
     <div>
       <Dialog
-        className="error-dialog"
+        className="errors-dialog"
         fullScreen
-        open={open}
+        open={isOpen}
         onClose={handleClose}
         TransitionComponent={Transition}
       >
@@ -52,11 +68,20 @@ const ErrorsDialog: FC = () => {
             <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
               Opps... Something went wrong.
             </Typography>
-            <Button autoFocus color="inherit" onClick={handleClose}>
-              next
-            </Button>
+            <Pagination
+              className="error-dialog__pagination"
+              onChange={handlePageChange}
+              count={userErrors.length}
+              {...paginationStyle}
+            />
           </Toolbar>
         </AppBar>
+        {currentUserError && (
+          <Alert severity="error">
+            <AlertTitle>{currentUserError.name}</AlertTitle>
+            <pre>{currentUserError.message}</pre>
+          </Alert>
+        )}
       </Dialog>
     </div>
   );
