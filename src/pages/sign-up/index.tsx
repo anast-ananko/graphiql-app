@@ -1,40 +1,65 @@
 import './sign-up.scss';
-import { ChangeEvent, FC, FormEvent, useState } from 'react';
+import { FC, FormEvent, useState } from 'react';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase.ts';
-import { Navigate } from 'react-router-dom';
+import { useAppDispatch } from '../../hooks/hook.ts';
+import { signIn } from '../../store/auth/authSlice';
+import { useNavigate } from 'react-router-dom';
+import { Box, Button, Container, TextField } from '@mui/material';
 
 const SignUp: FC = () => {
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
-  const signUp = (e: FormEvent): void => {
-    e.preventDefault();
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => console.log(userCredential))
-      .catch((error) => console.log(error));
+  const userSignUp = async (e: FormEvent): void => {
+    try {
+      e.preventDefault();
+
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      console.log(userCredential);
+      dispatch(signIn(userCredential));
+      navigate('/');
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   return (
-    <div>
-      {/*{user && <Navigate to="/dashboard" replace={true} />}*/}
-      <form onSubmit={signUp}>
-        <h1>Create account</h1>
-        <input
-          type="email"
-          placeholder="Enter email"
+    <Container maxWidth="xl">
+      <form autoComplete="off" onSubmit={userSignUp}>
+        <h2 style={{ textAlign: 'center', margin: '30px', fontSize: '24px', fontWeight: '900' }}>
+          Create account
+        </h2>
+        <TextField
+          label="Email"
+          onChange={(e) => setEmail(e.target.value)}
+          variant="outlined"
+          type="text"
+          sx={{ mb: 2 }}
+          fullWidth
           value={email}
-          onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
+          // error={fieldErrors.email}
         />
-        <input
+        <TextField
+          label="Password"
+          onChange={(e) => setPassword(e.target.value)}
+          variant="outlined"
           type="password"
-          placeholder="Enter password"
           value={password}
-          onChange={(e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
+          fullWidth
+          sx={{ mb: 2 }}
+          // error={fieldErrors.password}
         />
-        <button type="submit">Sign up</button>
+        <Box textAlign="center">
+          <Button variant="outlined" type="submit">
+            Create account
+          </Button>
+        </Box>
       </form>
-    </div>
+    </Container>
   );
 };
 
