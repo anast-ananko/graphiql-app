@@ -5,13 +5,18 @@ import Editor from '../../components/editor';
 import Explorer from '../../components/explorer';
 import Response from '../../components/response';
 import { useGetGraphqlQuery } from '../../store/services/graphQlApi';
-import { useAppSelector } from '../../hooks/hook';
+import { useAppSelector, useAppDispatch } from '../../hooks/hook';
+import { validateHeaders } from '../../helpers/validateHeaders';
+import { addError } from '../../store/features/errorsSlice';
 
 import './main.scss';
 
 const Main: FC = () => {
   const [graphqlQuery, setGraphqlQuery] = useState<string>('');
   const { query, variablesString } = useAppSelector((state) => state.editorReducer);
+  const { value } = useAppSelector((state) => state.userHeaders);
+
+  const dispatch = useAppDispatch();
 
   let variables;
   try {
@@ -27,7 +32,15 @@ const Main: FC = () => {
   );
 
   const getData = (): void => {
-    setGraphqlQuery(query);
+    const errors = validateHeaders(value);
+
+    if (errors.length === 0) {
+      setGraphqlQuery(query);
+    } else {
+      errors.forEach((error) => {
+        dispatch(addError({ name: error, message: error }));
+      });
+    }
   };
 
   return (
