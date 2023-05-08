@@ -1,12 +1,8 @@
-@import "../../styles/variables";
-
 .header {
-    background-color: $color-1 !important;
-
     &__topography {
         display: flex;
     }
-
+    
     &__logo {
         font-family: 'Nunito';
         font-weight: 700;
