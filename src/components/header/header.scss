@@ -1,6 +1,6 @@
 @import "../../styles/variables";
 
-.header {
+.header { 
     &__topography {
         display: flex;
     }
@@ -50,5 +50,7 @@
     border: none;
     width: 28px;
     height: 18px;
+    background-color: transparent;
+    cursor: pointer;
 }
   

@@ -5,8 +5,6 @@ import Logo from '../logo';
 import { useAppDispatch, useAppSelector } from '../../hooks/hook';
 import i18n from '../../data/i18n';
 import { changeLanguage } from '../../store/features/langSlice';
-import flagUS from '../../assets/flag-us.jpg';
-import flagRU from '../../assets/flag-ru.jpg';
 import ElevationScroll from './elevationScroll';
 
 import './header.scss';
@@ -18,9 +16,12 @@ const Header: FC = () => {
 
   const handleLanguageChange = (): void => {
     if (lang === 'en') {
+      i18n.changeLanguage('by');
+      dispatch(changeLanguage('by'));
+    } else if (lang === 'by') {
       i18n.changeLanguage('ru');
       dispatch(changeLanguage('ru'));
-    } else if (lang === 'ru') {
+    } else {
       i18n.changeLanguage('en');
       dispatch(changeLanguage('en'));
     }
@@ -28,7 +29,7 @@ const Header: FC = () => {
 
   return (
     <ElevationScroll>
-      <AppBar position="sticky" color="primary" className="header">
+      <AppBar position="sticky" className="header">
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <div className="header__container">
@@ -55,13 +56,10 @@ const Header: FC = () => {
                   className="button__lang"
                   onClick={handleLanguageChange}
                 >
-                  <img
-                    className="language__icon"
-                    src={lang === 'en' ? flagUS : flagRU}
-                    alt="Language"
-                  />
+                  <span className="language__title">
+                    {lang === 'en' ? 'en' : lang === 'by' ? 'by' : 'ru'}
+                  </span>
                 </button>
-                <span className="language__title">{lang === 'en' ? 'en' : 'ru'}</span>
               </div>
             </div>
           </Toolbar>

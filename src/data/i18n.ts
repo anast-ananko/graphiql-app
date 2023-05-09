@@ -1,15 +1,19 @@
 import { initReactI18next } from 'react-i18next';
 import i18n from 'i18next';
 
-import dashboardEn from './dataLangEn.json';
-import dashboardRu from './dataLangRu.json';
+import dataEn from './dataLangEn.json';
+import dataRu from './dataLangRu.json';
+import dataBy from './dataLangBy.json';
 
 const resources = {
   en: {
-    dataLang: dashboardEn,
+    dataLang: dataEn,
+  },
+  by: {
+    dataLang: dataBy,
   },
   ru: {
-    dataLang: dashboardRu,
+    dataLang: dataRu,
   },
 };
 
@@ -19,6 +23,9 @@ i18n.use(initReactI18next).init({
   fallbackLng: 'en',
   keySeparator: '.',
   ns: ['dataLang'],
+  interpolation: {
+    escapeValue: false,
+  },
 });
 
 export default i18n;
