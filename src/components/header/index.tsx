@@ -1,6 +1,5 @@
-import React, { FC, ReactElement } from 'react';
+import { FC } from 'react';
 import { AppBar, Container, Toolbar, Typography } from '@mui/material';
-import useScrollTrigger from '@mui/material/useScrollTrigger';
 
 import Logo from '../logo';
 import { useAppDispatch, useAppSelector } from '../../hooks/hook';
@@ -8,7 +7,7 @@ import i18n from '../../data/i18n';
 import { changeLanguage } from '../../store/features/langSlice';
 import flagUS from '../../assets/flag-us.jpg';
 import flagRU from '../../assets/flag-ru.jpg';
-import { IElevationScroll } from '../../interfaces/elevationScroll';
+import ElevationScroll from './elevationScroll';
 
 import './header.scss';
 
@@ -25,20 +24,6 @@ const Header: FC = () => {
       i18n.changeLanguage('en');
       dispatch(changeLanguage('en'));
     }
-  };
-
-  const ElevationScroll = ({ children }: IElevationScroll): ReactElement => {
-    const trigger = useScrollTrigger({
-      disableHysteresis: true,
-      threshold: 0,
-    });
-
-    return React.cloneElement(children, {
-      elevation: trigger ? 4 : 0,
-      style: {
-        backgroundColor: trigger ? '#40D4AF' : '#00ACC1',
-      },
-    });
   };
 
   return (
