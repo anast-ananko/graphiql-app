@@ -1,8 +1,8 @@
 import { initReactI18next } from 'react-i18next';
 import i18n from 'i18next';
 
-import dashboardEn from '../data/dataLangEn.json';
-import dashboardRu from '../data/dataLangRu.json';
+import dashboardEn from './dataLangEn.json';
+import dashboardRu from './dataLangRu.json';
 
 const resources = {
   en: {

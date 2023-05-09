@@ -4,7 +4,7 @@ import useScrollTrigger from '@mui/material/useScrollTrigger';
 
 import Logo from '../logo';
 import { useAppDispatch, useAppSelector } from '../../hooks/hook';
-import i18n from '../../i18next/i18n';
+import i18n from '../../data/i18n';
 import { changeLanguage } from '../../store/features/langSlice';
 import flagUS from '../../assets/flag-us.jpg';
 import flagRU from '../../assets/flag-ru.jpg';

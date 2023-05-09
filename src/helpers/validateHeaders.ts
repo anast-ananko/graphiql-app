@@ -56,7 +56,7 @@ const validateAccept = (header: string): string => {
   return '';
 };
 
-export const validateHeaders = (value: UserHeaders): string[] => {
+const validateHeaders = (value: UserHeaders): string[] => {
   const errors: string[] = [];
 
   if (value) {
@@ -79,6 +79,8 @@ export const validateHeaders = (value: UserHeaders): string[] => {
       if (error) errors.push(error);
     }
   }
-  console.log(errors);
+
   return errors;
 };
+
+export { validateHeaders };

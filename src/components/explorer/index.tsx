@@ -13,11 +13,11 @@ const gridStyle = {
 };
 
 const Explorer: FC = () => {
-  const { t } = useTranslation();
+  const { t: localize } = useTranslation();
 
   return (
     <Grid {...gridStyle} className="explorer">
-      <h1 className="explorer__title">{t('main.explorer')}</h1>
+      <h1 className="explorer__title">{localize('explorer.title')}</h1>
     </Grid>
   );
 };

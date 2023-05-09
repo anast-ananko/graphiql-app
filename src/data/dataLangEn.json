@@ -1,5 +1,5 @@
 {
-    "main": {
-        "explorer": "Explorer"
-    }
+    "explorer": {
+        "title": "Explorer"
+    }     
 }

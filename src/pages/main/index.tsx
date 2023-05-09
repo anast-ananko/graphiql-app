@@ -13,15 +13,19 @@ import './main.scss';
 
 const Main: FC = () => {
   const [graphqlQuery, setGraphqlQuery] = useState<string>('');
+  const [variables, setVariables] = useState({});
   const { query, variablesString } = useAppSelector((state) => state.editorReducer);
   const { value } = useAppSelector((state) => state.userHeaders);
 
   const dispatch = useAppDispatch();
 
-  let variables;
-  try {
-    variables = JSON.parse(variablesString);
-  } catch {}
+  const getVariables = (): void => {
+    try {
+      setVariables(JSON.parse(variablesString));
+    } catch {
+      dispatch(addError({ name: 'Variables Error', message: 'Invalid object of variables' }));
+    }
+  };
 
   const { data, isError, isFetching } = useGetGraphqlQuery(
     {
@@ -31,14 +35,15 @@ const Main: FC = () => {
     { skip: !graphqlQuery }
   );
 
-  const getData = (): void => {
+  const getData = () => {
     const errors = validateHeaders(value);
+    getVariables();
 
-    if (errors.length === 0) {
+    if (!errors.length) {
       setGraphqlQuery(query);
     } else {
       errors.forEach((error) => {
-        dispatch(addError({ name: error, message: error }));
+        dispatch(addError({ name: 'Headers Error', message: error }));
       });
     }
   };
