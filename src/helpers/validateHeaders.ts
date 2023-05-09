@@ -1,4 +1,5 @@
-import { UserHeaders } from '../interfaces/headersSlice.interfaces';
+import { IValidatedHeaders, IHeadersValidationMap } from '../interfaces/validatedHeaders';
+import { validTypes } from '../constants/validHeaderTypes';
 
 const validateAuthorization = (authorizationHeader: string): string => {
   if (!authorizationHeader.startsWith('Bearer')) {
@@ -8,7 +9,8 @@ const validateAuthorization = (authorizationHeader: string): string => {
 
     if (token.length <= 10) {
       return 'Token in header Authorization must be longer then 10 symbols';
-    } else if (token.length >= 20) {
+    }
+    if (token.length >= 20) {
       return 'Token in header Authorization must be shorter then 20 symbols';
     }
   }
@@ -34,17 +36,6 @@ const validateAccessControlAllowCredentials = (header: string): string => {
 };
 
 const validateAccept = (header: string): string => {
-  const validTypes = [
-    'text/plain',
-    'text/html',
-    'application/json',
-    'image/png',
-    'audio/mpeg',
-    'application/xml',
-    'image/jpeg',
-    'video/mp4',
-    'application/pdf',
-  ];
   const requestedTypes = header.split(',');
 
   for (const type of requestedTypes) {
@@ -56,29 +47,30 @@ const validateAccept = (header: string): string => {
   return '';
 };
 
-const validateHeaders = (value: UserHeaders): string[] => {
+const validateHeaders = (value: IValidatedHeaders): string[] => {
+  if (!value) {
+    return [];
+  }
+
   const errors: string[] = [];
 
-  if (value) {
-    if (value['Authorization']) {
-      const error = validateAuthorization(value['Authorization']);
-      if (error) errors.push(error);
+  const headersValidationMap: IHeadersValidationMap = {
+    Authorization: validateAuthorization,
+    'Access-Control-Allow-Origin': validateAccessControlAllowOrigin,
+    'Access-Control-Allow-Credentials': validateAccessControlAllowCredentials,
+    Accept: validateAccept,
+  };
+
+  Object.keys(headersValidationMap).forEach((headerName) => {
+    const headerValue = value[headerName];
+    if (headerValue) {
+      const validationFn = headersValidationMap[headerName];
+      const error = validationFn(headerValue);
+      if (error) {
+        errors.push(error);
+      }
     }
-    if (value['Access-Control-Allow-Origin']) {
-      const error = validateAccessControlAllowOrigin(value['Access-Control-Allow-Origin']);
-      if (error) errors.push(error);
-    }
-    if (value['Access-Control-Allow-Credentials']) {
-      const error = validateAccessControlAllowCredentials(
-        value['Access-Control-Allow-Credentials']
-      );
-      if (error) errors.push(error);
-    }
-    if (value['Accept']) {
-      const error = validateAccept(value['Accept']);
-      if (error) errors.push(error);
-    }
-  }
+  });
 
   return errors;
 };

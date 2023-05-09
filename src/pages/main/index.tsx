@@ -8,23 +8,29 @@ import { useGetGraphqlQuery } from '../../store/services/graphQlApi';
 import { useAppSelector, useAppDispatch } from '../../hooks/hook';
 import { validateHeaders } from '../../helpers/validateHeaders';
 import { addError } from '../../store/features/errorsSlice';
+import { IValidatedHeaders } from '../../interfaces/validatedHeaders';
+import { UserHeaders } from '../../interfaces/headersSlice.interfaces';
 
 import './main.scss';
 
 const Main: FC = () => {
   const [graphqlQuery, setGraphqlQuery] = useState<string>('');
-  const [variables, setVariables] = useState({});
+  const [variables, setVariables] = useState<UserHeaders>({});
   const { query, variablesString } = useAppSelector((state) => state.editorReducer);
   const { value } = useAppSelector((state) => state.userHeaders);
 
   const dispatch = useAppDispatch();
 
-  const getVariables = (): void => {
+  const convertVariables = (): UserHeaders => {
+    let variables;
+
     try {
-      setVariables(JSON.parse(variablesString));
+      variables = JSON.parse(variablesString);
     } catch {
       dispatch(addError({ name: 'Variables Error', message: 'Invalid object of variables' }));
     }
+
+    return variables;
   };
 
   const { data, isError, isFetching } = useGetGraphqlQuery(
@@ -36,10 +42,11 @@ const Main: FC = () => {
   );
 
   const getData = () => {
-    const errors = validateHeaders(value);
-    getVariables();
+    const errors = validateHeaders(value as IValidatedHeaders);
+    const convertedVariables = convertVariables();
 
     if (!errors.length) {
+      setVariables(convertedVariables);
       setGraphqlQuery(query);
     } else {
       errors.forEach((error) => {

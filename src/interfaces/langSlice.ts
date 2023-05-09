@@ -1,3 +1,3 @@
 export interface ILang {
-  lang: string;
+  lang: 'en' | 'by' | 'ru';
 }
