@@ -2,7 +2,7 @@ type HeadersKeys =
   | 'Authorization'
   | 'Access-Control-Allow-Origin'
   | 'Access-Control-Allow-Credentials'
-  | 'Connection';
+  | 'Accept';
 
 type UserHeaders = Partial<Record<HeadersKeys, string>> | undefined;
 
