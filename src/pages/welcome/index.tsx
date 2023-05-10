@@ -3,9 +3,10 @@ import { useSelector } from 'react-redux';
 import { Button, Grid } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 import './welcome.scss';
+import { RootState } from '../../store';
 
 const Welcome: FC = () => {
-  const { uid } = useSelector((state) => state.auth);
+  const { uid } = useSelector((state: RootState) => state.auth);
 
   const buttons: JSX.Element = uid ? (
     <Grid container columnGap={1} justifyContent="flex-end" alignItems="center">

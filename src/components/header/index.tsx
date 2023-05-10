@@ -7,11 +7,12 @@ import { useAppDispatch } from '../../hooks/hook';
 import { authSignOut } from '../../store/auth/authSlice';
 import Logo from '../logo';
 import { useSelector } from 'react-redux';
+import { RootState } from '../../store';
 
 const Header: FC = () => {
   const dispatch = useAppDispatch();
 
-  const { uid } = useSelector((state) => state.auth);
+  const { uid } = useSelector((state: RootState) => state.auth);
 
   const userSignOut = async () => {
     try {
