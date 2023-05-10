@@ -5,9 +5,9 @@ import { NavLink } from 'react-router-dom';
 import './welcome.scss';
 
 const Welcome: FC = () => {
-  const { user } = useSelector((state) => state.auth);
+  const { uid } = useSelector((state) => state.auth);
 
-  const buttons: JSX.Element = user ? (
+  const buttons: JSX.Element = uid ? (
     <Grid container columnGap={1} justifyContent="flex-end" alignItems="center">
       <NavLink to="/main">
         <Button variant="outlined">Go to main page</Button>

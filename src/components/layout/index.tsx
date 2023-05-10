@@ -12,7 +12,6 @@ import Footer from '../footer';
 const Layout: FC = () => {
   const dispatch = useAppDispatch();
 
-  const [user, setUser] = useState<FirebaseUser | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -24,8 +23,6 @@ const Layout: FC = () => {
         // @ts-ignore
         // TODO Eslint thinks, that userCredential don't have accessToken
         const { accessToken, email, uid } = authUser;
-
-        setUser(user);
         dispatch(authSignIn({ accessToken, email, uid }));
       }
 
@@ -33,9 +30,7 @@ const Layout: FC = () => {
     });
 
     return () => listen();
-  }, [dispatch, user]);
-
-  console.log(user);
+  }, [dispatch]);
 
   return (
     <>
@@ -43,7 +38,7 @@ const Layout: FC = () => {
         <CircularProgress color="secondary" />
       ) : (
         <>
-          <Header user={user} />
+          <Header />
           <main className="main">
             <Outlet />
           </main>

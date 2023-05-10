@@ -6,18 +6,20 @@ import { AppBar, Container, Toolbar, Typography, Button, Grid } from '@mui/mater
 import { useAppDispatch } from '../../hooks/hook';
 import { authSignOut } from '../../store/auth/authSlice';
 import Logo from '../logo';
+import { useSelector } from 'react-redux';
 
-const Header: FC = ({ user }) => {
+const Header: FC = () => {
   const dispatch = useAppDispatch();
 
-  // TODO refactor signOut function
-  const userSignOut = () => {
-    signOut(auth)
-      .then(() => {
-        console.log('sign out successful');
-        dispatch(authSignOut());
-      })
-      .catch((error) => console.log(error));
+  const { uid } = useSelector((state) => state.auth);
+
+  const userSignOut = async () => {
+    try {
+      await signOut(auth);
+      dispatch(authSignOut());
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const signOutButton: JSX.Element = (
@@ -57,7 +59,7 @@ const Header: FC = ({ user }) => {
               </Typography>
             </Toolbar>
           </Grid>
-          {user && signOutButton}
+          {uid && signOutButton}
         </Grid>
       </Container>
     </AppBar>
