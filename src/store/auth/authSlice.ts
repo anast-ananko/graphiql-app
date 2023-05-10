@@ -1,23 +1,25 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { User as FirebaseUser } from 'firebase/auth';
-
-type IAuthSlice = {
-  user: FirebaseUser | null;
-};
+import { IAuthSlice } from '../../interfaces/auth.ts';
 
 const initialState: IAuthSlice = {
-  user: null,
+  accessToken: '',
+  email: '',
+  uid: '',
 };
 
 const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    signIn: (state, action: PayloadAction<FirebaseUser | null>) => {
-      state.user = action.payload;
+    authSignIn: (state, action: PayloadAction<IAuthSlice>) => {
+      state.accessToken = action.payload.accessToken;
+      state.email = action.payload.email;
+      state.uid = action.payload.uid;
     },
-    signOutR: (state) => {
-      state.user = null;
+    authSignOut: (state) => {
+      state.accessToken = '';
+      state.email = '';
+      state.uid = '';
     },
   },
 });
@@ -26,4 +28,4 @@ const { actions, reducer } = authSlice;
 
 export default reducer;
 
-export const { signIn, signOutR } = actions;
+export const { authSignIn, authSignOut } = actions;

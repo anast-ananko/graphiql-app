@@ -4,7 +4,7 @@ import { signOut } from 'firebase/auth';
 import { auth } from '../../firebase.ts';
 import { AppBar, Container, Toolbar, Typography, Button, Grid } from '@mui/material';
 import { useAppDispatch } from '../../hooks/hook';
-import { signOutR } from '../../store/auth/authSlice';
+import { authSignOut } from '../../store/auth/authSlice';
 import Logo from '../logo';
 
 const Header: FC = ({ user }) => {
@@ -15,7 +15,7 @@ const Header: FC = ({ user }) => {
     signOut(auth)
       .then(() => {
         console.log('sign out successful');
-        dispatch(signOutR());
+        dispatch(authSignOut());
       })
       .catch((error) => console.log(error));
   };

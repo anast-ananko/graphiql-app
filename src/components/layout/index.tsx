@@ -4,7 +4,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../../firebase.ts';
 import { User as FirebaseUser } from 'firebase/auth';
 import { CircularProgress } from '@mui/material';
-import { signIn } from '../../store/auth/authSlice.ts';
+import { authSignIn } from '../../store/auth/authSlice.ts';
 import { useAppDispatch } from '../../hooks/hook.ts';
 import Header from '../header';
 import Footer from '../footer';
@@ -19,15 +19,21 @@ const Layout: FC = () => {
     setLoading(true);
 
     const listen = onAuthStateChanged(auth, (authUser) => {
-      const result: FirebaseUser | null = authUser || null;
+      if (authUser) {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        // TODO Eslint thinks, that userCredential don't have accessToken
+        const { accessToken, email, uid } = authUser;
 
-      setUser(result);
-      dispatch(signIn(result));
+        setUser(user);
+        dispatch(authSignIn({ accessToken, email, uid }));
+      }
+
       setLoading(false);
     });
 
     return () => listen();
-  }, [dispatch]);
+  }, [dispatch, user]);
 
   console.log(user);
 

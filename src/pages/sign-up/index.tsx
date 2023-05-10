@@ -3,9 +3,9 @@ import { FC, useState } from 'react';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase.ts';
 import { useAppDispatch } from '../../hooks/hook.ts';
-import { signIn } from '../../store/auth/authSlice';
+import { authSignIn } from '../../store/auth/authSlice';
 import { useNavigate } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
+import { useForm, FieldValues } from 'react-hook-form';
 import { Box, Button, Container, TextField } from '@mui/material';
 import { emailOptions, passwordOptions, checkTextFieldError } from '../../utils/validation.ts';
 
@@ -21,14 +21,21 @@ const SignUp: FC = () => {
 
   const [firebaseError, setFirebaseError] = useState<string | null>(null);
 
-  const userSignUp = async (data) => {
+  const userSignUp = async (fields: FieldValues) => {
     try {
-      const { email, password } = data;
-
       if (!Object.keys(errors).length) {
-        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        console.log(userCredential);
-        dispatch(signIn(userCredential));
+        const userCredential = await createUserWithEmailAndPassword(
+          auth,
+          fields.email,
+          fields.password
+        );
+
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        // TODO Eslint thinks, that userCredential don't have accessToken
+        const { email, uid, accessToken } = userCredential.user;
+
+        dispatch(authSignIn({ accessToken, email, uid }));
         navigate('/');
       }
     } catch (error) {
@@ -37,8 +44,6 @@ const SignUp: FC = () => {
       }
     }
   };
-
-  console.log(errors);
 
   const isHasError = (key: string): boolean => errors.hasOwnProperty(key);
 
