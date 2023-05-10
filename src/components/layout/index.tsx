@@ -2,7 +2,6 @@ import { FC, useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../../firebase.ts';
-import { User as FirebaseUser } from 'firebase/auth';
 import { CircularProgress } from '@mui/material';
 import { authSignIn } from '../../store/auth/authSlice.ts';
 import { useAppDispatch } from '../../hooks/hook.ts';
