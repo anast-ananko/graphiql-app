@@ -40,7 +40,7 @@ const SignUp: FC = () => {
       }
     } catch (error) {
       if (error instanceof Error && error.message.includes('email-already-in-use')) {
-        setFirebaseError('Error, current email already in use');
+        setFirebaseError('Hmmm, current email already in use');
       }
     }
   };
