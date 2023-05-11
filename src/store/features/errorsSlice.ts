@@ -1,7 +1,8 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-import { AddErrorAction, ErrorsState } from '../../interfaces/errorsSlice.interfaces';
+import { ErrorsState, UserError } from '../../interfaces/errorsSlice.interfaces';
 import { RootState } from '..';
+import { convertMessageToReadableString } from '../../utils/errorHandling';
 
 const initialErrorsState: ErrorsState = {
   value: [],
@@ -11,8 +12,10 @@ const errorsSlice = createSlice({
   name: 'error',
   initialState: initialErrorsState,
   reducers: {
-    addError: (state, action: AddErrorAction) => {
-      state.value.push(action.payload);
+    addError: (state, action: PayloadAction<UserError>) => {
+      const userError = action.payload;
+      userError.message = convertMessageToReadableString(userError.message);
+      state.value.push(userError);
     },
     clearErrors: (state) => {
       state.value = [];

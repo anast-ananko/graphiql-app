@@ -6,8 +6,8 @@ import { API_BASE_URL, SCHEMA_INTROSPECTION_QUERY } from '../../constants/apiCon
 
 import { RootState } from '..';
 import { HeadersKeys, UserHeaders, QueryVariables } from '../../interfaces/headersSlice.interfaces';
-import { SchemaIntrospectionResponse } from '../../interfaces/graphqlApi.interfaces';
 import { Root as RootResponseModel } from '../../interfaces/apiModel.interfaces';
+import { IntrospectionQuery } from 'graphql';
 
 const graphqlApi = createApi({
   reducerPath: 'StarWars API',
@@ -41,7 +41,7 @@ const graphqlApi = createApi({
         return responseString;
       },
     }),
-    getSchema: builder.query<SchemaIntrospectionResponse, string | void>({
+    getSchema: builder.query<IntrospectionQuery, string | void>({
       query: (queryString?: string) => ({
         document: gql`
           ${queryString ?? SCHEMA_INTROSPECTION_QUERY}

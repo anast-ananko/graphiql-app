@@ -5,6 +5,7 @@ import updateHeadersReducer from './features/headersSlice';
 import authReducer from './auth/authSlice';
 import errorsReducer from './features/errorsSlice';
 import editorReducer from './features/editorSlice';
+import langReducer from './features/langSlice';
 import { errorApiLogMiddleware } from './services/errorApiLogMiddleware';
 
 const customAppMiddlewares = [graphqlApi.middleware, errorApiLogMiddleware];
@@ -14,8 +15,9 @@ const appStore = configureStore({
     [graphqlApi.reducerPath]: graphqlApi.reducer,
     userHeaders: updateHeadersReducer,
     userErrors: errorsReducer,
-    editorReducer: editorReducer,
     auth: authReducer,
+    editorReducer,
+    langReducer,
   },
   middleware: (getDefaultMiddleware) => [...getDefaultMiddleware(), ...customAppMiddlewares],
   devTools: process.env.NODE_ENV !== 'production',

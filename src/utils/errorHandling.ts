@@ -18,4 +18,32 @@ function getUserErrorFromAction(action: AnyAction): UserError {
   return error;
 }
 
-export { getUserErrorFromAction };
+function convertMessageToReadableString(inputString: string): string {
+  if (!inputString.includes('{') && !inputString.includes('{')) {
+    return inputString;
+  }
+
+  let nestLevel = 0;
+  const newLineString = '\n';
+  const tabString = '  ';
+
+  return inputString
+    .split('')
+    .map((char) => {
+      switch (char) {
+        case '{':
+        case '[':
+          nestLevel++;
+          return char + newLineString + tabString.repeat(nestLevel);
+        case '}':
+        case ']':
+          nestLevel--;
+          return char + newLineString + tabString.repeat(nestLevel ? nestLevel : 0);
+        default:
+          return char;
+      }
+    })
+    .join('');
+}
+
+export { getUserErrorFromAction, convertMessageToReadableString };
