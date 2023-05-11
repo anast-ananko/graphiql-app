@@ -24,10 +24,12 @@ const Main: FC = () => {
   const convertVariables = (): UserHeaders => {
     let variables;
 
-    try {
-      variables = JSON.parse(variablesString);
-    } catch {
-      dispatch(addError({ name: 'Variables Error', message: 'Invalid object of variables' }));
+    if (variablesString) {
+      try {
+        variables = JSON.parse(variablesString);
+      } catch {
+        dispatch(addError({ name: 'Variables Error', message: 'Invalid object of variables' }));
+      }
     }
 
     return variables;
@@ -41,7 +43,7 @@ const Main: FC = () => {
     { skip: !graphqlQuery }
   );
 
-  const getData = () => {
+  const getData = (): void => {
     const errors = validateHeaders(value as IValidatedHeaders);
     const convertedVariables = convertVariables();
 
