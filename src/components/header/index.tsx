@@ -7,7 +7,7 @@ import { changeLanguage } from '../../store/features/langSlice';
 import ElevationScroll from './elevationScroll';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../firebase.ts';
-import { authSignOut } from '../../store/auth/authSlice';
+import { authSignOut } from '../../store/services/authSlice.ts';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import { updateQuery } from '../../store/features/editorSlice.ts';
