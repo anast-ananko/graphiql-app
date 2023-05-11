@@ -8,6 +8,7 @@ import { authSignOut } from '../../store/auth/authSlice';
 import Logo from '../logo';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
+import { updateQuery } from '../../store/features/editorSlice.ts';
 
 const Header: FC = () => {
   const dispatch = useAppDispatch();
@@ -19,7 +20,7 @@ const Header: FC = () => {
       await signOut(auth);
       dispatch(authSignOut());
     } catch (error) {
-      console.log(error);
+      error instanceof Error && dispatch(updateQuery(error.message));
     }
   };
 

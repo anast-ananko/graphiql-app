@@ -1,8 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
-import { FirebaseConfigType } from './types/firebase.ts';
 
-const firebaseConfig: FirebaseConfigType = {
+const firebaseConfig = {
   apiKey: 'AIzaSyD4wdgjnPnSzXitWpbN2JLEkoas43wOuf0',
   authDomain: 'graphiql-app-58f7b.firebaseapp.com',
   projectId: 'graphiql-app-58f7b',

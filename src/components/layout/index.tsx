@@ -14,9 +14,9 @@ const Layout: FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    setLoading(true);
-
     const listen = onAuthStateChanged(auth, (authUser) => {
+      setLoading(true);
+
       if (authUser) {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
