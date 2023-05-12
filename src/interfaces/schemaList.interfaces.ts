@@ -4,7 +4,16 @@ import {
   IntrospectionObjectType,
   IntrospectionQuery,
   IntrospectionSchema,
+  IntrospectionType,
 } from 'graphql';
+
+type AppIntrospectionTypes =
+  | IntrospectionQuery
+  | IntrospectionSchema
+  | IntrospectionObjectType
+  | IntrospectionObjectType[]
+  | IntrospectionField
+  | IntrospectionInputValue;
 
 interface SchemaListProps {
   schema: IntrospectionQuery;
@@ -20,23 +29,21 @@ interface DocListItemProps {
   onClick: () => void;
 }
 
-interface DocFieldListProps {
-  data: IntrospectionObjectType | void;
-  fieldClickHandler: (arg: string) => void;
+interface DocFieldsListProps {
+  typeName: string;
+}
+
+interface DocFieldPanelProps {
+  schemaField: IntrospectionField;
 }
 
 interface DocArgListProps {
-  data: IntrospectionField | void;
-  argClickHandler: (arg: string) => void;
+  field: IntrospectionField | void;
 }
 
-type AppIntrospectionTypes =
-  | IntrospectionQuery
-  | IntrospectionSchema
-  | IntrospectionObjectType
-  | IntrospectionObjectType[]
-  | IntrospectionField
-  | IntrospectionInputValue;
+interface TypeDescriptionProps {
+  typeName: string;
+}
 
 interface SchemaNavButtonProps {
   name: string;
@@ -44,12 +51,33 @@ interface SchemaNavButtonProps {
   onClick: () => void;
 }
 
+interface schemaBreadcrumb {
+  title: string;
+  documentationElement: JSX.Element;
+}
+
+interface DocBreadcrumbsProps {
+  breadcrumbs: schemaBreadcrumb[];
+  clickHandler: (arg: number) => void;
+}
+
+interface SchemaContextModel {
+  schema: IntrospectionQuery;
+  schemaTypes: readonly IntrospectionType[];
+  breadcrumbSetter: (arg: schemaBreadcrumb) => void;
+}
+
 export type {
   SchemaListProps,
   DocListProps,
   DocListItemProps,
-  DocFieldListProps,
+  DocFieldsListProps,
   DocArgListProps,
   AppIntrospectionTypes,
   SchemaNavButtonProps,
+  TypeDescriptionProps,
+  schemaBreadcrumb,
+  DocFieldPanelProps,
+  SchemaContextModel,
+  DocBreadcrumbsProps,
 };

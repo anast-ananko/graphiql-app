@@ -1,18 +1,18 @@
-import { IntrospectionObjectType, IntrospectionType } from 'graphql';
-import { AppIntrospectionTypes } from '../interfaces/schemaList.interfaces';
+import { IntrospectionInterfaceType, IntrospectionObjectType, IntrospectionType } from 'graphql';
+import { schemaBreadcrumb } from '../interfaces/schemaList.interfaces';
 
-function getSchemaLevelByPath(schema: AppIntrospectionTypes, path: string): AppIntrospectionTypes {
-  const result = path
-    .split('/')
-    .reduce(
-      (currentLevel, pathName) => currentLevel?.[pathName as keyof typeof currentLevel],
-      schema
-    );
-  return result;
+function isFieldsType(
+  obj: IntrospectionType
+): obj is IntrospectionObjectType | IntrospectionInterfaceType {
+  return obj.kind === 'OBJECT' || obj.kind === 'INTERFACE';
 }
 
-function isIntrospectionObjectType(obj: IntrospectionType): obj is IntrospectionObjectType {
-  return obj.kind === 'OBJECT';
+function createBreadcrumb(props: schemaBreadcrumb): schemaBreadcrumb {
+  return { ...props };
 }
 
-export { getSchemaLevelByPath, isIntrospectionObjectType };
+function sliceBreadcrumbsByLength(length: number, arr: schemaBreadcrumb[]): schemaBreadcrumb[] {
+  return arr.slice(0, length);
+}
+
+export { isFieldsType, createBreadcrumb, sliceBreadcrumbsByLength };
