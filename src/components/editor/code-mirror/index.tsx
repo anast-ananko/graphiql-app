@@ -1,4 +1,4 @@
-import { useRef, useEffect, FC } from 'react';
+import { useRef, useEffect, FC, useState } from 'react';
 import CodeMirror from 'codemirror';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror-graphql/mode';
@@ -12,12 +12,13 @@ import { ICodeMirror } from '../../../interfaces/code-mirror';
 import { updateQuery } from '../../../store/features/editorSlice';
 import { useAppDispatch } from '../../../hooks/hook';
 import { useGetSchemaQuery } from '../../../store/services/graphQlApi';
+import { MIN_HEIGHT } from '../../../constants/heightConstants';
 
 // import { makeExecutableSchema } from '@graphql-tools/schema';
 // import { buildClientSchema, buildSchema, buildASTSchema } from 'graphql';
 // import { SchemaIntrospectionResponse } from '../../../interfaces/graphqlApi.interfaces';
 
-const CodeMirrorGraphQL: FC<ICodeMirror> = ({ onChange }) => {
+const CodeMirrorGraphQL: FC<ICodeMirror> = ({ onChange, height }) => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const dispatch = useAppDispatch();
 
@@ -28,6 +29,17 @@ const CodeMirrorGraphQL: FC<ICodeMirror> = ({ onChange }) => {
   // const t = doc.data?.__schema?.types[0];
   // const queryType = doc.data && doc.data.__schema.types.find((type) => type.name === 'Root');
   // console.log(t);
+  const [value, setValue] = useState(height);
+
+  useEffect(() => {
+    if (height === MIN_HEIGHT) {
+      setValue(height);
+    } else {
+      setTimeout(() => {
+        setValue(height);
+      }, 500);
+    }
+  });
 
   useEffect(() => {
     const editor = CodeMirror.fromTextArea(textareaRef.current!, {
@@ -55,12 +67,14 @@ const CodeMirrorGraphQL: FC<ICodeMirror> = ({ onChange }) => {
       dispatch(updateQuery(instance.getValue()));
     });
 
+    editor.setSize(450, height);
+
     return () => {
       if (editor) {
         editor.toTextArea();
       }
     };
-  }, []);
+  }, [value]);
 
   return <textarea ref={textareaRef} />;
 };

@@ -6,7 +6,7 @@ import Explorer from '../../components/explorer';
 import Response from '../../components/response';
 import { useGetGraphqlQuery } from '../../store/services/graphQlApi';
 import { useAppSelector, useAppDispatch } from '../../hooks/hook';
-import { validateHeaders } from '../../helpers/validateHeaders';
+import { validateHeaders } from '../../utils/validateHeaders';
 import { addError } from '../../store/features/errorsSlice';
 import { IValidatedHeaders } from '../../interfaces/validatedHeaders';
 import { UserHeaders } from '../../interfaces/headersSlice.interfaces';
@@ -24,10 +24,12 @@ const Main: FC = () => {
   const convertVariables = (): UserHeaders => {
     let variables;
 
-    try {
-      variables = JSON.parse(variablesString);
-    } catch {
-      dispatch(addError({ name: 'Variables Error', message: 'Invalid object of variables' }));
+    if (variablesString) {
+      try {
+        variables = JSON.parse(variablesString);
+      } catch {
+        dispatch(addError({ name: 'Variables Error', message: 'Invalid object of variables' }));
+      }
     }
 
     return variables;
@@ -41,7 +43,7 @@ const Main: FC = () => {
     { skip: !graphqlQuery }
   );
 
-  const getData = () => {
+  const getData = (): void => {
     const errors = validateHeaders(value as IValidatedHeaders);
     const convertedVariables = convertVariables();
 
