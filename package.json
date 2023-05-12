@@ -18,9 +18,11 @@
     "@reduxjs/toolkit": "^1.9.5",
     "@types/react-resizable": "^3.0.4",
     "codemirror-graphql": "^2.0.5",
-    "i18next": "^22.4.15",
+    "firebase": "^9.21.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.43.9",
+    "i18next": "^22.4.15",
     "react-i18next": "^12.2.2",
     "react-redux": "^8.0.5",
     "react-resizable": "^3.0.5",
@@ -28,7 +30,6 @@
     "sass": "^1.62.1"
   },
   "devDependencies": {
-    "@types/codemirror": "^5.60.7",
     "@rtk-query/graphql-request-base-query": "^2.2.0",
     "@types/node": "^18.16.3",
     "@types/react": "^18.0.28",
