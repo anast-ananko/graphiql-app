@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { v4 as uuid } from 'uuid';
 
 import { isIntrospectionObjectType } from '../../utils/shemaParsing';
 import DocList from './docList';
@@ -14,7 +15,7 @@ const DocFieldList: FC<DocFieldListProps> = ({ data, fieldClickHandler }) => {
         {data.fields.map((field) => {
           return (
             <DocListItem
-              key={Math.random() * 10 ** 8} // refactor!!!
+              key={uuid()}
               title={`${field.name}:${
                 (field.type as IntrospectionNamedTypeRef<IntrospectionOutputType>).name
               }`}

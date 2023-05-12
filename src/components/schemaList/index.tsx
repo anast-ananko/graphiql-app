@@ -1,4 +1,5 @@
 import { FC, useEffect, useState } from 'react';
+import { v4 as uuid } from 'uuid';
 
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 
@@ -80,7 +81,7 @@ const SchemaList: FC<SchemaListProps> = ({ schema }) => {
             name;
           return (
             <SchemaNavButton
-              key={Date.now()} // refactor!!!!
+              key={uuid()}
               name={buttonTitle}
               onClick={handleClick}
               disabled={index === arr.length - 1}
@@ -103,10 +104,7 @@ const SchemaList: FC<SchemaListProps> = ({ schema }) => {
       )}
       {schemaLevelPath === '__schema/types' && (
         <DocList title="Root">
-          <DocFieldList
-            data={(schemaLevel as IntrospectionObjectType[]).find((item) => item.name === 'Root')}
-            fieldClickHandler={handleFieldClick}
-          ></DocFieldList>
+          <DocFieldList data={schemaRootLevel} fieldClickHandler={handleFieldClick}></DocFieldList>
         </DocList>
       )}
       {schemaLevelPath.includes('fields') && schemaLevelPath.split('/').length === 5 && (

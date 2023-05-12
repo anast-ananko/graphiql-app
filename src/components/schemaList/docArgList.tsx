@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { v4 as uuid } from 'uuid';
 
 import DocList from './docList';
 import DocListItem from './docListItem';
@@ -13,7 +14,7 @@ const DocArgList: FC<DocArgListProps> = ({ data, argClickHandler }) => {
         {data.args.map((arg) => {
           return (
             <DocListItem
-              key={Math.random() * 10 ** 8} // refactor!!!
+              key={uuid()}
               title={`${arg.name}:${
                 (arg.type as IntrospectionNamedTypeRef<IntrospectionOutputType>).name
               }`}
