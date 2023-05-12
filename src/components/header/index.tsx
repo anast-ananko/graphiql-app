@@ -1,18 +1,23 @@
 import { FC } from 'react';
-import { AppBar, Container, Toolbar, Typography } from '@mui/material';
-
+import { AppBar, Container, Toolbar, Typography, Button, Grid } from '@mui/material';
 import Logo from '../logo';
 import { useAppDispatch, useAppSelector } from '../../hooks/hook';
 import i18n from '../../data/i18n';
 import { changeLanguage } from '../../store/features/langSlice';
 import ElevationScroll from './elevationScroll';
-
+import { signOut } from 'firebase/auth';
+import { auth } from '../../firebase.ts';
+import { authSignOut } from '../../store/services/authSlice.ts';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store';
+import { updateQuery } from '../../store/features/editorSlice.ts';
 import './header.scss';
 
 const Header: FC = () => {
-  const { lang } = useAppSelector((state) => state.langReducer);
-
   const dispatch = useAppDispatch();
+
+  const { uid } = useSelector((state: RootState) => state.auth);
+  const { lang } = useAppSelector((state) => state.langReducer);
 
   const handleLanguageChange = (): void => {
     if (lang === 'en') {
@@ -26,6 +31,29 @@ const Header: FC = () => {
       dispatch(changeLanguage('en'));
     }
   };
+
+  const userSignOut = async () => {
+    try {
+      await signOut(auth);
+      dispatch(authSignOut());
+    } catch (error) {
+      error instanceof Error && dispatch(updateQuery(error.message));
+    }
+  };
+
+  const signOutButton: JSX.Element = (
+    <Grid item xs={6}>
+      <Grid container justifyContent="flex-end" alignItems="center">
+        <Button
+          variant="outlined"
+          sx={{ backgroundColor: '#F9F871', color: 'black' }}
+          onClick={userSignOut}
+        >
+          Sign out
+        </Button>
+      </Grid>
+    </Grid>
+  );
 
   return (
     <ElevationScroll>
@@ -61,6 +89,7 @@ const Header: FC = () => {
                   </span>
                 </button>
               </div>
+              {uid && signOutButton}
             </div>
           </Toolbar>
         </Container>
