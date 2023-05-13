@@ -18,12 +18,7 @@ import './editor.scss';
 
 const Editor: FC<IEditor> = ({ getData }) => {
   const [activeButton, setActiveButton] = useState<string>('');
-  const [value, setValue] = useState<string>('');
   const [open, setOpen] = useState(false);
-
-  const handleChange = (value: string): void => {
-    setValue(value);
-  };
 
   const buttonHandler = (event: React.MouseEvent<HTMLElement>, newAlignment: string) => {
     setActiveButton(newAlignment);
@@ -50,7 +45,7 @@ const Editor: FC<IEditor> = ({ getData }) => {
         })}
       >
         <Grid item xs={10} lg={9}>
-          <CodeMirrorGraphQL onChange={handleChange} height={open ? MIN_HEIGHT : MAX_HEIGHT} />
+          <CodeMirrorGraphQL height={open ? MIN_HEIGHT : MAX_HEIGHT} />
         </Grid>
         <Grid
           item
