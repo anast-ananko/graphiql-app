@@ -67,7 +67,7 @@ const CodeMirrorGraphQL: FC<ICodeMirror> = ({ onChange, height }) => {
       dispatch(updateQuery(instance.getValue()));
     });
 
-    editor.setSize(450, height);
+    editor.setSize(null, height);
 
     return () => {
       if (editor) {

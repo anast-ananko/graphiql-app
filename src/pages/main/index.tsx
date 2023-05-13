@@ -62,10 +62,20 @@ const Main: FC = () => {
       container
       spacing={2}
       maxWidth={{ xs: '300px', sm: '520px', md: '880px', lg: '1180px', xl: '1500px' }}
+      height={{ xs: '100%', lg: 'calc(100vh - 149px)' }}
       className="main__container"
     >
       <Explorer />
-      <Grid item container xs={12} md={8} lg={8} xl={9} className="main__content">
+      <Grid
+        item
+        container
+        xs={12}
+        md={7}
+        lg={8}
+        xl={8}
+        sx={{ pl: { xs: 0, md: 1 } }}
+        className="main__content"
+      >
         <Editor getData={getData} />
         <Response data={data} isError={isError} isFetching={isFetching} />
       </Grid>

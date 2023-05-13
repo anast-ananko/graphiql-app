@@ -8,8 +8,10 @@
         border: 1px solid $border-color-grey;
         border-radius: 5px;
         margin: 0 auto !important;
-        min-height: 600px;
-        max-height: 800px;
         padding-bottom: 20px;
+    }
+
+    &__content {
+        height: 100%;
     }
 }

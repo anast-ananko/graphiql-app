@@ -7,9 +7,9 @@ import './explorer.scss';
 const gridStyle = {
   item: true,
   xs: 12,
-  md: 4,
+  md: 5,
   lg: 4,
-  xl: 3,
+  xl: 4,
 };
 
 const Explorer: FC = () => {

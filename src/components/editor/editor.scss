@@ -4,13 +4,9 @@
     border-radius: 5px;
     overflow: hidden;
     height: 100%;
-    padding-top: 10px;
-    background-color: #FFF;
+    padding-top: 20px;
     align-content: space-between;
-    
-    &__button {
-        background-color: $color-1 !important;
-    }     
+    padding-right: 10px;
 
     &__codemirror {
         height: 80%;
@@ -33,7 +29,7 @@
         height: 60px;
       
         &_open {
-           height: 230px;
+           height: 200px;
         }
       }
 }

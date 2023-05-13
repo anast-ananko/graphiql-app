@@ -35,7 +35,8 @@ const Editor: FC<IEditor> = ({ getData }) => {
       xs={12}
       md={12}
       lg={6}
-      sx={{ mr: { xs: 1, md: 1, lg: 0 } }}
+      sx={{ mr: { xs: 1, lg: 0 }, bgcolor: 'background.paper' }}
+      height={{ xs: '510px', lg: '100%' }}
       className="editor"
     >
       <Grid
@@ -46,16 +47,24 @@ const Editor: FC<IEditor> = ({ getData }) => {
           editor__codemirror_open: open,
         })}
       >
-        <Grid item xs={10} lg={10}>
+        <Grid item xs={10} lg={9}>
           <CodeMirrorGraphQL onChange={handleChange} height={open ? MIN_HEIGHT : MAX_HEIGHT} />
         </Grid>
-        <Grid item xs={2} lg={2}>
+        <Grid
+          item
+          xs={2}
+          lg={3}
+          sx={{ display: 'flex', alignItems: 'start', justifyContent: 'flex-end' }}
+        >
           <Button
             variant="contained"
             endIcon={<SendIcon />}
             className="editor__button"
             onClick={getData}
-          ></Button>
+            sx={{ p: 1 }}
+          >
+            Run
+          </Button>
         </Grid>
       </Grid>
 
