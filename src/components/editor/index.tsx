@@ -4,6 +4,8 @@ import { Button, Grid } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
+import ToggleButton from '@mui/material/ToggleButton';
+import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import classNames from 'classnames';
 
 import CodeMirrorGraphQL from './code-mirror';
@@ -15,7 +17,7 @@ import { MIN_HEIGHT, MAX_HEIGHT } from '../../constants/heightConstants';
 import './editor.scss';
 
 const Editor: FC<IEditor> = ({ getData }) => {
-  const [activeButton, setActiveButton] = useState<number>(1);
+  const [activeButton, setActiveButton] = useState<string>('');
   const [value, setValue] = useState<string>('');
   const [open, setOpen] = useState(false);
 
@@ -23,8 +25,8 @@ const Editor: FC<IEditor> = ({ getData }) => {
     setValue(value);
   };
 
-  const buttonHandler = (num: number) => {
-    setActiveButton(num);
+  const buttonHandler = (event: React.MouseEvent<HTMLElement>, newAlignment: string) => {
+    setActiveButton(newAlignment);
     setOpen(true);
   };
 
@@ -36,7 +38,7 @@ const Editor: FC<IEditor> = ({ getData }) => {
       md={12}
       lg={6}
       sx={{ mr: { xs: 1, lg: 0 }, bgcolor: 'background.paper' }}
-      height={{ xs: '510px', lg: '100%' }}
+      height={{ xs: '520px', lg: '100%' }}
       className="editor"
     >
       <Grid
@@ -72,31 +74,22 @@ const Editor: FC<IEditor> = ({ getData }) => {
         item
         xs={12}
         lg={12}
+        sx={{ ml: 1 }}
         className={classNames('editor__options', {
           editor__options_open: open,
         })}
       >
         <div className="options__buttons">
-          <div className="options__buttons-section">
-            <Button
-              variant="contained"
-              className={classNames('options__button-section', {
-                'options__button-section_active': activeButton === 1,
-              })}
-              onClick={() => buttonHandler(1)}
-            >
-              Variables
-            </Button>
-            <Button
-              variant="contained"
-              className={classNames('options__button-section', {
-                'options__button-section_active': activeButton === 2,
-              })}
-              onClick={() => buttonHandler(2)}
-            >
-              Headers
-            </Button>
-          </div>
+          <ToggleButtonGroup
+            color="primary"
+            value={activeButton}
+            exclusive
+            onChange={buttonHandler}
+            aria-label="Section"
+          >
+            <ToggleButton value="variables">Variables</ToggleButton>
+            <ToggleButton value="headers">Headers</ToggleButton>
+          </ToggleButtonGroup>
           <IconButton
             className={classNames('options__button-close', {
               'options__button-close_open': open,
@@ -113,8 +106,8 @@ const Editor: FC<IEditor> = ({ getData }) => {
             options__content_open: open,
           })}
         >
-          {activeButton === 1 ? <Variables /> : null}
-          {activeButton === 2 ? <Headers /> : null}
+          {activeButton === 'variables' ? <Variables /> : null}
+          {activeButton === 'headers' ? <Headers /> : null}
         </div>
       </Grid>
     </Grid>
