@@ -1,6 +1,4 @@
 import { FC, useState } from 'react';
-import { Grid } from '@mui/material';
-
 import Editor from '../../components/editor';
 import Explorer from '../../components/explorer';
 import Response from '../../components/response';
@@ -10,6 +8,7 @@ import { validateHeaders } from '../../utils/validateHeaders';
 import { addError } from '../../store/features/errorsSlice';
 import { IValidatedHeaders } from '../../interfaces/validatedHeaders';
 import { UserHeaders } from '../../interfaces/headersSlice.interfaces';
+import Grid from '@mui/material/Grid';
 
 import { gridMainContainerStyle, gridMainContentStyle } from './main.style';
 import './main.scss';

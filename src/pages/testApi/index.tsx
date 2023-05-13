@@ -19,7 +19,7 @@ const testIntrospectionQuery = `
   query IntrospectionQuery {
     __schema {
       types {
-        kind
+        name
       }
     }
   }
