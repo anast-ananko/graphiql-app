@@ -5,7 +5,7 @@ const gridEditorStyle = {
   md: 12,
   lg: 6,
   sx: { mr: { xs: 1, lg: 0 }, bgcolor: 'background.paper' },
-  height: { xs: '520px', lg: '100%' },
+  height: { xs: '580px', sm: '520px', lg: '100%' },
 };
 
 const gridEditorCodemirrorStyle = {
@@ -28,4 +28,18 @@ const gridEditorOptionsStyle = {
   sx: { ml: 1 },
 };
 
-export { gridEditorStyle, gridEditorCodemirrorStyle, gridRunButtonStyle, gridEditorOptionsStyle };
+const toggleButtonStyle = {
+  sx: {
+    height: '35px',
+    width: { xs: '100px', sm: '115px' },
+    fontSize: { xs: '12px', sm: '14px' },
+  },
+};
+
+export {
+  gridEditorStyle,
+  gridEditorCodemirrorStyle,
+  gridRunButtonStyle,
+  gridEditorOptionsStyle,
+  toggleButtonStyle,
+};

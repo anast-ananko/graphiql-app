@@ -6,6 +6,8 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+import { useMediaQuery } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 
@@ -20,6 +22,7 @@ import {
   gridEditorCodemirrorStyle,
   gridRunButtonStyle,
   gridEditorOptionsStyle,
+  toggleButtonStyle,
 } from './editor.style';
 import './editor.scss';
 
@@ -34,10 +37,16 @@ const Editor: FC<IEditor> = ({ getData }) => {
     setOpen(true);
   };
 
+  const theme = useTheme();
+  const matchesSm = useMediaQuery(theme.breakpoints.only('sm'));
+  const matchesMd = useMediaQuery(theme.breakpoints.only('md'));
+  const matchesLg = useMediaQuery('(min-width:1200px)');
+
   return (
     <Grid {...gridEditorStyle} className="editor">
       <Grid
         {...gridEditorCodemirrorStyle}
+        sx={{ height: open && !(matchesSm || matchesMd || matchesLg) ? '55%' : '60%' }}
         className={classNames('editor__codemirror', {
           editor__codemirror_open: open,
         })}
@@ -57,6 +66,7 @@ const Editor: FC<IEditor> = ({ getData }) => {
       </Grid>
       <Grid
         {...gridEditorOptionsStyle}
+        sx={{ height: open && !(matchesSm || matchesMd) ? '255px' : null }}
         className={classNames('editor__options', {
           editor__options_open: open,
         })}
@@ -69,8 +79,12 @@ const Editor: FC<IEditor> = ({ getData }) => {
             onChange={buttonHandler}
             aria-label="Section"
           >
-            <ToggleButton value="variables">{localize('editor.variables')}</ToggleButton>
-            <ToggleButton value="headers">{localize('editor.headers')}</ToggleButton>
+            <ToggleButton {...toggleButtonStyle} value="variables">
+              {localize('editor.variables')}
+            </ToggleButton>
+            <ToggleButton {...toggleButtonStyle} value="headers">
+              {localize('editor.headers')}
+            </ToggleButton>
           </ToggleButtonGroup>
           <IconButton
             className={classNames('options__button-close', {
