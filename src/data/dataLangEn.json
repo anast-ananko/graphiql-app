@@ -5,5 +5,8 @@
     "editor": {
         "variables": "Variables",
         "headers": "Headers"
-    }        
+    },
+    "buttons": {
+        "signOut": "Sign out"
+    }           
 }

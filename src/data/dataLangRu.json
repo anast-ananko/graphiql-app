@@ -5,5 +5,8 @@
     "editor": {
         "variables": "Переменные",
         "headers": "Заголовки"
-    }        
+    },
+    "buttons": {
+        "signOut": "Выйти"
+    }                  
 }

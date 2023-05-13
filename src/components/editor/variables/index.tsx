@@ -11,6 +11,7 @@ const Variables: FC = () => {
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
     dispatch(updateVariablesString(event.target.value));
   };
+
   return <textarea onChange={handleChange} value={variablesString} className="variables" />;
 };
 

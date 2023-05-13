@@ -5,5 +5,8 @@
     "editor": {
         "variables": "Зменныя",
         "headers": "Загалоўкі"
+    },
+    "buttons": {
+        "signOut": "Выйсці"
     }   
 }
