@@ -1,0 +1,9 @@
+.documentation-panel {
+  display: flex;
+  flex-direction: column;
+  height: 70vh;
+
+  & &__content {
+    overflow: auto;
+  }
+}

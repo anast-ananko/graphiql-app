@@ -1,6 +1,8 @@
 import { FC } from 'react';
-import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
+import DocumentationPanel from '../documentation';
+
+import { Grid } from '@mui/material';
 
 import './explorer.scss';
 
@@ -18,6 +20,7 @@ const Explorer: FC = () => {
   return (
     <Grid {...gridStyle} className="explorer">
       <h1 className="explorer__title">{localize('explorer.title')}</h1>
+      <DocumentationPanel></DocumentationPanel>
     </Grid>
   );
 };
