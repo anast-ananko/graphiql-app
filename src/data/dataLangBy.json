@@ -1,5 +1,9 @@
 {
     "explorer": {
         "title": "Дакументацыя"
-    }     
+    },
+    "editor": {
+        "variables": "Зменныя",
+        "headers": "Загалоўкі"
+    }   
 }

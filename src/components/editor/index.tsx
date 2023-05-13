@@ -7,6 +7,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import classNames from 'classnames';
+import { useTranslation } from 'react-i18next';
 
 import CodeMirrorGraphQL from './code-mirror';
 import Variables from './variables';
@@ -14,11 +15,19 @@ import Headers from './headers';
 import { IEditor } from '../../interfaces/editorComponent';
 import { MIN_HEIGHT, MAX_HEIGHT } from '../../constants/heightConstants';
 
+import {
+  gridEditorStyle,
+  gridEditorCodemirrorStyle,
+  gridRunButtonStyle,
+  gridEditorOptionsStyle,
+} from './editor.style';
 import './editor.scss';
 
 const Editor: FC<IEditor> = ({ getData }) => {
   const [activeButton, setActiveButton] = useState<string>('');
   const [open, setOpen] = useState(false);
+
+  const { t: localize } = useTranslation();
 
   const buttonHandler = (event: React.MouseEvent<HTMLElement>, newAlignment: string) => {
     setActiveButton(newAlignment);
@@ -26,50 +35,28 @@ const Editor: FC<IEditor> = ({ getData }) => {
   };
 
   return (
-    <Grid
-      item
-      container
-      xs={12}
-      md={12}
-      lg={6}
-      sx={{ mr: { xs: 1, lg: 0 }, bgcolor: 'background.paper' }}
-      height={{ xs: '520px', lg: '100%' }}
-      className="editor"
-    >
+    <Grid {...gridEditorStyle} className="editor">
       <Grid
-        container
-        item
-        xs={12}
+        {...gridEditorCodemirrorStyle}
         className={classNames('editor__codemirror', {
           editor__codemirror_open: open,
         })}
       >
-        <Grid item xs={10} lg={9}>
+        <Grid item xs={10} lg={10}>
           <CodeMirrorGraphQL height={open ? MIN_HEIGHT : MAX_HEIGHT} />
         </Grid>
-        <Grid
-          item
-          xs={2}
-          lg={3}
-          sx={{ display: 'flex', alignItems: 'start', justifyContent: 'flex-end' }}
-        >
+        <Grid {...gridRunButtonStyle}>
           <Button
             variant="contained"
             endIcon={<SendIcon />}
             className="editor__button"
             onClick={getData}
             sx={{ p: 1 }}
-          >
-            Run
-          </Button>
+          ></Button>
         </Grid>
       </Grid>
-
       <Grid
-        item
-        xs={12}
-        lg={12}
-        sx={{ ml: 1 }}
+        {...gridEditorOptionsStyle}
         className={classNames('editor__options', {
           editor__options_open: open,
         })}
@@ -82,8 +69,8 @@ const Editor: FC<IEditor> = ({ getData }) => {
             onChange={buttonHandler}
             aria-label="Section"
           >
-            <ToggleButton value="variables">Variables</ToggleButton>
-            <ToggleButton value="headers">Headers</ToggleButton>
+            <ToggleButton value="variables">{localize('editor.variables')}</ToggleButton>
+            <ToggleButton value="headers">{localize('editor.headers')}</ToggleButton>
           </ToggleButtonGroup>
           <IconButton
             className={classNames('options__button-close', {

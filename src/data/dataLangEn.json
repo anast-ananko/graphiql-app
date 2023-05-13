@@ -1,5 +1,9 @@
 {
     "explorer": {
         "title": "Explorer"
-    }     
+    },
+    "editor": {
+        "variables": "Variables",
+        "headers": "Headers"
+    }        
 }
