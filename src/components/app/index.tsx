@@ -11,7 +11,7 @@ function App() {
     <>
       <ThemeProvider theme={appTheme}>
         <ErrorsDialog></ErrorsDialog>
-        <RouterProvider router={router} />;
+        <RouterProvider router={router} />
       </ThemeProvider>
     </>
   );
