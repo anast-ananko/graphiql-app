@@ -1,4 +1,5 @@
 import { FC, useState } from 'react';
+
 import Editor from '../../components/editor';
 import Explorer from '../../components/explorer';
 import Response from '../../components/response';
@@ -7,6 +8,8 @@ import { useAppSelector, useAppDispatch } from '../../hooks/hook';
 import { validateHeaders } from '../../utils/validateHeaders';
 import { addError } from '../../store/features/errorsSlice';
 import { IValidatedHeaders } from '../../interfaces/validatedHeaders';
+import { selectQuery, selectVariablesString } from '../../store/features/editorSlice';
+import { selectHeaders } from '../../store/features/headersSlice';
 import { UserHeaders } from '../../interfaces/headersSlice.interfaces';
 import Grid from '@mui/material/Grid';
 
@@ -16,8 +19,9 @@ import './main.scss';
 const Main: FC = () => {
   const [graphqlQuery, setGraphqlQuery] = useState<string>('');
   const [variables, setVariables] = useState<UserHeaders>({});
-  const { query, variablesString } = useAppSelector((state) => state.editorReducer);
-  const { value } = useAppSelector((state) => state.userHeaders);
+  const query = useAppSelector(selectQuery);
+  const variablesString = useAppSelector(selectVariablesString);
+  const value = useAppSelector(selectHeaders);
 
   const dispatch = useAppDispatch();
 

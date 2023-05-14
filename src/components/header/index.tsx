@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 import Logo from '../logo';
 import { useAppDispatch, useAppSelector } from '../../hooks/hook';
-import { changeLanguage } from '../../store/features/langSlice';
+import { changeLanguage, selectLang } from '../../store/features/langSlice';
 import ElevationScroll from './elevationScroll';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../firebase.ts';
@@ -23,7 +23,7 @@ const Header: FC = () => {
   const dispatch = useAppDispatch();
 
   const { uid } = useSelector((state: RootState) => state.auth);
-  const { lang } = useAppSelector((state) => state.langReducer);
+  const lang = useAppSelector(selectLang);
 
   const handleLanguageChange = (): void => {
     if (lang === 'en') {
