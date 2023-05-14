@@ -2,6 +2,7 @@
 
 .main {
   padding-top: 20px;
+  min-height: calc(100vh - 149px);
 
   &__container {
     background-color: #e7ebea;
@@ -13,5 +14,22 @@
 
   &__content {
     height: 100%;
+  }
+}
+
+.alert {
+  width: 280px;
+  margin: 0 auto;
+  text-align: center;
+
+  &__title {
+    font-size: 22px;
+    font-weight: $font-weight-bolder;
+    margin-bottom: 10px;
+  }
+
+  &__text {
+    font-size: 18px;
+    margin-bottom: 10px;
   }
 }

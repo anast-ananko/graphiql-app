@@ -7,6 +7,7 @@
         "headers": "Загалоўкі"
     },
     "buttons": {
-        "signOut": "Выйсці"
+        "signOut": "Выйсці",
+        "reload": "Перазагрузіць"
     }   
 }
