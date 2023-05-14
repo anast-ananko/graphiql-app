@@ -1,13 +1,28 @@
 import { createTheme } from '@mui/material/styles';
-import { cyan } from '@mui/material/colors';
 
 const themeConfig = {
   palette: {
     primary: {
-      main: cyan[600],
-      light: cyan[200],
-      dark: cyan[900],
-      contrastText: '#fff',
+      main: '#fa444b',
+    },
+    text: {
+      primary: '#fff',
+    },
+  },
+  typography: {
+    allVariants: {
+      color: '#fff',
+    },
+    fontFamily: ['Russo One'].join(','),
+    fontSize: 16,
+    h2: {
+      fontSize: '6rem',
+    },
+    subtitle2: {
+      fontSize: '1.5rem',
+    },
+    button: {
+      fontSize: '1.05rem',
     },
   },
 };

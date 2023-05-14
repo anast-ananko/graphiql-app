@@ -1,0 +1,21 @@
+.not-found {
+  position: relative;
+  background-image: url("../../../public/background.jpg");
+  min-height: 90vh;
+  overflow: hidden;
+  background-size: cover;
+  background-position: bottom center;
+}
+
+.not-found__container {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #9595956b;
+  border-radius: 12px;
+}
