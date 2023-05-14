@@ -8,9 +8,9 @@ const ProtectedRoute: FC<ProtectedRouteType> = ({ permission, children }) => {
   const { uid } = useSelector((state: RootState) => state.auth);
 
   if (uid) {
-    return permission ? children : <Navigate to="/" replace />;
+    return permission ? children : <Navigate to="/main" replace />;
   } else {
-    return !permission ? children : <Navigate to="/not-found" replace />;
+    return !permission ? children : <Navigate to="/" replace />;
   }
 };
 
