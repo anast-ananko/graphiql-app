@@ -31,7 +31,7 @@ const SignIn: FC = () => {
       const { accessToken, email, uid } = userCredential.user;
 
       dispatch(authSignIn({ accessToken, email, uid }));
-      navigate('/');
+      navigate('/main');
     } catch (error) {
       if (error instanceof Error && error.message.includes('user-not-found')) {
         setEmailFirebaseError('Hmmm, user with current email not found');

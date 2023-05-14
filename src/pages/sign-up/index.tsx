@@ -36,7 +36,7 @@ const SignUp: FC = () => {
         const { email, uid, accessToken } = userCredential.user;
 
         dispatch(authSignIn({ accessToken, email, uid }));
-        navigate('/');
+        navigate('/main');
       }
     } catch (error) {
       if (error instanceof Error && error.message.includes('email-already-in-use')) {
