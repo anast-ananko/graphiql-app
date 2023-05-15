@@ -39,15 +39,13 @@ const Layout: FC = () => {
       {loading ? (
         <CircularProgress color="secondary" />
       ) : (
-        <>
+        <ErrorBoundary FallbackComponent={Fallback}>
           <Header />
           <main className="main">
-            <ErrorBoundary FallbackComponent={Fallback}>
-              <Outlet />
-            </ErrorBoundary>
+            <Outlet />
           </main>
           <Footer />
-        </>
+        </ErrorBoundary>
       )}
     </>
   );
