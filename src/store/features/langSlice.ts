@@ -1,5 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
 import { ILang } from '../../interfaces/langSlice';
+import { RootState } from '..';
 
 const initialLangState: ILang = {
   lang: localStorage.getItem('lang') ? JSON.parse(localStorage.getItem('lang')!).lang : 'en',
@@ -16,11 +18,20 @@ const langSlice = createSlice({
   initialState: initialLangState,
   reducers: {
     changeLanguage: (state, action: PayloadAction<string>) => {
-      state.lang = action.payload;
+      if (action.payload === 'en' || action.payload === 'by' || action.payload === 'ru') {
+        state.lang = action.payload;
+      }
       setToLocalStorage(state);
     },
   },
 });
 
-export const { changeLanguage } = langSlice.actions;
+const { changeLanguage } = langSlice.actions;
+
+const selectLang = (state: RootState) => {
+  return state.langReducer.lang;
+};
+
+export { changeLanguage, selectLang };
+
 export default langSlice.reducer;

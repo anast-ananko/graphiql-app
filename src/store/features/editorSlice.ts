@@ -21,13 +21,16 @@ const editorSlice = createSlice({
   },
 });
 
-const { actions, reducer } = editorSlice;
+const { updateQuery, updateVariablesString } = editorSlice.actions;
 
 const selectQuery = (state: RootState) => {
   return state.editorReducer.query;
 };
 
-const { updateQuery, updateVariablesString } = actions;
+const selectVariablesString = (state: RootState) => {
+  return state.editorReducer.variablesString;
+};
 
-export { updateQuery, updateVariablesString, selectQuery };
-export default reducer;
+export { updateQuery, updateVariablesString, selectQuery, selectVariablesString };
+
+export default editorSlice.reducer;

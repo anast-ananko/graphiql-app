@@ -1,4 +1,7 @@
-.response__cont {
+.response {
+  &__container {
+    margin: 20px;
     overflow-y: auto;
-    max-height: 680px;
+    height: 350px;
+  }
 }

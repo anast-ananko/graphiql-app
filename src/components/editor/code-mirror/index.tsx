@@ -18,7 +18,7 @@ import { MIN_HEIGHT } from '../../../constants/heightConstants';
 // import { buildClientSchema, buildSchema, buildASTSchema } from 'graphql';
 // import { SchemaIntrospectionResponse } from '../../../interfaces/graphqlApi.interfaces';
 
-const CodeMirrorGraphQL: FC<ICodeMirror> = ({ onChange, height }) => {
+const CodeMirrorGraphQL: FC<ICodeMirror> = ({ height }) => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const dispatch = useAppDispatch();
 
@@ -63,11 +63,10 @@ const CodeMirrorGraphQL: FC<ICodeMirror> = ({ onChange, height }) => {
     });
 
     editor.on('change', (instance) => {
-      onChange(instance.getValue());
       dispatch(updateQuery(instance.getValue()));
     });
 
-    editor.setSize(450, height);
+    editor.setSize(null, height);
 
     return () => {
       if (editor) {

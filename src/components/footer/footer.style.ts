@@ -1,3 +1,6 @@
-const containerStyle = { display: 'flex', alignItems: 'center' };
+const containerFooterStyle = {
+  display: 'flex',
+  alignItems: 'center',
+};
 
-export { containerStyle };
+export { containerFooterStyle };
