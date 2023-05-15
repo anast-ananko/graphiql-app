@@ -32,7 +32,7 @@ const Editor: FC<IEditor> = ({ getData }) => {
 
   const { t: localize } = useTranslation();
 
-  const buttonHandler = (event: React.MouseEvent<HTMLElement>, newAlignment: string) => {
+  const buttonHandler = (event: React.MouseEvent<HTMLElement>, newAlignment: string): void => {
     setActiveButton(newAlignment);
     setOpen(true);
   };

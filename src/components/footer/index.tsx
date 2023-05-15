@@ -20,7 +20,9 @@ const Footer: FC = () => {
             ></Link>
           </div>
           <div className="footer__year">2023</div>
-          <div className="footer__logo"></div>
+          <div className="footer__logo">
+            <Link to="https://rs.school/react/" target="_blank"></Link>
+          </div>
         </Container>
       </AppBar>
     </footer>

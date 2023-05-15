@@ -1,5 +1,7 @@
 import { FC, useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
+import { ErrorBoundary } from 'react-error-boundary';
+
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../../firebase.ts';
 import { CircularProgress } from '@mui/material';
@@ -7,6 +9,7 @@ import { authSignIn } from '../../store/services/authSlice.ts';
 import { useAppDispatch } from '../../hooks/hook.ts';
 import Header from '../header';
 import Footer from '../footer';
+import { Fallback } from '../../components/error-boundary';
 
 const Layout: FC = () => {
   const dispatch = useAppDispatch();
@@ -36,13 +39,13 @@ const Layout: FC = () => {
       {loading ? (
         <CircularProgress color="secondary" />
       ) : (
-        <>
+        <ErrorBoundary FallbackComponent={Fallback}>
           <Header />
           <main className="main">
             <Outlet />
           </main>
           <Footer />
-        </>
+        </ErrorBoundary>
       )}
     </>
   );

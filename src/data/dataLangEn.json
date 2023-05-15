@@ -7,6 +7,7 @@
         "headers": "Headers"
     },
     "buttons": {
-        "signOut": "Sign out"
+        "signOut": "Sign out",
+        "reload": "Reload"
     }           
 }
