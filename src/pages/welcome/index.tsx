@@ -1,35 +1,17 @@
 import { FC } from 'react';
-import { useSelector } from 'react-redux';
-import { Button, Grid } from '@mui/material';
-import { NavLink } from 'react-router-dom';
+
+import WelcomeToolbar from '../../components/welcomeToolbar';
+import WelcomeContent from '../../components/welcomeContent';
+
 import './welcome.scss';
-import { RootState } from '../../store';
 
 const Welcome: FC = () => {
-  const { uid } = useSelector((state: RootState) => state.auth);
-
-  const buttons: JSX.Element = uid ? (
-    <Grid container columnGap={1} justifyContent="flex-end" alignItems="center">
-      <NavLink to="/main">
-        <Button variant="outlined">Go to main page</Button>
-      </NavLink>
-    </Grid>
-  ) : (
-    <Grid container columnGap={1} justifyContent="flex-end" alignItems="center">
-      <NavLink to="/login">
-        <Button variant="outlined">Sign in</Button>
-      </NavLink>
-      <NavLink to="/registration">
-        <Button variant="outlined">Sign up</Button>
-      </NavLink>
-    </Grid>
-  );
-
   return (
-    <>
-      <h1>Welcome page</h1>
-      {buttons}
-    </>
+    <div className="welcome-page">
+      <WelcomeToolbar></WelcomeToolbar>
+      <h1 className="welcome-page__title">Welcome to StarWars GraphQl far, far away.</h1>
+      <WelcomeContent />
+    </div>
   );
 };
 
