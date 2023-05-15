@@ -17,9 +17,9 @@ import { gridMainContainerStyle, gridMainContentStyle } from './main.style';
 import './main.scss';
 
 // For testing error boundary
-// const ErrorComponent = () => {
-//   throw new Error('Something went wrong');
-// };
+const ErrorComponent = () => {
+  throw new Error('Something went wrong');
+};
 
 const Main: FC = () => {
   const [graphqlQuery, setGraphqlQuery] = useState<string>('');
@@ -71,7 +71,7 @@ const Main: FC = () => {
       <Explorer />
       <Grid {...gridMainContentStyle} className="main__content">
         {/* For testing error boundary */}
-        {/* <ErrorComponent /> */}
+        <ErrorComponent />
         <Editor getData={getData} />
         <Response data={data} isError={isError} isFetching={isFetching} />
       </Grid>
