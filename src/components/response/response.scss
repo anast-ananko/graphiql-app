@@ -1,4 +1,9 @@
 .response {
+  &__text {
+    text-align: center;
+    margin-top: 20px;
+  }
+
   &__container {
     margin: 20px;
     overflow-y: auto;
