@@ -5,20 +5,13 @@ import DocumentationPanel from '../documentation';
 import { Grid } from '@mui/material';
 
 import './explorer.scss';
-
-const gridStyle = {
-  item: true,
-  xs: 12,
-  md: 4,
-  lg: 4,
-  xl: 3,
-};
+import { gridExplorerStyle } from './explorer.style';
 
 const Explorer: FC = () => {
   const { t: localize } = useTranslation();
 
   return (
-    <Grid {...gridStyle} className="explorer">
+    <Grid {...gridExplorerStyle} className="explorer">
       <h1 className="explorer__title">{localize('explorer.title')}</h1>
       <DocumentationPanel></DocumentationPanel>
     </Grid>

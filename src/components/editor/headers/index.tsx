@@ -1,10 +1,10 @@
 import { FC, useState } from 'react';
 
 import { useAppDispatch, useAppSelector } from '../../../hooks/hook';
-import { updateHeaders } from '../../../store/features/headersSlice';
+import { updateHeaders, selectHeaders } from '../../../store/features/headersSlice';
 
 const Headers: FC = () => {
-  const { value } = useAppSelector((state) => state.userHeaders);
+  const value = useAppSelector(selectHeaders);
 
   const [authorization, setAuthorization] = useState<string>(value?.Authorization || '');
   const [accessControlAllowOrigin, setAccessControlAllowOrigin] = useState<string>(
