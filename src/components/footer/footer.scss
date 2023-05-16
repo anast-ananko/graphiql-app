@@ -1,0 +1,48 @@
+.footer {
+  margin-top: 10px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+
+  &__container {
+    justify-content: space-between;
+  }
+
+  &__link {
+    background-image: url(../../assets/images/github.png);
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    transition: 0.5s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__year {
+    font-size: 20px;
+  }
+
+  &__logo {
+    background-image: url(../../assets/images/rs_school_js.svg);
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 40px;
+    display: inline-block;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.5s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

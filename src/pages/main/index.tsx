@@ -1,23 +1,32 @@
 import { FC, useState } from 'react';
+
 import Editor from '../../components/editor';
 import Explorer from '../../components/explorer';
 import Response from '../../components/response';
+import Grid from '@mui/material/Grid';
 import { useGetGraphqlQuery } from '../../store/services/graphQlApi';
 import { useAppSelector, useAppDispatch } from '../../hooks/hook';
 import { validateHeaders } from '../../utils/validateHeaders';
 import { addError } from '../../store/features/errorsSlice';
-import { IValidatedHeaders } from '../../interfaces/validatedHeaders';
+import { selectQuery, selectVariablesString } from '../../store/features/editorSlice';
+import { selectHeaders } from '../../store/features/headersSlice';
 import { UserHeaders } from '../../interfaces/headersSlice.interfaces';
+import { IValidatedHeaders } from '../../interfaces/validatedHeaders';
 
-import Grid from '@mui/material/Grid';
-
+import { gridMainContainerStyle, gridMainContentStyle } from './main.style';
 import './main.scss';
+
+// For testing error boundary
+// const ErrorComponent = () => {
+//   throw new Error('Something went wrong');
+// };
 
 const Main: FC = () => {
   const [graphqlQuery, setGraphqlQuery] = useState<string>('');
   const [variables, setVariables] = useState<UserHeaders>({});
-  const { query, variablesString } = useAppSelector((state) => state.editorReducer);
-  const { value } = useAppSelector((state) => state.userHeaders);
+  const query = useAppSelector(selectQuery);
+  const variablesString = useAppSelector(selectVariablesString);
+  const value = useAppSelector(selectHeaders);
 
   const dispatch = useAppDispatch();
 
@@ -58,14 +67,11 @@ const Main: FC = () => {
   };
 
   return (
-    <Grid
-      container
-      spacing={2}
-      maxWidth={{ xs: '300px', sm: '520px', md: '880px', lg: '1180px', xl: '1500px' }}
-      className="main__container"
-    >
+    <Grid {...gridMainContainerStyle} className="main__container">
       <Explorer />
-      <Grid item container xs={12} md={8} lg={8} xl={9} className="main__content">
+      <Grid {...gridMainContentStyle} className="main__content">
+        {/* For testing error boundary */}
+        {/* <ErrorComponent /> */}
         <Editor getData={getData} />
         <Response data={data} isError={isError} isFetching={isFetching} />
       </Grid>

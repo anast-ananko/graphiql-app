@@ -1,5 +1,14 @@
 {
     "explorer": {
         "title": "Документация"
-    }     
+    },
+    "editor": {
+        "variables": "Переменные",
+        "headers": "Заголовки"
+    },
+    "buttons": {
+        "signOut": "Выйти",
+        "reload": "Перезагрузить",
+        "openDocumentation": "Открыть документацию"
+    }
 }

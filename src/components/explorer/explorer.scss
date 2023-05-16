@@ -1,9 +1,9 @@
-@import "../../styles/variables";
+@import '../../styles/variables';
 
 .explorer {
-   min-height: 200px;
+  min-height: 300px;
 
-   &__title {
-        font-size: $font-size-xlg;    
-    }
+  &__title {
+    font-size: $font-size-xlg;
+  }
 }

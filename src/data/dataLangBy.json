@@ -1,5 +1,14 @@
 {
     "explorer": {
         "title": "Дакументацыя"
-    }     
+    },
+    "editor": {
+        "variables": "Зменныя",
+        "headers": "Загалоўкі"
+    },
+    "buttons": {
+        "signOut": "Выйсці",
+        "reload": "Перазагрузіць",
+        "openDocumentation": "Адкрыць дакументацыю"
+    }
 }
