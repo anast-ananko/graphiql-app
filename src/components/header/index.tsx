@@ -1,15 +1,13 @@
-import { FC } from 'react';
-import { AppBar, Container, Toolbar, Typography, Button, Grid } from '@mui/material';
+import React, { FC } from 'react';
+import { AppBar, Typography, Button, Grid, Link } from '@mui/material';
 import i18n from '../../data/i18n';
 import { useTranslation } from 'react-i18next';
+import UserMenu from './userMenu';
 
 import Logo from '../logo';
 import { useAppDispatch, useAppSelector } from '../../hooks/hook';
 import { changeLanguage, selectLang } from '../../store/features/langSlice';
 import ElevationScroll from './elevationScroll';
-import { signOut } from 'firebase/auth';
-import { auth } from '../../firebase.ts';
-import { authSignOut } from '../../store/services/authSlice.ts';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import { updateQuery } from '../../store/features/editorSlice.ts';
@@ -38,54 +36,50 @@ const Header: FC = () => {
     }
   };
 
-  const userSignOut = async () => {
-    try {
-      await signOut(auth);
-      dispatch(authSignOut());
-    } catch (error) {
-      error instanceof Error && dispatch(updateQuery(error.message));
-    }
-  };
-
-  const signOutButton: JSX.Element = (
-    <Grid item xs={6}>
-      <Grid container justifyContent="flex-end" alignItems="center">
-        <Button
-          variant="outlined"
-          sx={{ backgroundColor: '#F9F871', color: 'black' }}
-          onClick={userSignOut}
-        >
-          {localize('buttons.signOut')}
-        </Button>
-      </Grid>
-    </Grid>
-  );
+  // return (
+  //   <ElevationScroll>
+  //     <AppBar position="sticky" className="header">
+  //       <Container maxWidth="xl">
+  //         <Toolbar disableGutters>
+  //           <div className="header__container">
+  //             <div className="header__topography">
+  //               <Logo />
+  //               <Typography variant="h5" {...headerLogoStyle} className="header__logo">
+  //                 GraphiQL
+  //               </Typography>
+  //             </div>
+  //             <div className="language">
+  //               <button className="button__lang" onClick={handleLanguageChange}>
+  //                 <span className="language__title">
+  //                   {lang === 'en' ? 'en' : lang === 'by' ? 'by' : 'ru'}
+  //                 </span>
+  //               </button>
+  //             </div>
+  //             {uid && signOutButton}
+  //           </div>
+  //         </Toolbar>
+  //       </Container>
+  //     </AppBar>
+  //   </ElevationScroll>
+  // );
 
   return (
-    <ElevationScroll>
-      <AppBar position="sticky" className="header">
-        <Container maxWidth="xl">
-          <Toolbar disableGutters>
-            <div className="header__container">
-              <div className="header__topography">
-                <Logo />
-                <Typography variant="h5" {...headerLogoStyle} className="header__logo">
-                  GraphiQL
-                </Typography>
-              </div>
-              <div className="language">
-                <button className="button__lang" onClick={handleLanguageChange}>
-                  <span className="language__title">
-                    {lang === 'en' ? 'en' : lang === 'by' ? 'by' : 'ru'}
-                  </span>
-                </button>
-              </div>
-              {uid && signOutButton}
-            </div>
-          </Toolbar>
-        </Container>
-      </AppBar>
-    </ElevationScroll>
+    <AppBar position="sticky" className="header">
+      <Grid container direction="row" justifyContent="space-between" alignItems="center">
+        <Grid item container xs justifyContent="flex-start">
+          <Link className="logo" href="/" underline="none">
+            <img className="logo__icon" src="logo.png" alt="GraphiQL logo" />
+            <Typography variant="caption">GraphiQL</Typography>
+          </Link>
+        </Grid>
+        <Grid item container xs={6} justifyContent="center">
+          <img className="header__product" src="logo-starwars.png" alt="Logo starwars" />
+        </Grid>
+        <Grid item container xs justifyContent="flex-end">
+          <UserMenu uid={uid} />
+        </Grid>
+      </Grid>
+    </AppBar>
   );
 };
 

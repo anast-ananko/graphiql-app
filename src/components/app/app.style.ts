@@ -2,19 +2,20 @@ import { createTheme } from '@mui/material/styles';
 
 const themeConfig = {
   palette: {
+    mode: 'dark',
     primary: {
-      main: '#fa444b',
+      main: '#d50032',
+      dark: '#ff003c',
+      contrastText: '#fff',
     },
-    text: {
-      primary: '#fff',
+    background: {
+      paper: '#000',
+      default: '#000',
     },
   },
   typography: {
-    allVariants: {
-      color: '#fff',
-    },
     fontFamily: ['Russo One'].join(','),
-    fontSize: 16,
+    fontSize: 14,
     h2: {
       fontSize: '6rem',
     },
@@ -23,6 +24,9 @@ const themeConfig = {
     },
     button: {
       fontSize: '1.05rem',
+    },
+    caption: {
+      fontSize: '1.2rem',
     },
   },
 };
