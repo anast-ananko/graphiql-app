@@ -1,4 +1,6 @@
 .response {
+  padding-bottom: 10px;
+
   &__text {
     text-align: center;
     margin-top: 20px;
@@ -7,6 +9,7 @@
   &__container {
     margin: 20px;
     overflow-y: auto;
-    height: 350px;
+    min-height: 350px;
+    height: 100%;
   }
 }
