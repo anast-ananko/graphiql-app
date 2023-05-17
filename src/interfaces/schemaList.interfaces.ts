@@ -27,10 +27,12 @@ interface DocListProps {
 interface DocListItemProps {
   title: string;
   onClick: () => void;
+  editorQuery?: string | null;
 }
 
 interface DocFieldsListProps {
   typeName: string;
+  isQueries?: boolean;
 }
 
 interface DocFieldPanelProps {

@@ -8,6 +8,7 @@
     },
     "buttons": {
         "signOut": "Выйсці",
-        "reload": "Перазагрузіць"
-    }   
+        "reload": "Перазагрузіць",
+        "openDocumentation": "Адкрыць дакументацыю"
+    }
 }

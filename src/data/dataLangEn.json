@@ -1,6 +1,6 @@
 {
     "explorer": {
-        "title": "Explorer"
+        "title": "Documentation"
     },
     "editor": {
         "variables": "Variables",
@@ -8,6 +8,7 @@
     },
     "buttons": {
         "signOut": "Sign out",
-        "reload": "Reload"
-    }           
+        "reload": "Reload",
+        "openDocumentation": "Open documentation"
+    }
 }

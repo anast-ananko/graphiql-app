@@ -2,7 +2,11 @@ import { FC, useContext } from 'react';
 import { v4 as uuid } from 'uuid';
 
 import { SchemaContext } from '.';
-import { createBreadcrumb, isFieldsType } from '../../utils/shemaParsing';
+import {
+  createBreadcrumb,
+  getEditorQueryByFieldName,
+  isFieldsType,
+} from '../../utils/shemaParsing';
 import DocList from './docList';
 import DocListItem from './docListItem';
 import DocFieldPanel from './docFieldPanel';
@@ -14,7 +18,7 @@ import {
 } from 'graphql';
 import { DocFieldsListProps } from '../../interfaces/schemaList.interfaces';
 
-const DocFieldsList: FC<DocFieldsListProps> = ({ typeName }) => {
+const DocFieldsList: FC<DocFieldsListProps> = ({ typeName, isQueries = false }) => {
   const schemaContext = useContext(SchemaContext);
   const type = schemaContext.schemaTypes?.find((type) => type.name === typeName);
 
@@ -31,11 +35,13 @@ const DocFieldsList: FC<DocFieldsListProps> = ({ typeName }) => {
             title: field.name,
             documentationElement: element,
           });
+          const editorQuery = getEditorQueryByFieldName(field.name);
 
           return (
             <DocListItem
               key={uuid()}
               title={`${fieldName}: ${typeName}`}
+              editorQuery={isQueries ? editorQuery : null}
               onClick={schemaContext.breadcrumbSetter.bind(null, newBreadcrumb)}
             ></DocListItem>
           );

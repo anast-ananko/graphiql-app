@@ -11,9 +11,9 @@ import 'codemirror-graphql/lint';
 import { ICodeMirror } from '../../../interfaces/code-mirror';
 import { updateQuery } from '../../../store/features/editorSlice';
 import { useAppDispatch } from '../../../hooks/hook';
-import { useGetSchemaQuery } from '../../../store/services/graphQlApi';
 import { MIN_HEIGHT } from '../../../constants/heightConstants';
 
+// import { useGetSchemaQuery } from '../../../store/services/graphQlApi';
 // import { makeExecutableSchema } from '@graphql-tools/schema';
 // import { buildClientSchema, buildSchema, buildASTSchema } from 'graphql';
 // import { SchemaIntrospectionResponse } from '../../../interfaces/graphqlApi.interfaces';
@@ -22,7 +22,7 @@ const CodeMirrorGraphQL: FC<ICodeMirror> = ({ height }) => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const dispatch = useAppDispatch();
 
-  const doc = useGetSchemaQuery();
+  // const doc = useGetSchemaQuery();
   // console.log(doc);
   //const myGraphQLSchema: GraphQLSchema = buildSchema(JSON.stringify(doc?.data));
 
