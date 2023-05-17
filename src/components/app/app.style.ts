@@ -8,6 +8,9 @@ const themeConfig = {
       dark: '#ff003c',
       contrastText: '#fff',
     },
+    secondary: {
+      main: '#ffe919',
+    },
     background: {
       paper: '#000',
       default: '#000',

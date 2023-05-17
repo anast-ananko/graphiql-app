@@ -12,7 +12,12 @@ const ElevationScroll = ({ children }: IElevationScroll): ReactElement => {
   return React.cloneElement(children, {
     elevation: trigger ? 4 : 0,
     style: {
-      backgroundColor: trigger && '#40D4AF',
+      borderTop: '0px',
+      borderRight: '0px',
+      borderLeft: '0px',
+      borderBottom: '4px',
+      borderStyle: 'solid',
+      borderColor: trigger && '#ffe919',
     },
   });
 };
