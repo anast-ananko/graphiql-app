@@ -5,7 +5,7 @@ import { ErrorBoundary } from 'react-error-boundary';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../../firebase.ts';
 import { CircularProgress } from '@mui/material';
-import { authSignIn } from '../../store/services/authSlice.ts';
+import { authSignIn } from '../../store/features/authSlice.ts';
 import { useAppDispatch } from '../../hooks/hook.ts';
 import Header from '../header';
 import Footer from '../footer';
