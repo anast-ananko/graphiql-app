@@ -1,10 +1,9 @@
 import React, { FC } from 'react';
-import { AppBar, Typography, Button, Grid, Link } from '@mui/material';
+import { AppBar, Button, Typography, Grid } from '@mui/material';
 import i18n from '../../data/i18n';
 import { useTranslation } from 'react-i18next';
 import UserMenu from './userMenu';
 
-import Logo from '../logo';
 import { useAppDispatch, useAppSelector } from '../../hooks/hook';
 import { changeLanguage, selectLang } from '../../store/features/langSlice';
 import ElevationScroll from './elevationScroll';
@@ -14,6 +13,7 @@ import { updateQuery } from '../../store/features/editorSlice.ts';
 
 import { headerLogoStyle } from './header.style.ts';
 import './header.scss';
+import Language from './language';
 
 const Header: FC = () => {
   const { t: localize } = useTranslation();
@@ -64,18 +64,25 @@ const Header: FC = () => {
   // );
 
   return (
-    <AppBar position="sticky" className="header">
+    <AppBar position="sticky" className="header" sx={{ padding: { xs: '10px', sm: '15px 30px' } }}>
       <Grid container direction="row" justifyContent="space-between" alignItems="center">
         <Grid item container xs justifyContent="flex-start">
-          <Link className="logo" href="/" underline="none">
+          <Button href="/" className="logo" size="medium" color="inherit">
             <img className="logo__icon" src="logo.png" alt="GraphiQL logo" />
-            <Typography variant="caption">GraphiQL</Typography>
-          </Link>
+            GraphiQL
+          </Button>
         </Grid>
-        <Grid item container xs={6} justifyContent="center">
+        <Grid
+          item
+          container
+          xs={4}
+          justifyContent="center"
+          sx={{ display: { xs: 'none', sm: 'grid' } }}
+        >
           <img className="header__product" src="logo-starwars.png" alt="Logo starwars" />
         </Grid>
         <Grid item container xs justifyContent="flex-end">
+          <Language />
           <UserMenu uid={uid} />
         </Grid>
       </Grid>

@@ -19,8 +19,11 @@ const themeConfig = {
     h2: {
       fontSize: '6rem',
     },
-    subtitle2: {
+    h4: {
       fontSize: '1.5rem',
+    },
+    subtitle1: {
+      fontSize: '1.1rem',
     },
     button: {
       fontSize: '1.05rem',

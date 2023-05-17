@@ -5,7 +5,7 @@ import { auth } from '../../../firebase.ts';
 import { authSignOut } from '../../../store/services/authSlice.ts';
 import { updateQuery } from '../../../store/features/editorSlice.ts';
 import { UserMenuType } from '../../../types';
-import { IconButton, MenuItem, Link } from '@mui/material';
+import { Button, MenuItem } from '@mui/material';
 import ManageAccountsRoundedIcon from '@mui/icons-material/ManageAccountsRounded';
 import KeyRoundedIcon from '@mui/icons-material/KeyRounded';
 import Menu from '@mui/material/Menu';
@@ -32,14 +32,14 @@ const UserMenu: FC<UserMenuType> = ({ uid }) => {
 
   const menuItems: Array<JSX.Element> = [
     <MenuItem onClick={handleClose} key="sign-in">
-      <Link href="/login" underline="none">
+      <Button href="/login" color="inherit">
         Sign in
-      </Link>
+      </Button>
     </MenuItem>,
     <MenuItem onClick={handleClose} key="sign-up">
-      <Link href="/registration" underline="none">
+      <Button href="/registration" color="inherit">
         Sign up
-      </Link>
+      </Button>
     </MenuItem>,
   ];
 
@@ -51,7 +51,7 @@ const UserMenu: FC<UserMenuType> = ({ uid }) => {
 
   return (
     <>
-      <IconButton
+      <Button
         size="large"
         aria-label="account of current user"
         aria-controls="menu-appbar"
@@ -60,14 +60,8 @@ const UserMenu: FC<UserMenuType> = ({ uid }) => {
         color="inherit"
       >
         {uid ? <ManageAccountsRoundedIcon /> : <KeyRoundedIcon />}
-      </IconButton>
-      <Menu
-        id="basic-menu"
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="basic-demo-button"
-      >
+      </Button>
+      <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
         {uid ? menuItemsForUser : menuItems}
       </Menu>
     </>

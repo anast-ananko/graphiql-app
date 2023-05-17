@@ -16,7 +16,7 @@ const NotFound: FC = () => {
         className="not-found__container"
       >
         <Typography variant="h2">404</Typography>
-        <Typography variant="subtitle2" textAlign="center">
+        <Typography variant="h4" textAlign="center">
           Great shot kid. That was one in a million.
         </Typography>
         <Button variant="contained" onClick={() => navigate('/')}>
