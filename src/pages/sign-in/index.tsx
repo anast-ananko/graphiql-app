@@ -5,7 +5,7 @@ import { auth } from '../../firebase.ts';
 import { useNavigate } from 'react-router-dom';
 import { useForm, FieldValues } from 'react-hook-form';
 import { useAppDispatch } from '../../hooks/hook.ts';
-import { authSignIn } from '../../store/services/authSlice.ts';
+import { authSignIn } from '../../store/features/authSlice.ts';
 import { Container, Box, TextField, Button } from '@mui/material';
 import { checkTextFieldError, emailOptions } from '../../utils/validation.ts';
 

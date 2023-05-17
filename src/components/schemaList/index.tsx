@@ -5,6 +5,7 @@ import DocListItem from './docListItem';
 import DocFieldsList from './docFieldsList';
 import DocBreadcrumbs from './docBreadcrumbs';
 import { sliceBreadcrumbsByLength } from '../../utils/shemaParsing';
+import { ROOT_QUERY } from '../../constants/queryConstants';
 
 import {
   SchemaContextModel,
@@ -36,7 +37,7 @@ const SchemaList: FC<SchemaListProps> = ({ schema }) => {
       title: 'Root query',
       documentationElement: (
         <DocList title="Root">
-          <DocFieldsList typeName={'Root'} />
+          <DocFieldsList typeName={'Root'} isQueries={true} />
         </DocList>
       ),
     };
@@ -46,7 +47,11 @@ const SchemaList: FC<SchemaListProps> = ({ schema }) => {
         title: 'Root',
         documentationElement: (
           <DocList title="Root Types">
-            <DocListItem title="query: Root" onClick={addBreadcrumb.bind(null, rootBreadcrumb)} />
+            <DocListItem
+              title="query: Root"
+              onClick={addBreadcrumb.bind(null, rootBreadcrumb)}
+              editorQuery={ROOT_QUERY}
+            />
           </DocList>
         ),
       },

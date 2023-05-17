@@ -15,4 +15,12 @@ function sliceBreadcrumbsByLength(length: number, arr: schemaBreadcrumb[]): sche
   return arr.slice(0, length);
 }
 
-export { isFieldsType, createBreadcrumb, sliceBreadcrumbsByLength };
+function getEditorQueryByFieldName(fieldName: string): string {
+  const query = `query ${
+    fieldName.slice(0, 1).toLocaleUpperCase() + fieldName.slice(1)
+  } {\n  ${fieldName} {\n\n }\n}`;
+
+  return query;
+}
+
+export { isFieldsType, createBreadcrumb, sliceBreadcrumbsByLength, getEditorQueryByFieldName };
