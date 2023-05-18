@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { useForm, FieldValues } from 'react-hook-form';
 import { useAppDispatch } from '../../hooks/hook.ts';
 import { authSignIn } from '../../store/services/authSlice.ts';
-import { Container, Box, TextField, Button } from '@mui/material';
+import { Grid, Box, Typography, TextField, Button, Container, Link } from '@mui/material';
 import { checkTextFieldError, emailOptions } from '../../utils/validation.ts';
 
 const SignIn: FC = () => {
@@ -44,44 +44,70 @@ const SignIn: FC = () => {
   const isHasError = (key: string): boolean => errors.hasOwnProperty(key);
 
   return (
-    <Container maxWidth="xl">
-      <form autoComplete="off" onSubmit={handleSubmit(userSignIn)}>
-        <h2 style={{ textAlign: 'center', margin: '30px', fontSize: '24px', fontWeight: '900' }}>
-          Login
-        </h2>
-        <TextField
-          label="Email"
-          variant="outlined"
-          type="text"
-          sx={{ mb: 2 }}
-          fullWidth
-          {...register('email', emailOptions)}
-          error={isHasError('email') || !!emailFirebaseError}
-          helperText={
-            errors.email ? checkTextFieldError(errors.email.type?.toString()) : emailFirebaseError
-          }
-        />
-        <TextField
-          label="Password"
-          variant="outlined"
-          type="password"
-          fullWidth
-          sx={{ mb: 2 }}
-          {...register('password', { required: true })}
-          error={isHasError('password') || !!passwordFirebaseError}
-          helperText={
-            errors.password
-              ? checkTextFieldError(errors.password.type?.toString())
-              : passwordFirebaseError
-          }
-        />
-        <Box textAlign="center">
-          <Button variant="outlined" type="submit">
-            Login
-          </Button>
-        </Box>
-      </form>
-    </Container>
+    <div className="sign-in">
+      <Grid
+        container
+        direction="column"
+        justifyContent="center"
+        alignItems="center"
+        className="not-found__container"
+        rowSpacing={{ xs: 4, sm: 6 }}
+        minWidth={{ md: '700px' }}
+        sx={{ padding: { xs: '0 10px', sm: '0 30px' } }}
+      >
+        <Grid item>
+          <Typography variant="h2">Login</Typography>
+        </Grid>
+        <Grid item>
+          <form className="sign-in__form" autoComplete="off" onSubmit={handleSubmit(userSignIn)}>
+            <TextField
+              label="Email"
+              variant="outlined"
+              type="text"
+              sx={{ mb: 3 }}
+              fullWidth
+              {...register('email', emailOptions)}
+              error={isHasError('email') || !!emailFirebaseError}
+              helperText={
+                errors.email
+                  ? checkTextFieldError(errors.email.type?.toString())
+                  : emailFirebaseError
+              }
+            />
+            <TextField
+              label="Password"
+              variant="outlined"
+              type="password"
+              fullWidth
+              sx={{ mb: 3 }}
+              {...register('password', { required: true })}
+              error={isHasError('password') || !!passwordFirebaseError}
+              helperText={
+                errors.password
+                  ? checkTextFieldError(errors.password.type?.toString())
+                  : passwordFirebaseError
+              }
+            />
+            <Box textAlign="center">
+              <Button variant="outlined" type="submit">
+                Login
+              </Button>
+            </Box>
+          </form>
+        </Grid>
+        <Grid item container justifyContent="center">
+          <Typography variant="body1">
+            If you don`t have account,{' '}
+            <Link href="/registration" color="secondary" underline="none">
+              create account
+            </Link>
+          </Typography>
+        </Grid>
+      </Grid>
+      <Container sx={{ display: { xs: 'none', md: 'block' } }}>
+        <img className="sign-in__img" src="auth.png" alt="" />
+      </Container>
+    </div>
   );
 };
 

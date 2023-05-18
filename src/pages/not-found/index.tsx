@@ -1,10 +1,10 @@
 import { FC } from 'react';
-import { Container, Paper, Typography, Grid, Button } from '@mui/material';
+import { Container, Typography, Grid, Button } from '@mui/material';
 import './not-found.scss';
 
 const NotFound: FC = () => {
   return (
-    <Paper className="not-found">
+    <div className="not-found">
       <Grid
         container
         direction="column"
@@ -32,7 +32,7 @@ const NotFound: FC = () => {
       <Container sx={{ display: { xs: 'none', md: 'block' } }}>
         <img className="not-found__img" src="not-found.png" alt="" />
       </Container>
-    </Paper>
+    </div>
   );
 };
 

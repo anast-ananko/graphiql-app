@@ -16,16 +16,21 @@ const themeConfig = {
     },
   },
   typography: {
-    fontFamily: ['Russo One'].join(','),
+    fontFamily: ['Rubik'].join(','),
     fontSize: 14,
     h1: {
+      fontFamily: 'Russo One',
       fontSize: '6rem',
       '@media (max-width:600px)': {
         fontSize: '4rem',
       },
     },
     h2: {
-      fontSize: '4rem',
+      fontFamily: 'Russo One',
+      fontSize: '2rem',
+      '@media (max-width:600px)': {
+        fontSize: '1.6rem',
+      },
     },
     h3: {
       fontSize: '1.6rem',
@@ -40,13 +45,14 @@ const themeConfig = {
       fontSize: '1.1rem',
     },
     button: {
+      fontFamily: 'Russo One',
       fontSize: '1.1rem',
       '@media (max-width:600px)': {
         fontSize: '0.9rem',
       },
     },
-    caption: {
-      fontSize: '1.2rem',
+    body1: {
+      fontSize: '1rem',
     },
   },
 };

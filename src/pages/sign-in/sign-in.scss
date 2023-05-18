@@ -1,0 +1,13 @@
+.sign-in {
+  display: flex;
+  flex-wrap: nowrap;
+  position: relative;
+  min-height: 85vh;
+  overflow: hidden;
+
+  &__img {
+    height: 90vh;
+    width: auto;
+  }
+}
+
