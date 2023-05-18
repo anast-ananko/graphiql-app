@@ -18,32 +18,28 @@ function getUserErrorFromAction(action: AnyAction): UserError {
   return error;
 }
 
-function convertMessageToReadableString(inputString: string): string {
-  if (!inputString.includes('{') && !inputString.includes('{')) {
-    return inputString;
-  }
+function convertMessageToReadableString(inputString: string, indentLevel = 2): string {
+  const indent = indentLevel >= 0 ? '\t'.repeat(indentLevel) : '';
+  let openBraces = 0;
 
-  let nestLevel = 0;
-  const newLineString = '\n';
-  const tabString = '  ';
-
-  return inputString
-    .split('')
-    .map((char) => {
-      switch (char) {
-        case '{':
-        case '[':
-          nestLevel++;
-          return char + newLineString + tabString.repeat(nestLevel);
-        case '}':
-        case ']':
-          nestLevel--;
-          return char + newLineString + tabString.repeat(nestLevel ? nestLevel : 0);
+  const formattedLines = inputString
+    .split('{')
+    .map((line) => {
+      const trimedLine = line.trim();
+      switch (true) {
+        case trimedLine.includes('}'):
+          openBraces--;
+          return `${indent}\t`.repeat(Math.max(openBraces, 0)) + '{' + trimedLine;
         default:
-          return char;
+          const formattedLine = `${indent}\t`.repeat(Math.max(openBraces, 0)) + '{' + trimedLine;
+          openBraces++;
+          return formattedLine;
       }
     })
-    .join('');
+    .join('\n')
+    .trim();
+
+  return formattedLines;
 }
 
 export { getUserErrorFromAction, convertMessageToReadableString };
