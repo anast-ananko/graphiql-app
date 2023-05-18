@@ -18,7 +18,7 @@
     "@reduxjs/toolkit": "^1.9.5",
     "@types/react-resizable": "^3.0.4",
     "@uiw/react-codemirror": "^4.19.16",
-    "codemirror-graphql": "^2.0.5",
+    "cm6-graphql": "^0.0.7",
     "firebase": "^9.21.0",
     "i18next": "^22.4.15",
     "react": "^18.2.0",
