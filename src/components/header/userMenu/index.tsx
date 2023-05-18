@@ -5,7 +5,7 @@ import { auth } from '../../../firebase.ts';
 import { authSignOut } from '../../../store/services/authSlice.ts';
 import { updateQuery } from '../../../store/features/editorSlice.ts';
 import { UserMenuType } from '../../../types';
-import { Button, MenuItem } from '@mui/material';
+import { Button, Link, MenuItem } from '@mui/material';
 import ManageAccountsRoundedIcon from '@mui/icons-material/ManageAccountsRounded';
 import KeyRoundedIcon from '@mui/icons-material/KeyRounded';
 import Menu from '@mui/material/Menu';
@@ -32,14 +32,14 @@ const UserMenu: FC<UserMenuType> = ({ uid }) => {
 
   const menuItems: Array<JSX.Element> = [
     <MenuItem onClick={handleClose} key="sign-in">
-      <Button href="/login" color="inherit">
+      <Link href="/sign-in" color="inherit" underline="none">
         Sign in
-      </Button>
+      </Link>
     </MenuItem>,
     <MenuItem onClick={handleClose} key="sign-up">
-      <Button href="/registration" color="inherit">
+      <Link href="/sign-up" color="inherit" underline="none">
         Sign up
-      </Button>
+      </Link>
     </MenuItem>,
   ];
 

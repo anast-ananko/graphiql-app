@@ -6,3 +6,8 @@ export type ProtectedRouteType = {
 export type UserMenuType = {
   uid: string | null;
 };
+
+export type AuthType = {
+  form: JSX.Element;
+  isLogin: boolean;
+};
