@@ -8,7 +8,6 @@ import {
   footerRSSchool,
   footerGithubProfiles,
 } from './footer.style.ts';
-import './footer.scss';
 
 const Footer: FC = () => {
   return (
@@ -19,7 +18,11 @@ const Footer: FC = () => {
         </Grid>
         <Grid {...footerRSSchool}>
           <Button href="https://rs.school/react/" color="inherit">
-            <img className="footer__rss" src="rs-school.png" alt="RS School React final project" />
+            <img
+              src="rs-school.png"
+              style={{ height: '50px ' }}
+              alt="RS School React final project"
+            />
           </Button>
         </Grid>
         <Grid {...footerGithubProfiles}>
