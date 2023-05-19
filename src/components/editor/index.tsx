@@ -42,7 +42,7 @@ const Editor: FC<IEditor> = ({ getData }) => {
           editor__codemirror_open: open,
         })}
       >
-        <Grid item xs={10} lg={10} className="codemirror">
+        <Grid item xs={9} lg={10} className="codemirror">
           <CodeMirrorGraphQL />
         </Grid>
         <Grid {...gridRunButtonStyle}>
