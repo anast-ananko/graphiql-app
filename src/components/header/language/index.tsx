@@ -17,15 +17,18 @@ const Language: FC = () => {
       <Button
         startIcon={<LanguageRoundedIcon />}
         size="large"
-        aria-label="language interface"
-        aria-controls="menu-appbar"
-        aria-haspopup="true"
-        onClick={handleClick}
         color="inherit"
+        onClick={handleClick}
       >
         Ru
       </Button>
-      <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
+      <Menu
+        anchorEl={anchorEl}
+        open={open}
+        transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+        anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+        onClose={handleClose}
+      >
         <MenuItem onClick={handleClose}>English</MenuItem>
         <MenuItem onClick={handleClose}>Русский</MenuItem>
         <MenuItem onClick={handleClose}>Беларусский</MenuItem>

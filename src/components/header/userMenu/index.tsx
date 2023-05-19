@@ -5,10 +5,9 @@ import { auth } from '../../../firebase.ts';
 import { authSignOut } from '../../../store/services/authSlice.ts';
 import { updateQuery } from '../../../store/features/editorSlice.ts';
 import { UserMenuType } from '../../../types';
-import { Button, Link, MenuItem } from '@mui/material';
+import { Button, Link, MenuItem, Menu } from '@mui/material';
 import ManageAccountsRoundedIcon from '@mui/icons-material/ManageAccountsRounded';
 import KeyRoundedIcon from '@mui/icons-material/KeyRounded';
-import Menu from '@mui/material/Menu';
 
 const UserMenu: FC<UserMenuType> = ({ uid }) => {
   const dispatch = useAppDispatch();
@@ -61,7 +60,13 @@ const UserMenu: FC<UserMenuType> = ({ uid }) => {
       >
         {uid ? <ManageAccountsRoundedIcon /> : <KeyRoundedIcon />}
       </Button>
-      <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
+      <Menu
+        anchorEl={anchorEl}
+        open={open}
+        transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+        anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+        onClose={handleClose}
+      >
         {uid ? menuItemsForUser : menuItems}
       </Menu>
     </>
