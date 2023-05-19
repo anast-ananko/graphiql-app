@@ -1,15 +1,14 @@
-import { FC, useState, memo } from 'react';
+import { FC, useState } from 'react';
 import CodeMirror from '@uiw/react-codemirror';
 import { graphql } from 'cm6-graphql';
 import { buildClientSchema } from 'graphql';
 
-import { ICodeMirror } from '../../../interfaces/code-mirror';
 import { updateQuery, selectQuery } from '../../../store/features/editorSlice';
 import { useAppDispatch, useAppSelector } from '../../../hooks/hook';
 import { useGetGraphQLSchemaQuery } from '../../../store/services/graphQlApi';
 
-const CodeMirrorGraphQL: FC<ICodeMirror> = memo(({ height }) => {
-  const [value, setValue] = useState<string>('');
+const CodeMirrorGraphQL: FC = () => {
+  const [, setValue] = useState<string>('');
   const query = useAppSelector(selectQuery);
 
   const dispatch = useAppDispatch();
@@ -28,7 +27,6 @@ const CodeMirrorGraphQL: FC<ICodeMirror> = memo(({ height }) => {
       {!isFetching && (
         <CodeMirror
           value={query}
-          height={`${height}px`}
           width="100%"
           onChange={onChangeValue}
           extensions={[graphql(schema)]}
@@ -40,6 +38,6 @@ const CodeMirrorGraphQL: FC<ICodeMirror> = memo(({ height }) => {
       )}
     </>
   );
-});
+};
 
 export default CodeMirrorGraphQL;

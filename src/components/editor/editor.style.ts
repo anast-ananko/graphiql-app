@@ -14,18 +14,18 @@ const gridEditorCodemirrorStyle = {
   xs: 12,
 };
 
-const gridRunButtonStyle = {
-  item: true,
-  xs: 2,
-  lg: 2,
-  sx: { display: 'flex', alignItems: 'start', justifyContent: 'flex-end' },
-};
-
 const gridEditorOptionsStyle = {
   item: true,
   xs: 12,
   lg: 12,
   sx: { ml: 1 },
+};
+
+const gridRunButtonStyle = {
+  item: true,
+  xs: 2,
+  lg: 2,
+  sx: { display: 'flex', alignItems: 'start', justifyContent: 'flex-end' },
 };
 
 const toggleButtonStyle = {
@@ -39,7 +39,7 @@ const toggleButtonStyle = {
 export {
   gridEditorStyle,
   gridEditorCodemirrorStyle,
-  gridRunButtonStyle,
   gridEditorOptionsStyle,
+  gridRunButtonStyle,
   toggleButtonStyle,
 };
