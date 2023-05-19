@@ -1,23 +1,28 @@
 import { FC } from 'react';
 import { AppBar, Button, Grid, IconButton, Typography } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import {
+  footerBar,
+  footerContainer,
+  footerYear,
+  footerRSSchool,
+  footerGithubProfiles,
+} from './footer.style.ts';
 import './footer.scss';
 
 const Footer: FC = () => {
   return (
-    <AppBar position="static" className="footer" sx={{ padding: { xs: '15px', sm: '10px 60px' } }}>
-      <Grid container direction="row" justifyContent="space-between" alignItems="center">
-        <Grid item container xs sx={{ display: { xs: 'none', sm: 'grid' } }}>
-          <Typography variant="subtitle1" justifyContent="flex-start">
-            2023
-          </Typography>
+    <AppBar className="footer" {...footerBar}>
+      <Grid {...footerContainer}>
+        <Grid {...footerYear}>
+          <Typography variant="subtitle1">2023</Typography>
         </Grid>
-        <Grid item container xs={4} sx={{ justifyContent: { xs: 'flex-start', sm: 'center' } }}>
+        <Grid {...footerRSSchool}>
           <Button href="https://rs.school/react/" color="inherit">
             <img className="footer__rss" src="rs-school.png" alt="RS School React final project" />
           </Button>
         </Grid>
-        <Grid item container xs justifyContent="flex-end">
+        <Grid {...footerGithubProfiles}>
           <IconButton href="https://github.com/ablbsk" target="_blank" aria-label="Github @ablbsk">
             <GitHubIcon />
           </IconButton>
