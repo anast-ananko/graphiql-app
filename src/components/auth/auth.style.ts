@@ -20,7 +20,7 @@ const authContainer: object = {
 
 const authLink: object = {
   color: 'secondary',
-  underline: 'none',
+  underline: 'hover',
 };
 
 const authRedirectLink: object = {

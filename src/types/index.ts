@@ -11,3 +11,12 @@ export type AuthType = {
   form: JSX.Element;
   isLogin: boolean;
 };
+
+export type WelcomeCardType = {
+  data: {
+    name: string;
+    description: string;
+    imageUrl: string;
+    github: string;
+  };
+};

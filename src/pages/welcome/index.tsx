@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import WelcomeAccordion from './welcomeAccordion';
+import WelcomeSlider from './welcomeSlider';
 import { Grid, Typography } from '@mui/material';
 import {
   welcomeContainer,
@@ -20,6 +21,14 @@ const Welcome: FC = () => {
         </Grid>
         <Grid item>
           <WelcomeAccordion />
+        </Grid>
+      </Grid>
+      <Grid {...welcomeSection}>
+        <Grid {...welcomeSectionHeader}>
+          <Typography variant="h3">Developers</Typography>
+        </Grid>
+        <Grid item>
+          <WelcomeSlider />
         </Grid>
       </Grid>
     </Grid>

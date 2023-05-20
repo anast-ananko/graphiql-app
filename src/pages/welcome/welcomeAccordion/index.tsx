@@ -69,29 +69,6 @@ const WelcomeAccordion: FC = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      {/*<Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel3bh-content"
-          id="panel3bh-header"
-        >
-          <Typography sx={{ width: '33%', flexShrink: 0 }}>Developers</Typography>
-          <Typography sx={{ color: 'text.secondary' }}>Coding Jedis Unleashed</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Introducing the project developers, a motley crew of code-wielding rebels and tech-savvy
-            scoundrels! With their fingers flying across keyboards at hyperspeed, they bring forth a
-            project that`s more powerful than an army of astromech droids and funnier than Jar Jar
-            Binks clumsiness.
-          </Typography>
-          <div className="welcome-content__developer-cards">
-            <DeveloperCard />
-            <DeveloperCard />
-            <DeveloperCard />
-          </div>
-        </AccordionDetails>
-      </Accordion>*/}
     </>
   );
 };

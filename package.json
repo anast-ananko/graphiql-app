@@ -25,6 +25,7 @@
     "react-error-boundary": "^4.0.4",
     "react-hook-form": "^7.43.9",
     "react-i18next": "^12.2.2",
+    "react-material-ui-carousel": "^3.4.2",
     "react-redux": "^8.0.5",
     "react-resizable": "^3.0.5",
     "react-router-dom": "^6.11.0",
