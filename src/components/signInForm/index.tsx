@@ -1,5 +1,6 @@
 import { FC, useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import { useTranslation } from 'react-i18next';
 import { auth } from '../../firebase.ts';
 import { useNavigate } from 'react-router-dom';
 import { useForm, FieldValues } from 'react-hook-form';
@@ -21,6 +22,8 @@ const SignInForm: FC = () => {
   const [emailFirebaseError, setEmailFirebaseError] = useState<string | null>(null);
   const [passwordFirebaseError, setPasswordFirebaseError] = useState<string | null>(null);
 
+  const { t: localize } = useTranslation();
+
   const userSignIn = async (fields: FieldValues) => {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, fields.email, fields.password);
@@ -33,9 +36,9 @@ const SignInForm: FC = () => {
       navigate('/main');
     } catch (error) {
       if (error instanceof Error && error.message.includes('user-not-found')) {
-        setEmailFirebaseError('Hmmm, user with current email not found');
+        setEmailFirebaseError(`${localize('auth.errorEmail')}`);
       } else if (error instanceof Error && error.message.includes('wrong-password')) {
-        setPasswordFirebaseError('Oops, your password is wrong');
+        setPasswordFirebaseError(`${localize('auth.errorPassword')}`);
       }
     }
   };
@@ -72,7 +75,7 @@ const SignInForm: FC = () => {
       />
       <Box textAlign="center">
         <Button variant="outlined" type="submit">
-          Login
+          {localize('auth.login')}
         </Button>
       </Box>
     </form>

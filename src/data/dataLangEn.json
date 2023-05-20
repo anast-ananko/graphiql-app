@@ -7,8 +7,20 @@
         "headers": "Headers"
     },
     "buttons": {
-        "signOut": "Sign out",
         "reload": "Reload",
         "openDocumentation": "Open documentation"
+    },
+    "auth": {
+        "pageLogin-1": "If you don`t have account, ",
+        "pageLogin-2": "create account",
+        "pageRegistr-1": "If you have account, please ",
+        "pageRegistr-2": "login",
+        "login": "Login",
+        "createAccount": "Create account",
+        "errorEmail": "Hmmm, user with current email not found",
+        "errorPassword": "Oops, your password is wrong",
+        "signIn": "Sign in",
+        "signUp": "Sign up",
+        "signOut": "Sign out"
     }
 }

@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useAppDispatch } from '../../../hooks/hook.ts';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../../firebase.ts';
@@ -14,6 +15,8 @@ const UserMenu: FC<UserMenuType> = ({ uid }) => {
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
+
+  const { t: localize } = useTranslation();
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) =>
     setAnchorEl(event.currentTarget);
@@ -32,19 +35,19 @@ const UserMenu: FC<UserMenuType> = ({ uid }) => {
   const menuItems: Array<JSX.Element> = [
     <MenuItem onClick={handleClose} key="sign-in">
       <Link href="/sign-in" color="inherit" underline="none">
-        Sign in
+        {localize('auth.signIn')}
       </Link>
     </MenuItem>,
     <MenuItem onClick={handleClose} key="sign-up">
       <Link href="/sign-up" color="inherit" underline="none">
-        Sign up
+        {localize('auth.signUp')}
       </Link>
     </MenuItem>,
   ];
 
   const menuItemsForUser: Array<JSX.Element> = [
     <MenuItem onClick={userSignOut} key="sign-out">
-      Sign out
+      {localize('auth.signOut')}
     </MenuItem>,
   ];
 
