@@ -1,14 +1,28 @@
 import { FC } from 'react';
-import WelcomeContent from '../../components/welcomeContent';
-
-import './welcome.scss';
+import WelcomeAccordion from './welcomeAccordion';
+import { Grid, Typography } from '@mui/material';
+import {
+  welcomeContainer,
+  welcomeHeader,
+  welcomeSection,
+  welcomeSectionHeader,
+} from './welcome.style.ts';
 
 const Welcome: FC = () => {
   return (
-    <div className="welcome-page">
-      <h1 className="welcome-page__title">Welcome to StarWars GraphQl far, far away.</h1>
-      <WelcomeContent />
-    </div>
+    <Grid {...welcomeContainer}>
+      <Grid {...welcomeHeader}>
+        <Typography variant="h2">Welcome to StarWars GraphQl far, far away</Typography>
+      </Grid>
+      <Grid {...welcomeSection}>
+        <Grid {...welcomeSectionHeader}>
+          <Typography variant="h3">About</Typography>
+        </Grid>
+        <Grid item>
+          <WelcomeAccordion />
+        </Grid>
+      </Grid>
+    </Grid>
   );
 };
 
