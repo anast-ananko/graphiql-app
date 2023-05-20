@@ -31,6 +31,17 @@ const welcomeHeader: object = {
   },
 };
 
+const welcomeButtonContainer: object = {
+  item: true,
+  container: true,
+  direction: 'row',
+  justifyContent: 'center',
+  rowSpacing: {
+    xs: 2,
+    md: 4,
+  },
+};
+
 const welcomeSection: object = {
   item: true,
   container: true,
@@ -48,4 +59,10 @@ const welcomeSectionHeader: object = {
   },
 };
 
-export { welcomeContainer, welcomeHeader, welcomeSection, welcomeSectionHeader };
+export {
+  welcomeContainer,
+  welcomeHeader,
+  welcomeSection,
+  welcomeButtonContainer,
+  welcomeSectionHeader,
+};

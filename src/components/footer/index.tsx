@@ -14,7 +14,7 @@ const Footer: FC = () => {
     <AppBar className="footer" {...footerBar}>
       <Grid {...footerContainer}>
         <Grid {...footerYear}>
-          <Typography variant="subtitle1">2023</Typography>
+          <Typography>2023</Typography>
         </Grid>
         <Grid {...footerRSSchool}>
           <Button href="https://rs.school/react/" color="inherit">
