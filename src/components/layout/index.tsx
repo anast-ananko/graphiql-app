@@ -4,7 +4,7 @@ import { ErrorBoundary } from 'react-error-boundary';
 
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../../firebase.ts';
-import { CircularProgress } from '@mui/material';
+import { CircularProgress, Grid } from '@mui/material';
 import { authSignIn } from '../../store/services/authSlice.ts';
 import { useAppDispatch } from '../../hooks/hook.ts';
 import Header from '../header';
@@ -37,7 +37,14 @@ const Layout: FC = () => {
   return (
     <>
       {loading ? (
-        <CircularProgress color="secondary" />
+        <Grid
+          container
+          sx={{ width: '100%', height: '100vh' }}
+          justifyContent="center"
+          alignItems="center"
+        >
+          <CircularProgress color="primary" />
+        </Grid>
       ) : (
         <ErrorBoundary FallbackComponent={Fallback}>
           <Header />
