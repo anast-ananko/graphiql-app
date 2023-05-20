@@ -11,8 +11,9 @@
   &__link {
     background-image: url(../../assets/images/github.png);
     background-repeat: no-repeat;
-    width: 50px;
-    height: 50px;
+    background-position: center;
+    width: 40px;
+    height: 40px;
     display: inline-block;
     transition: 0.5s;
 
@@ -22,7 +23,7 @@
   }
 
   &__year {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   &__logo {

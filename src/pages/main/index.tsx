@@ -8,10 +8,16 @@ import { useGetGraphqlQuery } from '../../store/services/graphQlApi';
 import { useAppSelector, useAppDispatch } from '../../hooks/hook';
 import { validateHeaders } from '../../utils/validateHeaders';
 import { addError } from '../../store/features/errorsSlice';
-import { selectQuery, selectVariablesString } from '../../store/features/editorSlice';
+import {
+  selectQuery,
+  selectVariablesString,
+  selectHeadersObject,
+  updateHeadersObject,
+} from '../../store/features/editorSlice';
 import { selectHeaders } from '../../store/features/headersSlice';
 import { UserHeaders } from '../../interfaces/headersSlice.interfaces';
 import { IValidatedHeaders } from '../../interfaces/validatedHeaders';
+import { deepCompare } from '../../utils/deepCompare';
 
 import { gridMainContainerStyle, gridMainContentStyle } from './main.style';
 import './main.scss';
@@ -27,6 +33,7 @@ const Main: FC = () => {
   const query = useAppSelector(selectQuery);
   const variablesString = useAppSelector(selectVariablesString);
   const value = useAppSelector(selectHeaders);
+  const headersObject = useAppSelector(selectHeadersObject);
 
   const dispatch = useAppDispatch();
 
@@ -44,7 +51,7 @@ const Main: FC = () => {
     return variables;
   };
 
-  const { data, isError, isFetching } = useGetGraphqlQuery(
+  const { data, isError, isFetching, refetch } = useGetGraphqlQuery(
     {
       queryString: graphqlQuery,
       variables,
@@ -54,15 +61,23 @@ const Main: FC = () => {
 
   const getData = (): void => {
     const errors = validateHeaders(value as IValidatedHeaders);
-    const convertedVariables = convertVariables();
-
-    if (!errors.length) {
-      setVariables(convertedVariables);
-      setGraphqlQuery(query);
-    } else {
+    if (errors) {
       errors.forEach((error) => {
         dispatch(addError({ name: 'Headers Error', message: error }));
       });
+    }
+    const convertedVariables = convertVariables();
+    dispatch(updateHeadersObject(value));
+
+    if (!errors.length) {
+      if (
+        !deepCompare(value as { [key: string]: string }, headersObject as { [key: string]: string })
+      ) {
+        refetch();
+      } else {
+        setVariables(convertedVariables);
+        setGraphqlQuery(query);
+      }
     }
   };
 
