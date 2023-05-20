@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { useAppDispatch } from '../../../hooks/hook.ts';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../../firebase.ts';
-import { authSignOut } from '../../../store/services/authSlice.ts';
+import { authSignOut } from '../../../store/features/authSlice.ts';
 import { updateQuery } from '../../../store/features/editorSlice.ts';
 import { UserMenuType } from '../../../types';
 import { Button, Link, MenuItem, Menu } from '@mui/material';

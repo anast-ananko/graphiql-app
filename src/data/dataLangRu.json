@@ -8,6 +8,7 @@
     },
     "buttons": {
         "signOut": "Выйти",
-        "reload": "Перезагрузить"
-    }                  
+        "reload": "Перезагрузить",
+        "openDocumentation": "Открыть документацию"
+    }
 }

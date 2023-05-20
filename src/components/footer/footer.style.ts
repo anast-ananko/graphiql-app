@@ -13,6 +13,7 @@ const footerContainer: object = {
   direction: 'row',
   justifyContent: 'space-between',
   alignItems: 'center',
+  padding: '0 10px',
 };
 
 const footerYear: object = {

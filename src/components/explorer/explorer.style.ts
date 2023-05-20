@@ -6,4 +6,6 @@ const gridExplorerStyle = {
   xl: 4,
 };
 
-export { gridExplorerStyle };
+const gridExplorerStylesSx = { textAlign: 'center' };
+
+export { gridExplorerStyle, gridExplorerStylesSx };

@@ -106,7 +106,6 @@ const TestApi: FC = () => {
               {!doc.isError && !doc.isFetching && doc.data && (
                 <TestLazyComponent documentationData={doc.data} />
               )}
-              ;
             </Suspense>
           </div>
 

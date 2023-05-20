@@ -2,7 +2,7 @@ import { FC, useState } from 'react';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase.ts';
 import { useAppDispatch } from '../../hooks/hook.ts';
-import { authSignIn } from '../../store/services/authSlice.ts';
+import { authSignIn } from '../../store/features/authSlice.ts';
 import { useNavigate } from 'react-router-dom';
 import { useForm, FieldValues } from 'react-hook-form';
 import { Box, Button, TextField } from '@mui/material';

@@ -1,4 +1,6 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
+import CodeMirror from '@uiw/react-codemirror';
+import { json } from '@codemirror/lang-json';
 
 import { useAppDispatch, useAppSelector } from '../../../hooks/hook';
 import { updateVariablesString, selectVariablesString } from '../../../store/features/editorSlice';
@@ -8,11 +10,19 @@ const Variables: FC = () => {
 
   const dispatch = useAppDispatch();
 
-  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
-    dispatch(updateVariablesString(event.target.value));
+  const handleChange = (value: string): void => {
+    dispatch(updateVariablesString(value));
   };
 
-  return <textarea onChange={handleChange} value={variablesString} className="variables" />;
+  return (
+    <CodeMirror
+      value={variablesString}
+      height="120px"
+      width="100%"
+      extensions={[json()]}
+      onChange={handleChange}
+    />
+  );
 };
 
 export default Variables;

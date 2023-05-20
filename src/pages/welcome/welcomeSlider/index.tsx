@@ -7,19 +7,19 @@ import WelcomeCard from '../welcomeCard';
 const WelcomeSlider: FC = () => {
   const developers = [
     {
-      name: 'Denis Bondarenko',
-      description:
-        'Can write code faster than Han Solo can make the Kessel Run in less than twelve parsecs—impressive, even for a Millennium Falcon pilot! Just like R2-D2, this developer`s troubleshooting skills are legendary. Much like Obi-Wan Kenobi, this developer has a knack for mentoring and guiding junior team members, shaping them into Jedi knights of the coding realm.',
-      imageUrl: 'https://www.sideshow.com/storage/product-images/400372/c-3po_star-wars_square.jpg',
-      github: 'https://github.com/ExIxIxS',
-    },
-    {
       name: 'Nastassia Ananka',
       description:
         'Software developer who works in a secret organization that resists the evil emperor. She can write code in different languages, including droid and wookiee. She also has a power that allows her to communicate with other developers remotely and influence their decisions. She is not afraid of facing difficulties and bugs, and always ready to help her colleagues. She dreams of creating a program that can destroy the death star - the main weapon of the emperor.',
       imageUrl:
         'https://www.gannett-cdn.com/-mm-/60b313f9f1ca6e3b61d7df27a25045a345f8e0fc/c=0-0-1359-768/local/-/media/2017/11/28/USATODAY/USATODAY/636474965143079134-ETAB-STAR-WARS-PRINCESS-LEIA-421017.JPG?width=660&height=373&fit=crop&format=pjpg&auto=webp',
       github: 'https://github.com/anast-ananko',
+    },
+    {
+      name: 'Denis Bondarenko',
+      description:
+        'Can write code faster than Han Solo can make the Kessel Run in less than twelve parsecs—impressive, even for a Millennium Falcon pilot! Just like R2-D2, this developer`s troubleshooting skills are legendary. Much like Obi-Wan Kenobi, this developer has a knack for mentoring and guiding junior team members, shaping them into Jedi knights of the coding realm.',
+      imageUrl: 'https://www.sideshow.com/storage/product-images/400372/c-3po_star-wars_square.jpg',
+      github: 'https://github.com/ExIxIxS',
     },
     {
       name: 'Aliaksei Balabushka',

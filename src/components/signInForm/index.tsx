@@ -4,8 +4,8 @@ import { auth } from '../../firebase.ts';
 import { useNavigate } from 'react-router-dom';
 import { useForm, FieldValues } from 'react-hook-form';
 import { useAppDispatch } from '../../hooks/hook.ts';
-import { authSignIn } from '../../store/services/authSlice.ts';
 import { Box, TextField, Button } from '@mui/material';
+import { authSignIn } from '../../store/features/authSlice.ts';
 import { checkTextFieldError, emailOptions } from '../../utils/validation.ts';
 
 const SignInForm: FC = () => {

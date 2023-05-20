@@ -9,9 +9,9 @@ import './response.scss';
 const Response: FC<IResponse> = ({ data, isError, isFetching }) => {
   return (
     <Grid {...gridResponseStyle} className="response">
-      {isError && <h2>Error</h2>}
-      {!isError && isFetching && <h2>Loading...</h2>}
-      {!isError && (
+      {isError && <h2 className="response__text">Error</h2>}
+      {!isError && isFetching && <h2 className="response__text">Loading...</h2>}
+      {!isError && !isFetching && (
         <div className="response__container">
           <pre className="response__code">{data}</pre>
         </div>

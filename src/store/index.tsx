@@ -2,7 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/dist/query';
 import graphqlApi from './services/graphQlApi';
 import updateHeadersReducer from './features/headersSlice';
-import authReducer from './services/authSlice.ts';
+import authReducer from './features/authSlice.ts';
 import errorsReducer from './features/errorsSlice';
 import editorReducer from './features/editorSlice';
 import langReducer from './features/langSlice';
