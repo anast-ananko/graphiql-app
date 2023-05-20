@@ -1,12 +1,12 @@
-.not-found {
+.auth {
   display: flex;
   flex-wrap: nowrap;
   position: relative;
   min-height: 85vh;
   overflow: hidden;
-}
 
-.not-found__img {
-  height: 90vh;
-  width: auto;
+  &__img {
+    height: 90vh;
+    width: auto;
+  }
 }

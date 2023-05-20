@@ -1,4 +1,3 @@
-import './sign-up.scss';
 import { FC, useState } from 'react';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase.ts';
@@ -6,10 +5,10 @@ import { useAppDispatch } from '../../hooks/hook.ts';
 import { authSignIn } from '../../store/features/authSlice.ts';
 import { useNavigate } from 'react-router-dom';
 import { useForm, FieldValues } from 'react-hook-form';
-import { Box, Button, Container, TextField } from '@mui/material';
+import { Box, Button, TextField } from '@mui/material';
 import { emailOptions, passwordOptions, checkTextFieldError } from '../../utils/validation.ts';
 
-const SignUp: FC = () => {
+const SignUpForm: FC = () => {
   const {
     register,
     handleSubmit,
@@ -36,7 +35,7 @@ const SignUp: FC = () => {
         const { email, uid, accessToken } = userCredential.user;
 
         dispatch(authSignIn({ accessToken, email, uid }));
-        navigate('/');
+        navigate('/main');
       }
     } catch (error) {
       if (error instanceof Error && error.message.includes('email-already-in-use')) {
@@ -48,44 +47,39 @@ const SignUp: FC = () => {
   const isHasError = (key: string): boolean => errors.hasOwnProperty(key);
 
   return (
-    <Container maxWidth="xl">
-      <form autoComplete="off" onSubmit={handleSubmit(userSignUp)}>
-        <h2 style={{ textAlign: 'center', margin: '30px', fontSize: '24px', fontWeight: '900' }}>
+    <form autoComplete="off" onSubmit={handleSubmit(userSignUp)}>
+      <TextField
+        label="Email"
+        variant="outlined"
+        type="text"
+        sx={{ mb: 3 }}
+        fullWidth
+        placeholder="email@gmail.com"
+        autoComplete="off"
+        {...register('email', emailOptions)}
+        error={isHasError('email') || !!firebaseError}
+        helperText={
+          errors.email ? checkTextFieldError(errors.email.type?.toString()) : firebaseError
+        }
+      />
+      <TextField
+        label="Password"
+        variant="outlined"
+        type="password"
+        fullWidth
+        placeholder="very secret code"
+        sx={{ mb: 3 }}
+        {...register('password', passwordOptions)}
+        error={isHasError('password')}
+        helperText={errors.password && checkTextFieldError(errors.password.type?.toString())}
+      />
+      <Box textAlign="center">
+        <Button variant="outlined" type="submit">
           Create account
-        </h2>
-        <TextField
-          label="Email"
-          variant="outlined"
-          type="text"
-          sx={{ mb: 2 }}
-          fullWidth
-          placeholder="email@gmail.com"
-          autoComplete="off"
-          {...register('email', emailOptions)}
-          error={isHasError('email') || !!firebaseError}
-          helperText={
-            errors.email ? checkTextFieldError(errors.email.type?.toString()) : firebaseError
-          }
-        />
-        <TextField
-          label="Password"
-          variant="outlined"
-          type="password"
-          fullWidth
-          placeholder="very secret code"
-          sx={{ mb: 2 }}
-          {...register('password', passwordOptions)}
-          error={isHasError('password')}
-          helperText={errors.password && checkTextFieldError(errors.password.type?.toString())}
-        />
-        <Box textAlign="center">
-          <Button variant="outlined" type="submit">
-            Create account
-          </Button>
-        </Box>
-      </form>
-    </Container>
+        </Button>
+      </Box>
+    </form>
   );
 };
 
-export default SignUp;
+export default SignUpForm;
