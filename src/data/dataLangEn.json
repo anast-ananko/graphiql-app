@@ -22,5 +22,9 @@
         "signIn": "Sign in",
         "signUp": "Sign up",
         "signOut": "Sign out"
+    },
+    "notFound": {
+        "text": "Great shot kid. That was one in a million.",
+        "button": "Let`s get you home"
     }
 }
