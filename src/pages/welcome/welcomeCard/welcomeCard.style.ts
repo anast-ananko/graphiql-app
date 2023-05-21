@@ -11,6 +11,7 @@ const welcomeCardContainer: object = {
       xs: 'wrap',
       sm: 'nowrap',
     },
+    height: { xs: '753px', sm: '468px', md: '282px', lg: '282px' },
   },
 };
 
