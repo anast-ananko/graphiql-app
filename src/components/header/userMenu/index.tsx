@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch } from '../../../hooks/hook.ts';
 import { signOut } from 'firebase/auth';
@@ -13,7 +13,7 @@ import KeyRoundedIcon from '@mui/icons-material/KeyRounded';
 const UserMenu: FC<UserMenuType> = ({ uid }) => {
   const dispatch = useAppDispatch();
 
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
   const { t: localize } = useTranslation();

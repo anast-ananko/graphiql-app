@@ -1,6 +1,6 @@
 import { Route, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import Layout from './components/layout';
-import ProtectedRoute from './components/protected-route';
+import ProtectedRoute from './components/protectedRoute';
 import Main from './pages/main';
 import Welcome from './pages/welcome';
 import NotFound from './pages/notFound';

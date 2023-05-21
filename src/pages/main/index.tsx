@@ -1,10 +1,9 @@
 import { FC, useState } from 'react';
+import Grid from '@mui/material/Grid';
 
 import Editor from '../../components/editor';
 import Explorer from '../../components/explorer';
 import Response from '../../components/response';
-import Grid from '@mui/material/Grid';
-
 import { useGetGraphqlQuery } from '../../store/services/graphQlApi';
 import { useAppSelector, useAppDispatch } from '../../hooks/hook';
 import { validateHeaders } from '../../utils/validateHeaders';

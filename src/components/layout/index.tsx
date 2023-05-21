@@ -2,6 +2,7 @@ import { FC, useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { ErrorBoundary } from 'react-error-boundary';
 import { onAuthStateChanged } from 'firebase/auth';
+
 import { auth } from '../../firebase.ts';
 import { authSignIn } from '../../store/features/authSlice.ts';
 import { useAppDispatch } from '../../hooks/hook.ts';

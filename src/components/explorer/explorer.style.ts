@@ -1,4 +1,4 @@
-const gridExplorerStyle = {
+const gridExplorerStyle: object = {
   item: true,
   xs: 12,
   md: 5,

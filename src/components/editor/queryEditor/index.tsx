@@ -9,7 +9,7 @@ import { updateQuery, selectQuery } from '../../../store/features/editorSlice';
 import { useAppDispatch, useAppSelector } from '../../../hooks/hook';
 import { useGetGraphQLSchemaQuery } from '../../../store/services/graphQlApi';
 
-const CodeMirrorGraphQL: FC = () => {
+const QueryEditor: FC = () => {
   const [, setValue] = useState<string>('');
   const query = useAppSelector(selectQuery);
 
@@ -51,4 +51,4 @@ const CodeMirrorGraphQL: FC = () => {
   );
 };
 
-export default CodeMirrorGraphQL;
+export default QueryEditor;

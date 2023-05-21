@@ -1,4 +1,4 @@
-const gridEditorStyle = {
+const gridEditorStyle: object = {
   item: true,
   container: true,
   xs: 12,
@@ -8,27 +8,27 @@ const gridEditorStyle = {
   height: { xs: '520px', lg: '100%' },
 };
 
-const gridEditorCodemirrorStyle = {
+const gridEditorCodemirrorStyle: object = {
   container: true,
   item: true,
   xs: 12,
 };
 
-const gridEditorOptionsStyle = {
+const gridEditorOptionsStyle: object = {
   item: true,
   xs: 12,
   lg: 12,
   sx: { ml: 1 },
 };
 
-const gridRunButtonStyle = {
+const gridRunButtonStyle: object = {
   item: true,
   xs: 3,
   lg: 2,
   sx: { display: 'flex', alignItems: 'start', justifyContent: 'flex-end' },
 };
 
-const toggleButtonStyle = {
+const toggleButtonStyle: object = {
   sx: {
     height: '35px',
     width: { xs: '100px', sm: '115px' },

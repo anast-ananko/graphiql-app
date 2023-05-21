@@ -6,7 +6,6 @@ import router from '../../router';
 import ErrorsDialog from '../errorsDialog';
 
 import { appTheme } from './app.style';
-import './App.scss';
 
 function App() {
   return (

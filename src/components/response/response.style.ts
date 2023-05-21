@@ -1,4 +1,4 @@
-const gridResponseStyle = {
+const gridResponseStyle: object = {
   item: true,
   xs: 12,
   md: 12,
