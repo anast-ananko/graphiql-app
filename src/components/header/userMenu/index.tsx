@@ -34,12 +34,12 @@ const UserMenu: FC<UserMenuType> = ({ uid }) => {
 
   const menuItems: Array<JSX.Element> = [
     <MenuItem onClick={handleClose} key="sign-in">
-      <Link href="/sign-in" color="inherit" underline="none">
+      <Link href="/sign-in" color="inherit" underline="none" style={{ width: '100%' }}>
         {localize('auth.signIn')}
       </Link>
     </MenuItem>,
     <MenuItem onClick={handleClose} key="sign-up">
-      <Link href="/sign-up" color="inherit" underline="none">
+      <Link href="/sign-up" color="inherit" underline="none" style={{ width: '100%' }}>
         {localize('auth.signUp')}
       </Link>
     </MenuItem>,
