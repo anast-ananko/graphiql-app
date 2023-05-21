@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Container, Typography, Grid, Button } from '@mui/material';
+
 import { notFoundContainer, notFoundImage } from './notFound.style.ts';
 import './not-found.scss';
 

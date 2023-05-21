@@ -3,7 +3,7 @@ import Layout from './components/layout';
 import ProtectedRoute from './components/protected-route';
 import Main from './pages/main';
 import Welcome from './pages/welcome';
-import NotFound from './pages/not-found';
+import NotFound from './pages/notFound';
 import TestApi from './pages/testApi';
 import SignUp from './pages/signUp';
 import SignIn from './pages/signIn';

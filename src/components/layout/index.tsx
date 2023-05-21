@@ -6,7 +6,7 @@ import { auth } from '../../firebase.ts';
 import { authSignIn } from '../../store/features/authSlice.ts';
 import { useAppDispatch } from '../../hooks/hook.ts';
 import { CircularProgress, Grid } from '@mui/material';
-import { Fallback } from '../../components/error-boundary';
+import { Fallback } from '../errorBoundary/index.tsx';
 import Header from '../header';
 import Footer from '../footer';
 

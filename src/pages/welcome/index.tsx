@@ -1,10 +1,12 @@
 import { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { RootState } from '../../store';
-import WelcomeAccordion from './welcomeAccordion';
-import WelcomeSlider from './welcomeSlider';
 import { Button, Grid, Typography } from '@mui/material';
+
+import { RootState } from '../../store';
+import WelcomeAccordion from '../../components/welcomeAccordion/index.tsx';
+import WelcomeSlider from '../../components/welcomeSlider/index.tsx';
+
 import {
   welcomeContainer,
   welcomeHeader,

@@ -3,7 +3,7 @@ import Carousel from 'react-material-ui-carousel';
 import { useTranslation } from 'react-i18next';
 import { Grid, Typography } from '@mui/material';
 import { welcomeSliderContainer, welcomeSliderCarousel } from './welcomeSlider.style.ts';
-import WelcomeCard from '../welcomeCard';
+import WelcomeCard from '../welcomeCard/index.tsx';
 
 const WelcomeSlider: FC = () => {
   const { t: localize } = useTranslation();

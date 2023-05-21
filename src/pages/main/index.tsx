@@ -4,6 +4,7 @@ import Editor from '../../components/editor';
 import Explorer from '../../components/explorer';
 import Response from '../../components/response';
 import Grid from '@mui/material/Grid';
+
 import { useGetGraphqlQuery } from '../../store/services/graphQlApi';
 import { useAppSelector, useAppDispatch } from '../../hooks/hook';
 import { validateHeaders } from '../../utils/validateHeaders';
@@ -21,11 +22,6 @@ import { deepCompare } from '../../utils/deepCompare';
 
 import { gridMainContainerStyle, gridMainContentStyle } from './main.style';
 import './main.scss';
-
-// For testing error boundary
-// const ErrorComponent = () => {
-//   throw new Error('Something went wrong');
-// };
 
 const Main: FC = () => {
   const [graphqlQuery, setGraphqlQuery] = useState<string>('');
@@ -85,8 +81,6 @@ const Main: FC = () => {
     <Grid {...gridMainContainerStyle} className="main__container">
       <Explorer />
       <Grid {...gridMainContentStyle} className="main__content">
-        {/* For testing error boundary */}
-        {/* <ErrorComponent /> */}
         <Editor getData={getData} />
         <Response data={data} isError={isError} isFetching={isFetching} />
       </Grid>
