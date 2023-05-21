@@ -2,9 +2,13 @@
   display: flex;
   flex-direction: column;
   height: 70vh;
-  padding-right: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: black;
 
   & &__content {
+    margin: 5px 0;
     overflow: auto;
+    padding: 0 10px;
   }
 }

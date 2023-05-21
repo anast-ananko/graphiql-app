@@ -1,5 +1,7 @@
 import { FC, useState } from 'react';
 import CodeMirror from '@uiw/react-codemirror';
+import { createTheme } from '@uiw/codemirror-themes';
+import { tags as t } from '@lezer/highlight';
 import { graphql } from 'cm6-graphql';
 import { buildClientSchema } from 'graphql';
 
@@ -21,6 +23,15 @@ const CodeMirrorGraphQL: FC = () => {
     dispatch(updateQuery(value));
   };
 
+  const myTheme = createTheme({
+    theme: 'dark',
+    settings: {
+      background: '#000000',
+      caret: '#ffffff',
+    },
+    styles: [{ tag: t.keyword, color: 'red' }],
+  });
+
   return (
     <>
       {isFetching && <div className="codemirror__loading">Loading...</div>}
@@ -30,9 +41,9 @@ const CodeMirrorGraphQL: FC = () => {
           width="100%"
           onChange={onChangeValue}
           extensions={[graphql(schema)]}
+          theme={myTheme}
           basicSetup={{
             autocompletion: true,
-            lintKeymap: false,
           }}
         />
       )}
