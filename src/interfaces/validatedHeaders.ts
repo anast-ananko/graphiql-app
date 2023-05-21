@@ -3,7 +3,7 @@ interface IValidatedHeaders {
 }
 
 interface IHeadersValidationMap {
-  [key: string]: (name: string) => string;
+  [headerName: string]: (headerValue: string, localize: (value: string) => string) => string;
 }
 
 export type { IHeadersValidationMap, IValidatedHeaders };

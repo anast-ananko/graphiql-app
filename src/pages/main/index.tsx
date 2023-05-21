@@ -1,5 +1,6 @@
 import { FC, useState } from 'react';
 import Grid from '@mui/material/Grid';
+import { useTranslation } from 'react-i18next';
 
 import Editor from '../../components/editor';
 import Explorer from '../../components/explorer';
@@ -30,6 +31,8 @@ const Main: FC = () => {
   const value = useAppSelector(selectHeaders);
   const headersObject = useAppSelector(selectHeadersObject);
 
+  const { t: localize } = useTranslation();
+
   const dispatch = useAppDispatch();
 
   const convertVariables = (): UserHeaders => {
@@ -39,7 +42,12 @@ const Main: FC = () => {
       try {
         variables = JSON.parse(variablesString);
       } catch {
-        dispatch(addError({ name: 'Variables Error', message: 'Invalid object of variables' }));
+        dispatch(
+          addError({
+            name: `${localize('error.text-2')}`,
+            message: `${localize('error.text-3')}`,
+          })
+        );
       }
     }
 
@@ -55,10 +63,10 @@ const Main: FC = () => {
   );
 
   const getData = (): void => {
-    const errors = validateHeaders(value as IValidatedHeaders);
+    const errors = validateHeaders(value as IValidatedHeaders, localize);
     if (errors) {
       errors.forEach((error) => {
-        dispatch(addError({ name: 'Headers Error', message: error }));
+        dispatch(addError({ name: `${localize('error.text-4')}`, message: error }));
       });
     }
     const convertedVariables = convertVariables();

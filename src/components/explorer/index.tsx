@@ -1,6 +1,5 @@
 import { FC, Suspense, lazy, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-
 import Grid from '@mui/material/Grid';
 import LinearProgress from '@mui/material/LinearProgress';
 import Button from '@mui/material/Button';
