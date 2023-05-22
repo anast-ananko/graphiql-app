@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
+
 import { IElevationScroll } from '../../../interfaces/elevationScroll';
 
 const ElevationScroll = ({ children }: IElevationScroll): ReactElement => {

@@ -1,8 +1,7 @@
-@import "./normalize";
-@import "./variables";
+@import './normalize';
+@import './variables';
 
 body {
-    font-family: 'Nunito', sans-serif;
-    font-weight: $font-weight-normal;
-    font-size: $font-size-sm;
+  font-weight: $font-weight-normal;
+  font-size: $font-size-sm;
 }

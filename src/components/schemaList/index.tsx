@@ -26,7 +26,7 @@ const SchemaList: FC<SchemaListProps> = ({ schema }) => {
     setAddedBreadcrumb(newBreadcrumb);
   }
 
-  function cutBreadcrumbsByLength(length: number) {
+  function cutBreadcrumbsByLength(length: number): void {
     const slicedArr = sliceBreadcrumbsByLength(length, breadcrumbs);
     setBreadcrumbs(slicedArr);
     setAddedBreadcrumb(null);
