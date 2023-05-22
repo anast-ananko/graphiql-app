@@ -47,9 +47,9 @@ const Language: FC = () => {
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
         onClose={handleClose}
       >
-        <MenuItem onClick={() => menuItemHandler('en')}>English</MenuItem>
-        <MenuItem onClick={() => menuItemHandler('by')}>Белорусский</MenuItem>
-        <MenuItem onClick={() => menuItemHandler('ru')}>Русский</MenuItem>
+        <MenuItem onClick={() => menuItemHandler('en')}>EN</MenuItem>
+        <MenuItem onClick={() => menuItemHandler('by')}>BY</MenuItem>
+        <MenuItem onClick={() => menuItemHandler('ru')}>RU</MenuItem>
       </Menu>
     </>
   );

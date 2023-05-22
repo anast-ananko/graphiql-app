@@ -21,7 +21,13 @@
         "errorPassword": "Oops, your password is wrong",
         "signIn": "Sign in",
         "signUp": "Sign up",
-        "signOut": "Sign out"
+        "signOut": "Sign out",
+        "error-1": "Hmmm, current email already in use",
+        "error-2": "This field must not be empty",
+        "error-3": "Value of this field too short",
+        "error-4": "Value of this field too long",
+        "error-5": "Wrong value",
+        "error-6": "Unknown error"
     },
     "notFound": {
         "text": "Great shot kid. That was one in a million.",

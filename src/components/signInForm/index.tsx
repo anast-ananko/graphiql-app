@@ -56,7 +56,9 @@ const SignInForm: FC = () => {
         {...register('email', emailOptions)}
         error={isHasError('email') || !!emailFirebaseError}
         helperText={
-          errors.email ? checkTextFieldError(errors.email.type?.toString()) : emailFirebaseError
+          errors.email
+            ? checkTextFieldError(errors.email.type?.toString(), localize)
+            : emailFirebaseError
         }
       />
       <TextField
@@ -69,7 +71,7 @@ const SignInForm: FC = () => {
         error={isHasError('password') || !!passwordFirebaseError}
         helperText={
           errors.password
-            ? checkTextFieldError(errors.password.type?.toString())
+            ? checkTextFieldError(errors.password.type?.toString(), localize)
             : passwordFirebaseError
         }
       />
