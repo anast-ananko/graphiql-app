@@ -1,6 +1,7 @@
 import { useState, forwardRef, useEffect, FC } from 'react';
 import { clearErrors, selectErrorsArray } from '../../store/features/errorsSlice';
 import { useAppDispatch, useAppSelector } from '../../hooks/hook';
+import { useTranslation } from 'react-i18next';
 
 import Dialog from '@mui/material/Dialog';
 import AppBar from '@mui/material/AppBar';
@@ -31,6 +32,8 @@ const ErrorsDialog: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const userErrors = useAppSelector(selectErrorsArray);
   const [currentUserError, setCurrentUserError] = useState(userErrors?.[0]);
+
+  const { t: localize } = useTranslation();
 
   useEffect(() => {
     if (!isOpen && userErrors.length) {
@@ -66,7 +69,7 @@ const ErrorsDialog: FC = () => {
               <CloseIcon />
             </IconButton>
             <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
-              Opps... Something went wrong.
+              {localize('error.text-1')}
             </Typography>
             <Pagination
               className="error-dialog__pagination"

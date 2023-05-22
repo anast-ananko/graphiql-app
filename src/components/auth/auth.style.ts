@@ -27,6 +27,7 @@ const authRedirectLink: object = {
   item: true,
   container: true,
   justifyContent: 'center',
+  textAlign: 'center',
 };
 
 const authImage: object = {

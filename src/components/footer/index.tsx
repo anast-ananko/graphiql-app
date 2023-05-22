@@ -17,7 +17,7 @@ const Footer: FC = () => {
           <Typography>2023</Typography>
         </Grid>
         <Grid {...footerRSSchool}>
-          <Button href="https://rs.school/react/" color="inherit">
+          <Button href="https://rs.school/react/" color="inherit" target="_blank">
             <img
               src="rs-school.png"
               style={{ height: '50px ' }}

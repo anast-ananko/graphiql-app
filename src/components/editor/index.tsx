@@ -1,5 +1,4 @@
 import { FC, useState } from 'react';
-
 import { Button, Grid } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import IconButton from '@mui/material/IconButton';
@@ -9,7 +8,7 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 
-import CodeMirrorGraphQL from './code-mirror';
+import QueryEditor from './queryEditor';
 import Variables from './variables';
 import Headers from './headers';
 import { IEditor } from '../../interfaces/editorComponent';
@@ -43,7 +42,7 @@ const Editor: FC<IEditor> = ({ getData }) => {
         })}
       >
         <Grid item xs={9} lg={10} className="codemirror">
-          <CodeMirrorGraphQL />
+          <QueryEditor />
         </Grid>
         <Grid {...gridRunButtonStyle}>
           <Button

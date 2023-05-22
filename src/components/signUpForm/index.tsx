@@ -1,5 +1,6 @@
 import { FC, useState } from 'react';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { useTranslation } from 'react-i18next';
 import { auth } from '../../firebase.ts';
 import { useAppDispatch } from '../../hooks/hook.ts';
 import { authSignIn } from '../../store/features/authSlice.ts';
@@ -19,6 +20,8 @@ const SignUpForm: FC = () => {
   const dispatch = useAppDispatch();
 
   const [firebaseError, setFirebaseError] = useState<string | null>(null);
+
+  const { t: localize } = useTranslation();
 
   const userSignUp = async (fields: FieldValues) => {
     try {
@@ -75,7 +78,7 @@ const SignUpForm: FC = () => {
       />
       <Box textAlign="center">
         <Button variant="outlined" type="submit">
-          Create account
+          {localize('auth.createAccount')}
         </Button>
       </Box>
     </form>

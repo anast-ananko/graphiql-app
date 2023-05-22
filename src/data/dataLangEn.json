@@ -7,8 +7,63 @@
         "headers": "Headers"
     },
     "buttons": {
-        "signOut": "Sign out",
         "reload": "Reload",
         "openDocumentation": "Open documentation"
+    },
+    "auth": {
+        "pageLogin-1": "If you don`t have account, ",
+        "pageLogin-2": "create account",
+        "pageRegistr-1": "If you have account, please ",
+        "pageRegistr-2": "login",
+        "login": "Login",
+        "createAccount": "Create account",
+        "errorEmail": "Hmmm, user with current email not found",
+        "errorPassword": "Oops, your password is wrong",
+        "signIn": "Sign in",
+        "signUp": "Sign up",
+        "signOut": "Sign out"
+    },
+    "notFound": {
+        "text": "Great shot kid. That was one in a million.",
+        "button": "Let`s get you home"
+    },
+    "welcome": {
+        "text": "Welcome to StarWars GraphQl far, far away",
+        "button": "Open main page",
+        "about": "About",
+        "developers": "Developers"
+    },
+    "welcomeAccordion": {
+        "project": "Project",
+        "text-1": "GraphQl StarWars Explorer",
+        "text-2": "Introducing the GraphQl StarWars Explorer project, a delightful journey where developers can traverse the vast reaches of the Star Wars universe with just a few keystrokes!",
+        "text-3": "Picture yourself wielding the power of GraphQL, the Jedi Knight of API query languages, as you delve into a galaxy filled with spaceships, droids, and lightsabers. With this project, you`ll feel like a Jedi librarian, effortlessly navigating through a treasure trove of Star Wars data.",
+        "text-4": "Explore characters like Luke Skywalker, Darth Vader, and Yoda with the grace of a Corellian smuggler, seamlessly traversing their connections, from their affiliations to their iconic quotes. Want to know which films R2-D2 made an appearance in? Simply summon the Force of GraphQL to retrieve the answer in an instant. But that`s not all!",
+        "text-5": "This project offers more twists than a Hutt`s tail. It allows you to unearth details about starships, planets, species, and even the ever-popular opening crawl of each Star Wars movie. You`ll feel like a protocol droid fluent in over six million forms of entertainment knowledge.",
+        "text-6": "So, embrace the GraphQl StarWars Explorer project, where coding meets the Force. It`s a whimsical adventure that will have you saying, `May the queries be with you` and laughing like a jovial Wookiee in no time.",
+        "course-1": "Course",
+        "course-2": "RS School React Course",
+        "course-3": "React Course is free and online!",
+        "text-7": "The RS School React course is working by the principle of pay it forward. Members of our community share their knowledge and check students tasks for free. And we hope our students will continue this work as our mentors in the future.",
+        "text-8": "Everyone can study at RS School, regardless of age, professional employment, or place of residence. However, you should have sufficient base knowledge before the program begins.",
+        "text-9": "After accomplishing an education, students will receive an electronic certificate of completion."
+    },
+    "welcomeSlider": {
+        "text-1": "Introducing the project developers, a motley crew of code-wielding rebels and tech-savvy scoundrels! With their fingers flying across keyboards at hyperspeed, they bring forth a project that`s more powerful than an army of astromech droids and funnier than Jar Jar Binks clumsiness.",
+        "text-2": "Software developer who works in a secret organization that resists the evil emperor. She can write code in different languages, including droid and wookiee. She also has a power that allows her to communicate with other developers remotely and influence their decisions. She is not afraid of facing difficulties and bugs, and always ready to help her colleagues. She dreams of creating a program that can destroy the death star - the main weapon of the emperor.",
+        "text-3": "Can write code faster than Han Solo can make the Kessel Run in less than twelve parsecs—impressive, even for a Millennium Falcon pilot! Just like R2-D2, this developer`s troubleshooting skills are legendary. Much like Obi-Wan Kenobi, this developer has a knack for mentoring and guiding junior team members, shaping them into Jedi knights of the coding realm.",
+        "text-4": "Software developer who works in a secret organization that resists the evil emperor. He can write code in any language, including droid, wookiee and ewok. He also has a power that allows him to hack any security systems and control various mechanisms. He is not afraid of facing difficulties and bugs, and always ready to help his friends. He dreams of creating a program that can destroy the death star - the main weapon of the emperor."
+    },
+    "error": {
+        "text-1": "Opps... Something went wrong.",
+        "text-2": "Variables Error",
+        "text-3": "Invalid object of variables",
+        "text-4": "Headers Error",
+        "text-5": "Header Authorization must start with Bearer",
+        "text-6": "Token in header Authorization must be longer then 10 symbols",
+        "text-7": "Token in header Authorization must be shorter then 20 symbols",
+        "text-8": "Invalid header Access-Control-Allow-Origin",
+        "text-9": "Invalid header Access-Control-Allow-Credentials",
+        "text-10": "Invalid header Accept"
     }
 }

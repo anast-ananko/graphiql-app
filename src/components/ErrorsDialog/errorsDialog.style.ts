@@ -1,4 +1,4 @@
-const paginationStyle = {
+const paginationStyle: object = {
   color: 'primary' as const,
   defaultPage: 1,
   siblingCount: 0,

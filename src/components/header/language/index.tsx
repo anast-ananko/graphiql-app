@@ -1,16 +1,34 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { Button, MenuItem } from '@mui/material';
 import LanguageRoundedIcon from '@mui/icons-material/LanguageRounded';
 import Menu from '@mui/material/Menu';
 
+import i18n from '../../../data/i18n';
+import { useAppDispatch, useAppSelector } from '../../../hooks/hook';
+import { changeLanguage, selectLang } from '../../../store/features/langSlice';
+
 const Language: FC = () => {
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) =>
+  const lang = useAppSelector(selectLang);
+
+  const dispatch = useAppDispatch();
+
+  const handleLanguageChange = (lang: string): void => {
+    i18n.changeLanguage(lang);
+    dispatch(changeLanguage(lang));
+  };
+
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>): void =>
     setAnchorEl(event.currentTarget);
 
-  const handleClose = () => setAnchorEl(null);
+  const handleClose = (): void => setAnchorEl(null);
+
+  const menuItemHandler = (lang: string): void => {
+    handleClose();
+    handleLanguageChange(lang);
+  };
 
   return (
     <>
@@ -20,7 +38,7 @@ const Language: FC = () => {
         color="inherit"
         onClick={handleClick}
       >
-        Ru
+        {lang === 'en' ? 'EN' : lang === 'by' ? 'BY' : 'RU'}
       </Button>
       <Menu
         anchorEl={anchorEl}
@@ -29,9 +47,9 @@ const Language: FC = () => {
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose}>English</MenuItem>
-        <MenuItem onClick={handleClose}>Русский</MenuItem>
-        <MenuItem onClick={handleClose}>Беларусский</MenuItem>
+        <MenuItem onClick={() => menuItemHandler('en')}>English</MenuItem>
+        <MenuItem onClick={() => menuItemHandler('by')}>Белорусский</MenuItem>
+        <MenuItem onClick={() => menuItemHandler('ru')}>Русский</MenuItem>
       </Menu>
     </>
   );

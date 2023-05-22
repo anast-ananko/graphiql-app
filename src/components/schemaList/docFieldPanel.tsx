@@ -18,7 +18,7 @@ const DocFieldPanel: FC<DocFieldPanelProps> = ({ schemaField }) => {
 
   return (
     <>
-      <h2>{`${fieldName}:${typeName}`}</h2>
+      <h2 className="max-width">{`${fieldName}:${typeName}`}</h2>
       <DocArgList field={schemaField} />
       <TypeDescription typeName={typeName} />
       <DocFieldsList typeName={typeName} />
