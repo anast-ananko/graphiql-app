@@ -22,19 +22,19 @@
         "signIn": "Sign in",
         "signUp": "Sign up",
         "signOut": "Sign out",
-        "error-1": "Hmmm, current email already in use",
-        "error-2": "This field must not be empty",
-        "error-3": "Value of this field too short",
-        "error-4": "Value of this field too long",
-        "error-5": "Wrong value",
-        "error-6": "Unknown error"
+        "errorUsedPassword": "Hmmm, current email already in use",
+        "errorEmpty": "This field must not be empty",
+        "errorShort": "Value of this field too short",
+        "errorLong": "Value of this field too long",
+        "errorWrongValue": "Wrong value",
+        "errorUnknown": "Unknown error"
     },
     "notFound": {
         "text": "Great shot kid. That was one in a million.",
         "button": "Let`s get you home"
     },
     "welcome": {
-        "text": "Welcome to StarWars GraphQl far, far away",
+        "title": "Welcome to StarWars GraphQl far, far away",
         "button": "Open main page",
         "about": "About",
         "developers": "Developers"
@@ -61,15 +61,15 @@
         "text-4": "Software developer who works in a secret organization that resists the evil emperor. He can write code in any language, including droid, wookiee and ewok. He also has a power that allows him to hack any security systems and control various mechanisms. He is not afraid of facing difficulties and bugs, and always ready to help his friends. He dreams of creating a program that can destroy the death star - the main weapon of the emperor."
     },
     "error": {
-        "text-1": "Opps... Something went wrong.",
-        "text-2": "Variables Error",
-        "text-3": "Invalid object of variables",
-        "text-4": "Headers Error",
-        "text-5": "Header Authorization must start with Bearer",
-        "text-6": "Token in header Authorization must be longer then 10 symbols",
-        "text-7": "Token in header Authorization must be shorter then 20 symbols",
-        "text-8": "Invalid header Access-Control-Allow-Origin",
-        "text-9": "Invalid header Access-Control-Allow-Credentials",
-        "text-10": "Invalid header Accept"
+        "errorMainText": "Opps... Something went wrong.",
+        "variablesError": "Variables Error",
+        "wrongObjectOfVariables": "Invalid object of variables",
+        "headersError": "Headers Error",
+        "errorAuthBearer": "Header Authorization must start with Bearer",
+        "errorShortAuth": "Token in header Authorization must be longer then 10 symbols",
+        "errorLongAuth": "Token in header Authorization must be shorter then 20 symbols",
+        "errorAccessControlOr": "Invalid header Access-Control-Allow-Origin",
+        "errorAccessControlCr": "Invalid header Access-Control-Allow-Credentials",
+        "errorAccept": "Invalid header Accept"
     }
 }

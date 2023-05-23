@@ -6,15 +6,15 @@ const validateAuthorization = (
   localize: (value: string) => string
 ): string => {
   if (!authorizationHeader.startsWith('Bearer')) {
-    return `${localize('error.text-5')}`;
+    return `${localize('error.errorAuthBearer')}`;
   } else {
     const token = authorizationHeader.replace('Bearer ', '');
 
     if (token.length <= 10) {
-      return `${localize('error.text-6')}`;
+      return `${localize('error.errorShortAuth')}`;
     }
     if (token.length >= 20) {
-      return `${localize('error.text-7')}`;
+      return `${localize('error.errorLongAuth')}`;
     }
   }
 
@@ -28,7 +28,7 @@ const validateAccessControlAllowOrigin = (
   const originRegex =
     /^(\*|(https?|ftp|file):\/\/([a-zA-Z0-9]+)(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,})|null)$/i;
 
-  return !originRegex.test(header) ? `${localize('error.text-8')}` : '';
+  return !originRegex.test(header) ? `${localize('error.errorAccessControlOr')}` : '';
 };
 
 const validateAccessControlAllowCredentials = (
@@ -38,7 +38,7 @@ const validateAccessControlAllowCredentials = (
   const headerValue = header.toLowerCase().trim();
 
   if (headerValue !== 'true' && headerValue !== 'false') {
-    return `${localize('error.text-9')}`;
+    return `${localize('error.errorAccessControlCr')}`;
   }
 
   return '';
@@ -49,7 +49,7 @@ const validateAccept = (header: string, localize: (value: string) => string): st
 
   for (const type of requestedTypes) {
     if (!validTypes.includes(type.trim())) {
-      return `${localize('error.text-10')}`;
+      return `${localize('error.errorAccept')}`;
     }
   }
 

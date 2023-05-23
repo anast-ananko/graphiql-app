@@ -44,8 +44,8 @@ const Main: FC = () => {
       } catch {
         dispatch(
           addError({
-            name: `${localize('error.text-2')}`,
-            message: `${localize('error.text-3')}`,
+            name: `${localize('error.variablesError')}`,
+            message: `${localize('error.wrongObjectOfVariables')}`,
           })
         );
       }
@@ -66,7 +66,7 @@ const Main: FC = () => {
     const errors = validateHeaders(value as IValidatedHeaders, localize);
     if (errors) {
       errors.forEach((error) => {
-        dispatch(addError({ name: `${localize('error.text-4')}`, message: error }));
+        dispatch(addError({ name: `${localize('error.headersError')}`, message: error }));
       });
     }
     const convertedVariables = convertVariables();

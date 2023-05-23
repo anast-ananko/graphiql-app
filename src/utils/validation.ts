@@ -19,15 +19,15 @@ export const checkTextFieldError = (
   if (type !== undefined) {
     switch (type) {
       case 'required':
-        return `${localize('auth.error-2')}`;
+        return `${localize('auth.errorEmpty')}`;
       case 'minLength':
-        return `${localize('auth.error-3')}`;
+        return `${localize('auth.errorShort')}`;
       case 'maxLength':
-        return `${localize('auth.error-4')}`;
+        return `${localize('auth.errorLong')}`;
       case 'pattern':
-        return `${localize('auth.error-5')}`;
+        return `${localize('auth.errorWrongValue')}`;
       default:
-        return `${localize('auth.error-5')}`;
+        return `${localize('auth.errorUnknown')}`;
     }
   } else {
     return `${localize('auth.error-6')}`;
