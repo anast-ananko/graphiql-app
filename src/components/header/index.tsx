@@ -14,8 +14,11 @@ import {
   headerProduct,
   headerBar,
   headerMenuContainer,
+  headerLogoButtonStyle,
 } from './header.style.ts';
 import './header.scss';
+import { NavLink } from 'react-router-dom';
+import { APP_ROUTE_PATHS } from '../../constants/appRoutingConstants.ts';
 
 const Header: FC = () => {
   const { uid } = useSelector((state: RootState) => state.auth);
@@ -25,10 +28,12 @@ const Header: FC = () => {
       <AppBar className="header" {...headerBar}>
         <Grid {...headerContainer}>
           <Grid {...headerLogo}>
-            <Button href="/" className="logo" {...headerLogoButton}>
-              <img className="logo__icon" src="logo.png" alt="GraphiQL logo" />
-              GraphiQL
-            </Button>
+            <NavLink to={APP_ROUTE_PATHS.ROOT}>
+              <Button className="logo-button" {...headerLogoButton} sx={headerLogoButtonStyle}>
+                <img className="logo-button__icon" src="logo.png" alt="GraphiQL logo" />
+                GraphiQL
+              </Button>
+            </NavLink>
           </Grid>
           <Grid {...headerProduct}>
             <img className="header__product" src="logo-starwars.png" alt="Logo starwars" />

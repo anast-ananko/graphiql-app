@@ -5,7 +5,7 @@ import LinearProgress from '@mui/material/LinearProgress';
 import Button from '@mui/material/Button';
 
 import './explorer.scss';
-import { gridExplorerStyle } from './explorer.style';
+import { gridExplorerStyle, gridExplorerStylesSx } from './explorer.style';
 
 const LazyDocumentation = lazy(() => import('../documentationPanel'));
 
