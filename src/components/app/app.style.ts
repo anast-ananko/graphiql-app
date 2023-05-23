@@ -1,6 +1,8 @@
-import { createTheme } from '@mui/material/styles';
+import { ThemeOptions, createTheme } from '@mui/material/styles';
 
-const themeConfig: object = {
+import { PRIMARY_FONT, SECONDARY_FONT } from '../../constants/fontsConstants';
+
+const themeConfig: ThemeOptions = {
   palette: {
     mode: 'dark',
     primary: {
@@ -16,11 +18,11 @@ const themeConfig: object = {
     },
   },
   typography: {
-    fontFamily: ['Rubik', 'sans serif'].join(','),
+    fontFamily: PRIMARY_FONT,
     fontSize: 14,
     // The biggest headline
     h1: {
-      fontFamily: ['Russo One', 'arial'].join(','),
+      fontFamily: SECONDARY_FONT,
       fontSize: '6rem',
       '@media (max-width:600px)': {
         fontSize: '4rem',
@@ -28,7 +30,7 @@ const themeConfig: object = {
     },
     // Main header in page
     h2: {
-      fontFamily: ['Russo One', 'arial'].join(','),
+      fontFamily: SECONDARY_FONT,
       fontSize: '1.8rem',
       '@media (max-width:600px)': {
         fontSize: '1.4rem',
@@ -51,14 +53,14 @@ const themeConfig: object = {
     },
     // Button
     button: {
-      fontFamily: ['Russo One', 'arial'].join(','),
+      fontFamily: SECONDARY_FONT,
       fontSize: '1.1rem',
       '@media (max-width:600px)': {
         fontSize: '0.9rem',
       },
     },
     // For code: article header and etc.
-    subtitle: {
+    subtitle1: {
       fontSize: '1.1rem',
       '@media (max-width:600px)': {
         fontSize: '1.05rem',
