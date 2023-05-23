@@ -7,7 +7,7 @@ const WelcomeCard: FC<WelcomeCardType> = ({ data }) => {
   return (
     <Grid {...welcomeCardContainer}>
       <Grid item>
-        <img src={data.imageUrl} {...welcomeCardImage} alt="card" />
+        <img src={data.imageUrl} {...welcomeCardImage} alt="Card" />
       </Grid>
       <Grid item>
         <Link href={data.github} color="secondary" target="_blank">

@@ -12,21 +12,24 @@ export const passwordOptions = {
   pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$/,
 };
 
-export const checkTextFieldError = (type: string | undefined): string => {
+export const checkTextFieldError = (
+  type: string | undefined,
+  localize: (value: string) => string
+): string => {
   if (type !== undefined) {
     switch (type) {
       case 'required':
-        return 'This field must not be empty';
+        return `${localize('auth.errorEmpty')}`;
       case 'minLength':
-        return 'Value of this field too short';
+        return `${localize('auth.errorShort')}`;
       case 'maxLength':
-        return 'Value of this field too long';
+        return `${localize('auth.errorLong')}`;
       case 'pattern':
-        return 'Wrong value';
+        return `${localize('auth.errorWrongValue')}`;
       default:
-        return 'Wrong value';
+        return `${localize('auth.errorUnknown')}`;
     }
   } else {
-    return 'Unknown error';
+    return `${localize('auth.error-6')}`;
   }
 };

@@ -8,7 +8,7 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 
-import QueryEditor from './queryEditor';
+import QueryEditor from './codeEditor';
 import Variables from './variables';
 import Headers from './headers';
 import { IEditor } from '../../interfaces/editorComponent';

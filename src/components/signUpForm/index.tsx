@@ -42,7 +42,7 @@ const SignUpForm: FC = () => {
       }
     } catch (error) {
       if (error instanceof Error && error.message.includes('email-already-in-use')) {
-        setFirebaseError('Hmmm, current email already in use');
+        setFirebaseError(`${localize('auth.errorUsedPassword')}`);
       }
     }
   };
@@ -62,7 +62,9 @@ const SignUpForm: FC = () => {
         {...register('email', emailOptions)}
         error={isHasError('email') || !!firebaseError}
         helperText={
-          errors.email ? checkTextFieldError(errors.email.type?.toString()) : firebaseError
+          errors.email
+            ? checkTextFieldError(errors.email.type?.toString(), localize)
+            : firebaseError
         }
       />
       <TextField
@@ -74,7 +76,9 @@ const SignUpForm: FC = () => {
         sx={{ mb: 3 }}
         {...register('password', passwordOptions)}
         error={isHasError('password')}
-        helperText={errors.password && checkTextFieldError(errors.password.type?.toString())}
+        helperText={
+          errors.password && checkTextFieldError(errors.password.type?.toString(), localize)
+        }
       />
       <Box textAlign="center">
         <Button variant="outlined" type="submit">

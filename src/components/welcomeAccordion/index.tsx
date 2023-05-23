@@ -9,9 +9,11 @@ const WelcomeAccordion: FC = () => {
 
   const { t: localize } = useTranslation();
 
-  const handleChange = (panel: string) => (_: SyntheticEvent, isExpanded: boolean) => {
-    setExpanded(isExpanded && panel);
-  };
+  const handleChange =
+    (panel: string) =>
+    (_: SyntheticEvent, isExpanded: boolean): void => {
+      setExpanded(isExpanded && panel);
+    };
 
   return (
     <>
