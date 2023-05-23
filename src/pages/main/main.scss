@@ -1,13 +1,10 @@
 @import '../../styles/variables';
 
 .main {
-  min-height: calc(100vh - 149px);
-
   &__container {
     background-color: #e7ebea;
     border: 1px solid $border-color-grey;
     border-radius: 5px;
-    margin: 0 auto !important;
     padding-bottom: 20px;
   }
 

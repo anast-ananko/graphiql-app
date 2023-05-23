@@ -8,7 +8,12 @@ import { DocListProps } from '../../interfaces/schemaList.interfaces';
 const DocList: FC<DocListProps> = ({ title, children }) => {
   return (
     <List
-      sx={{ width: '100%', maxWidth: 320, bgcolor: 'background.paper' }}
+      sx={{
+        width: '100%',
+        maxWidth: 320,
+        bgcolor: '#181818',
+        mb: 1,
+      }}
       subheader={<ListSubheader>{title}</ListSubheader>}
     >
       {children}

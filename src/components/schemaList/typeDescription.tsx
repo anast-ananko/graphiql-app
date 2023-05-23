@@ -10,8 +10,8 @@ const TypeDescription: FC<TypeDescriptionProps> = ({ typeName }) => {
 
   return (
     <>
-      <h3>{`Metadata for ${typeName} type:`}</h3>
-      <p>{description}</p>
+      <h3 className="max-width">{`Metadata for ${typeName} type:`}</h3>
+      <p className="max-width">{description}</p>
     </>
   );
 };

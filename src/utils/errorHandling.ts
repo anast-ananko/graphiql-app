@@ -1,5 +1,5 @@
 import { AnyAction } from '@reduxjs/toolkit';
-import { UserError } from '../interfaces/errorsSlice.interfaces';
+import { UserError, BracketFormater } from '../interfaces/errorsSlice.interfaces';
 
 function getUserErrorFromAction(action: AnyAction): UserError {
   const payload = action.payload;
@@ -18,28 +18,40 @@ function getUserErrorFromAction(action: AnyAction): UserError {
   return error;
 }
 
-function convertMessageToReadableString(inputString: string, indentLevel = 2): string {
-  const indent = indentLevel >= 0 ? '\t'.repeat(indentLevel) : '';
-  let openBraces = 0;
+function convertMessageToReadableString(inputString: string, spacer = '   '): string {
+  const formattedStr = inputString.split('').map(getBracketsFormater('{', '}', spacer)).join('');
 
-  const formattedLines = inputString
-    .split('{')
-    .map((line) => {
-      const trimedLine = line.trim();
-      switch (true) {
-        case trimedLine.includes('}'):
-          openBraces--;
-          return `${indent}\t`.repeat(Math.max(openBraces, 0)) + '{' + trimedLine;
-        default:
-          const formattedLine = `${indent}\t`.repeat(Math.max(openBraces, 0)) + '{' + trimedLine;
-          openBraces++;
-          return formattedLine;
+  return formattedStr;
+}
+
+function getBracketsFormater(
+  leftBracket: string,
+  rightBracket: string,
+  spacer = ' '
+): BracketFormater {
+  let bracketLevel = 0;
+
+  return (char: string, index: number, arr: string[]) => {
+    if (char === leftBracket) {
+      bracketLevel++;
+      return `${leftBracket}\n${spacer.repeat(bracketLevel)}`;
+    }
+
+    if (char === rightBracket) {
+      const nextChar = arr?.[index + 1];
+      const charStart = bracketLevel ? '\n' : '';
+      const charEnd = nextChar === rightBracket || nextChar === ']' ? '' : '\n';
+      const formatedChar = `${charStart}${spacer.repeat(bracketLevel)}${rightBracket}${charEnd}`;
+
+      if (bracketLevel) {
+        bracketLevel--;
       }
-    })
-    .join('\n')
-    .trim();
 
-  return formattedLines;
+      return formatedChar;
+    }
+
+    return char;
+  };
 }
 
 export { getUserErrorFromAction, convertMessageToReadableString };

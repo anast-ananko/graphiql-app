@@ -1,31 +1,51 @@
 import { FC } from 'react';
-import { Link } from 'react-router-dom';
-import { AppBar, Container } from '@mui/material';
-
-import { containerFooterStyle } from './footer.style';
-import './footer.scss';
+import { AppBar, Button, Grid, IconButton, Typography } from '@mui/material';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import {
+  footerBar,
+  footerContainer,
+  footerYear,
+  footerRSSchool,
+  footerGithubProfiles,
+} from './footer.style.ts';
 
 const Footer: FC = () => {
   return (
-    <footer className="footer">
-      <AppBar position="static">
-        <Container style={{ ...containerFooterStyle }} className="footer__container" maxWidth="xl">
-          <div className="footer__links">
-            <Link className="footer__link" to="https://github.com/ablbsk" target="_blank"></Link>
-            <Link className="footer__link" to="https://github.com/ExIxIxS" target="_blank"></Link>
-            <Link
-              className="footer__link"
-              to="https://github.com/anast-ananko"
-              target="_blank"
-            ></Link>
-          </div>
-          <div className="footer__year">2023</div>
-          <div className="footer__logo">
-            <Link to="https://rs.school/react/" target="_blank"></Link>
-          </div>
-        </Container>
-      </AppBar>
-    </footer>
+    <AppBar className="footer" {...footerBar}>
+      <Grid {...footerContainer}>
+        <Grid {...footerYear}>
+          <Typography>2023</Typography>
+        </Grid>
+        <Grid {...footerRSSchool}>
+          <Button href="https://rs.school/react/" color="inherit" target="_blank">
+            <img
+              src="rs-school.png"
+              style={{ height: '50px ' }}
+              alt="RS School React final project"
+            />
+          </Button>
+        </Grid>
+        <Grid {...footerGithubProfiles}>
+          <IconButton href="https://github.com/ablbsk" target="_blank" aria-label="Github @ablbsk">
+            <GitHubIcon />
+          </IconButton>
+          <IconButton
+            href="https://github.com/ExIxIxS"
+            target="_blank"
+            aria-label="Github @ExIxIxS"
+          >
+            <GitHubIcon />
+          </IconButton>
+          <IconButton
+            href="https://github.com/anast-ananko"
+            target="_blank"
+            aria-label="Github @anast-ananko"
+          >
+            <GitHubIcon />
+          </IconButton>
+        </Grid>
+      </Grid>
+    </AppBar>
   );
 };
 

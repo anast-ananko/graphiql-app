@@ -9,4 +9,6 @@ interface ErrorsState {
   value: UserError[];
 }
 
-export type { ErrorsState, UserError };
+type BracketFormater = (char: string, index: number, arr: string[]) => string;
+
+export type { ErrorsState, UserError, BracketFormater };

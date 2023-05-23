@@ -1,4 +1,8 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
+import CodeMirror from '@uiw/react-codemirror';
+import { json } from '@codemirror/lang-json';
+import { createTheme } from '@uiw/codemirror-themes';
+import { tags as t } from '@lezer/highlight';
 
 import { useAppDispatch, useAppSelector } from '../../../hooks/hook';
 import { updateVariablesString, selectVariablesString } from '../../../store/features/editorSlice';
@@ -8,11 +12,29 @@ const Variables: FC = () => {
 
   const dispatch = useAppDispatch();
 
-  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
-    dispatch(updateVariablesString(event.target.value));
+  const handleChange = (value: string): void => {
+    dispatch(updateVariablesString(value));
   };
 
-  return <textarea onChange={handleChange} value={variablesString} className="variables" />;
+  const myTheme = createTheme({
+    theme: 'dark',
+    settings: {
+      background: '#000000',
+      caret: '#ffffff',
+    },
+    styles: [{ tag: t.keyword, color: 'red' }],
+  });
+
+  return (
+    <CodeMirror
+      value={variablesString}
+      height="120px"
+      width="100%"
+      extensions={[json()]}
+      theme={myTheme}
+      onChange={handleChange}
+    />
+  );
 };
 
 export default Variables;

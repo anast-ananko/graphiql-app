@@ -1,6 +1,5 @@
 import { FC, Suspense, lazy, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-
 import Grid from '@mui/material/Grid';
 import LinearProgress from '@mui/material/LinearProgress';
 import Button from '@mui/material/Button';
@@ -19,7 +18,7 @@ const Explorer: FC = () => {
   }
 
   return (
-    <Grid {...gridExplorerStyle} sx={gridExplorerStylesSx} className="explorer">
+    <Grid {...gridExplorerStyle} className="explorer">
       {!isOpen && (
         <Button onClick={openDocumentation} hidden={isOpen} size="large">
           {localize('buttons.openDocumentation')}

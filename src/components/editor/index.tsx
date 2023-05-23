@@ -1,21 +1,17 @@
 import { FC, useState } from 'react';
-
 import { Button, Grid } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
-import { useMediaQuery } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 
-import CodeMirrorGraphQL from './code-mirror';
+import QueryEditor from './codeEditor';
 import Variables from './variables';
 import Headers from './headers';
 import { IEditor } from '../../interfaces/editorComponent';
-import { MIN_HEIGHT, MAX_HEIGHT } from '../../constants/heightConstants';
 
 import {
   gridEditorStyle,
@@ -37,22 +33,16 @@ const Editor: FC<IEditor> = ({ getData }) => {
     setOpen(true);
   };
 
-  const theme = useTheme();
-  const matchesSm = useMediaQuery(theme.breakpoints.only('sm'));
-  const matchesMd = useMediaQuery(theme.breakpoints.only('md'));
-  const matchesLg = useMediaQuery('(min-width:1200px)');
-
   return (
     <Grid {...gridEditorStyle} className="editor">
       <Grid
         {...gridEditorCodemirrorStyle}
-        sx={{ height: open && !(matchesSm || matchesMd || matchesLg) ? '55%' : '60%' }}
         className={classNames('editor__codemirror', {
           editor__codemirror_open: open,
         })}
       >
-        <Grid item xs={10} lg={10}>
-          <CodeMirrorGraphQL height={open ? MIN_HEIGHT : MAX_HEIGHT} />
+        <Grid item xs={9} lg={10} className="codemirror">
+          <QueryEditor />
         </Grid>
         <Grid {...gridRunButtonStyle}>
           <Button
@@ -66,7 +56,6 @@ const Editor: FC<IEditor> = ({ getData }) => {
       </Grid>
       <Grid
         {...gridEditorOptionsStyle}
-        sx={{ height: open && !(matchesSm || matchesMd) ? '255px' : null }}
         className={classNames('editor__options', {
           editor__options_open: open,
         })}
