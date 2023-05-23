@@ -1,9 +1,9 @@
 .documentation-panel {
   display: flex;
   flex-direction: column;
-  height: 70vh;
+  height: calc(100% - 32px);
   border-radius: 5px;
-  overflow: hidden;
+  overflow: auto;  
   background-color: black;
   margin-right: 10px;
 
