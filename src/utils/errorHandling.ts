@@ -1,5 +1,5 @@
 import { AnyAction } from '@reduxjs/toolkit';
-import { UserError } from '../interfaces/errorsSlice.interfaces';
+import { UserError, BracketFormater } from '../interfaces/errorsSlice.interfaces';
 
 function getUserErrorFromAction(action: AnyAction): UserError {
   const payload = action.payload;
@@ -18,32 +18,40 @@ function getUserErrorFromAction(action: AnyAction): UserError {
   return error;
 }
 
-function convertMessageToReadableString(inputString: string): string {
-  if (!inputString.includes('{') && !inputString.includes('{')) {
-    return inputString;
-  }
+function convertMessageToReadableString(inputString: string, spacer = '   '): string {
+  const formattedStr = inputString.split('').map(getBracketsFormater('{', '}', spacer)).join('');
 
-  let nestLevel = 0;
-  const newLineString = '\n';
-  const tabString = '  ';
+  return formattedStr;
+}
 
-  return inputString
-    .split('')
-    .map((char) => {
-      switch (char) {
-        case '{':
-        case '[':
-          nestLevel++;
-          return char + newLineString + tabString.repeat(nestLevel);
-        case '}':
-        case ']':
-          nestLevel--;
-          return char + newLineString + tabString.repeat(nestLevel ? nestLevel : 0);
-        default:
-          return char;
+function getBracketsFormater(
+  leftBracket: string,
+  rightBracket: string,
+  spacer = ' '
+): BracketFormater {
+  let bracketLevel = 0;
+
+  return (char: string, index: number, arr: string[]) => {
+    if (char === leftBracket) {
+      bracketLevel++;
+      return `${leftBracket}\n${spacer.repeat(bracketLevel)}`;
+    }
+
+    if (char === rightBracket) {
+      const nextChar = arr?.[index + 1];
+      const charStart = bracketLevel ? '\n' : '';
+      const charEnd = nextChar === rightBracket || nextChar === ']' ? '' : '\n';
+      const formatedChar = `${charStart}${spacer.repeat(bracketLevel)}${rightBracket}${charEnd}`;
+
+      if (bracketLevel) {
+        bracketLevel--;
       }
-    })
-    .join('');
+
+      return formatedChar;
+    }
+
+    return char;
+  };
 }
 
 export { getUserErrorFromAction, convertMessageToReadableString };

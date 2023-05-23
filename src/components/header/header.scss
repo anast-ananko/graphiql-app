@@ -6,13 +6,13 @@
   }
 }
 
-.logo {
+.logo-button {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
 
-  &__icon {
+  & &__icon {
     width: 40px;
   }
 }
