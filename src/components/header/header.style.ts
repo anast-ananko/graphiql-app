@@ -25,8 +25,9 @@ const headerLogo: object = {
 
 const headerLogoButton: object = {
   size: 'medium',
-  color: 'inherit',
 };
+
+const headerLogoButtonStyle: object = { color: 'primary.contrastText' };
 
 const headerProduct: object = {
   item: true,
@@ -52,6 +53,7 @@ export {
   headerContainer,
   headerLogo,
   headerLogoButton,
+  headerLogoButtonStyle,
   headerProduct,
   headerBar,
   headerMenuContainer,

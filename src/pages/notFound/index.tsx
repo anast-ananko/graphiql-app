@@ -4,6 +4,8 @@ import { Container, Typography, Grid, Button } from '@mui/material';
 
 import { notFoundContainer, notFoundImage } from './notFound.style.ts';
 import './not-found.scss';
+import { NavLink } from 'react-router-dom';
+import { APP_ROUTE_PATHS } from '../../constants/appRoutingConstants.ts';
 
 const NotFound: FC = () => {
   const { t: localize } = useTranslation();
@@ -20,9 +22,9 @@ const NotFound: FC = () => {
           </Typography>
         </Grid>
         <Grid item>
-          <Button variant="outlined" href="/">
-            {localize('notFound.button')}
-          </Button>
+          <NavLink key="sign-up" to={APP_ROUTE_PATHS.ROOT}>
+            <Button variant="outlined">{localize('notFound.button')}</Button>
+          </NavLink>
         </Grid>
       </Grid>
       <Container {...notFoundImage}>

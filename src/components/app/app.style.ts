@@ -7,6 +7,8 @@ const themeConfig: ThemeOptions = {
     mode: 'dark',
     primary: {
       main: '#d50032',
+      light: '#d50032',
+      dark: '#d50032',
       contrastText: '#fff',
     },
     secondary: {
