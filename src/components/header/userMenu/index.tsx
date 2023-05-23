@@ -7,7 +7,7 @@ import { authSignOut } from '../../../store/features/authSlice.ts';
 import { updateQuery } from '../../../store/features/editorSlice.ts';
 import { UserMenuType } from '../../../types';
 import { Button, Link, MenuItem, Menu } from '@mui/material';
-import ManageAccountsRoundedIcon from '@mui/icons-material/ManageAccountsRounded';
+import LogoutIcon from '@mui/icons-material/Logout';
 import KeyRoundedIcon from '@mui/icons-material/KeyRounded';
 
 const UserMenu: FC<UserMenuType> = ({ uid }) => {
@@ -61,7 +61,7 @@ const UserMenu: FC<UserMenuType> = ({ uid }) => {
         onClick={handleClick}
         color="inherit"
       >
-        {uid ? <ManageAccountsRoundedIcon /> : <KeyRoundedIcon />}
+        {uid ? <LogoutIcon /> : <KeyRoundedIcon />}
       </Button>
       <Menu
         anchorEl={anchorEl}
