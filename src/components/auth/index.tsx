@@ -1,11 +1,19 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Container, Grid, Typography, Link } from '@mui/material';
+import { Container, Grid, Typography, Button } from '@mui/material';
 
 import { AuthType } from '../../types';
 
-import { authContainer, authImage, authLink, authRedirectLink } from './auth.style.ts';
+import {
+  authContainer,
+  authImage,
+  authButton,
+  authRedirectLink,
+  preAuthButtonText,
+} from './auth.style.ts';
 import './auth.scss';
+import { NavLink } from 'react-router-dom';
+import { APP_ROUTE_PATHS } from '../../constants/appRoutingConstants.ts';
 
 const Auth: FC<AuthType> = ({ form, isLogin }) => {
   const { t: localize } = useTranslation();
@@ -21,18 +29,18 @@ const Auth: FC<AuthType> = ({ form, isLogin }) => {
         <Grid item>{form}</Grid>
         <Grid {...authRedirectLink}>
           {isLogin ? (
-            <Typography variant="body1">
+            <Typography {...preAuthButtonText}>
               {localize('auth.pageLogin-1')}
-              <Link href="/sign-up" {...authLink}>
-                {localize('auth.pageLogin-2')}
-              </Link>
+              <NavLink to={APP_ROUTE_PATHS.SIGN_UP}>
+                <Button {...authButton}>{localize('auth.pageLogin-2')}</Button>
+              </NavLink>
             </Typography>
           ) : (
-            <Typography variant="body1">
+            <Typography {...preAuthButtonText}>
               {localize('auth.pageRegistr-1')}
-              <Link href="/sign-in" {...authLink}>
-                {localize('auth.pageRegistr-2')}
-              </Link>
+              <NavLink to={APP_ROUTE_PATHS.SIGN_IN}>
+                <Button {...authButton}>{localize('auth.pageRegistr-2')}</Button>
+              </NavLink>
             </Typography>
           )}
         </Grid>

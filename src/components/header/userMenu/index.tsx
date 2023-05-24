@@ -6,9 +6,12 @@ import { auth } from '../../../firebase.ts';
 import { authSignOut } from '../../../store/features/authSlice.ts';
 import { updateQuery } from '../../../store/features/editorSlice.ts';
 import { UserMenuType } from '../../../types';
-import { Button, Link, MenuItem, Menu } from '@mui/material';
-import ManageAccountsRoundedIcon from '@mui/icons-material/ManageAccountsRounded';
+import { Button, MenuItem, Menu } from '@mui/material';
+import LogoutIcon from '@mui/icons-material/Logout';
 import KeyRoundedIcon from '@mui/icons-material/KeyRounded';
+import { NavLink } from 'react-router-dom';
+import { APP_ROUTE_PATHS } from '../../../constants/appRoutingConstants.ts';
+import { menuItemStyle } from './userMenu.style.ts';
 
 const UserMenu: FC<UserMenuType> = ({ uid }) => {
   const dispatch = useAppDispatch();
@@ -33,16 +36,16 @@ const UserMenu: FC<UserMenuType> = ({ uid }) => {
   };
 
   const menuItems: Array<JSX.Element> = [
-    <MenuItem onClick={handleClose} key="sign-in">
-      <Link href="/sign-in" color="inherit" underline="none" style={{ width: '100%' }}>
+    <NavLink key="sign-in" to={APP_ROUTE_PATHS.LOGIN}>
+      <MenuItem onClick={handleClose} {...menuItemStyle}>
         {localize('auth.signIn')}
-      </Link>
-    </MenuItem>,
-    <MenuItem onClick={handleClose} key="sign-up">
-      <Link href="/sign-up" color="inherit" underline="none" style={{ width: '100%' }}>
+      </MenuItem>
+    </NavLink>,
+    <NavLink key="sign-up" to={APP_ROUTE_PATHS.SIGN_UP}>
+      <MenuItem onClick={handleClose} {...menuItemStyle}>
         {localize('auth.signUp')}
-      </Link>
-    </MenuItem>,
+      </MenuItem>
+    </NavLink>,
   ];
 
   const menuItemsForUser: Array<JSX.Element> = [
@@ -59,9 +62,9 @@ const UserMenu: FC<UserMenuType> = ({ uid }) => {
         aria-controls="menu-appbar"
         aria-haspopup="true"
         onClick={handleClick}
-        color="inherit"
+        sx={menuItemStyle}
       >
-        {uid ? <ManageAccountsRoundedIcon /> : <KeyRoundedIcon />}
+        {uid ? <LogoutIcon /> : <KeyRoundedIcon />}
       </Button>
       <Menu
         anchorEl={anchorEl}

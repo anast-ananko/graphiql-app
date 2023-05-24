@@ -14,10 +14,11 @@ import {
   welcomeSectionHeader,
   welcomeButtonContainer,
 } from './welcome.style.ts';
+import { NavLink } from 'react-router-dom';
+import { APP_ROUTE_PATHS } from '../../constants/appRoutingConstants.ts';
 
 const Welcome: FC = () => {
   const { uid } = useSelector((state: RootState) => state.auth);
-
   const { t: localize } = useTranslation();
 
   return (
@@ -27,9 +28,9 @@ const Welcome: FC = () => {
       </Grid>
       {uid && (
         <Grid {...welcomeButtonContainer}>
-          <Button href="/main" variant="outlined">
-            {localize('welcome.button')}
-          </Button>
+          <NavLink to={APP_ROUTE_PATHS.MAIN}>
+            <Button variant="outlined">{localize('welcome.button')}</Button>
+          </NavLink>
         </Grid>
       )}
       <Grid {...welcomeSection}>

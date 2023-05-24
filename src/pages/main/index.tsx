@@ -36,7 +36,7 @@ const Main: FC = () => {
   const dispatch = useAppDispatch();
 
   const convertVariables = (): UserHeaders => {
-    let variables;
+    let variables = '';
 
     if (variablesString) {
       try {
@@ -51,7 +51,7 @@ const Main: FC = () => {
       }
     }
 
-    return variables;
+    return variables as UserHeaders;
   };
 
   const { data, isError, isFetching, refetch } = useGetGraphqlQuery(

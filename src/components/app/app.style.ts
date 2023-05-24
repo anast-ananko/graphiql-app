@@ -1,10 +1,14 @@
-import { createTheme } from '@mui/material/styles';
+import { ThemeOptions, createTheme } from '@mui/material/styles';
 
-const themeConfig: object = {
+import { PRIMARY_FONT, SECONDARY_FONT } from '../../constants/fontsConstants';
+
+const themeConfig: ThemeOptions = {
   palette: {
     mode: 'dark',
     primary: {
       main: '#d50032',
+      light: '#d50032',
+      dark: '#d50032',
       contrastText: '#fff',
     },
     secondary: {
@@ -13,14 +17,15 @@ const themeConfig: object = {
     },
     background: {
       paper: '#000000',
+      default: '#000000',
     },
   },
   typography: {
-    fontFamily: ['Rubik', 'sans serif'].join(','),
+    fontFamily: PRIMARY_FONT,
     fontSize: 14,
     // The biggest headline
     h1: {
-      fontFamily: ['Russo One', 'arial'].join(','),
+      fontFamily: SECONDARY_FONT,
       fontSize: '6rem',
       '@media (max-width:600px)': {
         fontSize: '4rem',
@@ -28,7 +33,7 @@ const themeConfig: object = {
     },
     // Main header in page
     h2: {
-      fontFamily: ['Russo One', 'arial'].join(','),
+      fontFamily: SECONDARY_FONT,
       fontSize: '1.8rem',
       '@media (max-width:600px)': {
         fontSize: '1.4rem',
@@ -51,17 +56,39 @@ const themeConfig: object = {
     },
     // Button
     button: {
-      fontFamily: ['Russo One', 'arial'].join(','),
+      fontFamily: SECONDARY_FONT,
       fontSize: '1.1rem',
       '@media (max-width:600px)': {
         fontSize: '0.9rem',
       },
     },
+    caption: {
+      fontSize: '14px',
+    },
     // For code: article header and etc.
-    subtitle: {
+    subtitle1: {
       fontSize: '1.1rem',
       '@media (max-width:600px)': {
         fontSize: '1.05rem',
+      },
+    },
+  },
+  components: {
+    MuiOutlinedInput: {
+      styleOverrides: {
+        input: {
+          '&:-webkit-autofill': {
+            WebkitBoxShadow: '0 0 0 100px #0d0d0de3 inset',
+          },
+        },
+      },
+    },
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          backgroundColor: '#000000',
+          backgroundImage: 'inherit',
+        },
       },
     },
   },

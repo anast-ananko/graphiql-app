@@ -1,4 +1,7 @@
-const notFoundContainer: object = {
+import { GridProps } from '@mui/material/Grid';
+import { ContainerProps } from '@mui/material/Container';
+
+const notFoundContainer: GridProps = {
   container: true,
   direction: 'column',
   justifyContent: 'center',
@@ -18,7 +21,7 @@ const notFoundContainer: object = {
   },
 };
 
-const notFoundImage: object = {
+const notFoundImage: ContainerProps = {
   sx: {
     display: {
       xs: 'none',

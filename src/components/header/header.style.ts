@@ -1,4 +1,8 @@
-const headerBar: object = {
+import { AppBarProps } from '@mui/material/AppBar';
+import { GridProps } from '@mui/material/Grid';
+import { ButtonProps } from '@mui/material/Button';
+
+const headerBar: AppBarProps = {
   position: 'sticky',
   sx: {
     padding: {
@@ -8,7 +12,7 @@ const headerBar: object = {
   },
 };
 
-const headerContainer: object = {
+const headerContainer: GridProps = {
   item: true,
   container: true,
   direction: 'row',
@@ -16,19 +20,21 @@ const headerContainer: object = {
   alignItems: 'center',
 };
 
-const headerLogo: object = {
+const headerLogo: GridProps = {
   item: true,
   container: true,
   xs: true,
   justifyContent: 'flex-start',
 };
 
-const headerLogoButton: object = {
+const headerLogoButton: ButtonProps = {
   size: 'medium',
-  color: 'inherit',
+  sx: {
+    color: 'primary.contrastText',
+  },
 };
 
-const headerProduct: object = {
+const headerProduct: GridProps = {
   item: true,
   container: true,
   xs: 4,
@@ -41,7 +47,7 @@ const headerProduct: object = {
   },
 };
 
-const headerMenuContainer: object = {
+const headerMenuContainer: GridProps = {
   item: true,
   container: true,
   xs: true,

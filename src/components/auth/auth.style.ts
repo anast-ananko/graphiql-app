@@ -1,3 +1,6 @@
+import { TypographyProps } from '@mui/material';
+import { ButtonProps } from '@mui/material/Button';
+
 const authContainer: object = {
   container: true,
   direction: 'column',
@@ -18,9 +21,15 @@ const authContainer: object = {
   },
 };
 
-const authLink: object = {
+const authButton: ButtonProps = {
   color: 'secondary',
-  underline: 'hover',
+  size: 'medium',
+  style: { textTransform: 'none' },
+};
+
+const preAuthButtonText: TypographyProps = {
+  variant: 'button',
+  style: { textTransform: 'none' },
 };
 
 const authRedirectLink: object = {
@@ -39,4 +48,4 @@ const authImage: object = {
   },
 };
 
-export { authContainer, authLink, authRedirectLink, authImage };
+export { authContainer, authButton, authRedirectLink, authImage, preAuthButtonText };
