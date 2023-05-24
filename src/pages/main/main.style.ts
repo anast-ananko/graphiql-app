@@ -3,7 +3,7 @@ import { GridProps } from '@mui/material/Grid';
 const gridMainContainerStyle: GridProps = {
   container: true,
   spacing: 2,
-  maxWidth: { xs: '300px', sm: '520px', md: '880px', lg: '1240px', xl: '1500px' },
+  maxWidth: { xs: '300px', sm: '520px', md: '880px', lg: '1190px', xl: '1500px' },
   // header 88px + footer 72px + margins 30px = 190px
   height: { xs: '100%', lg: 'calc(100vh - 190px)' },
   sx: { m: '10px auto 20px' },
