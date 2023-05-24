@@ -55,10 +55,22 @@
         "text-9": "After accomplishing an education, students will receive an electronic certificate of completion."
     },
     "welcomeSlider": {
-        "text-1": "Introducing the project developers, a motley crew of code-wielding rebels and tech-savvy scoundrels! With their fingers flying across keyboards at hyperspeed, they bring forth a project that`s more powerful than an army of astromech droids and funnier than Jar Jar Binks clumsiness.",
-        "text-2": "Developer who works in a secret organization that resists the evil emperor. She can write code in different languages, including droid and wookiee. She also has a power that allows her to communicate with other developers remotely and influence their decisions. She is not afraid of facing difficulties and bugs, and always ready to help her colleagues.",
-        "text-3": "Can write code faster than Han Solo, can parse a GraphQl schema in less than twelve tries, even for a Millennium Falcon pilot! Just like R2-D2, this developer`s troubleshooting skills are legendary. Much like Obi-Wan Kenobi, this developer has a knack for mentoring and guiding junior team members, shaping them into Jedi knights of the coding realm.",
-        "text-4": "He also has a power that allows him to hack any security systems and control various mechanisms. He is not afraid of facing difficulties and bugs, and always ready to help his friends. He dreams of creating a program that can destroy the death star - the main weapon of the emperor."
+        "developersDescription": "Introducing the project developers, a motley crew of code-wielding rebels and tech-savvy scoundrels! With their fingers flying across keyboards at hyperspeed, they bring forth a project that`s more powerful than an army of astromech droids and funnier than Jar Jar Binks clumsiness.",
+        "developers": {
+            "Nastassia Ananka": {
+                    "name": "Nastassia Ananka",
+                    "description": "Developer who works in a secret organization that resists the evil emperor. She can write code in different languages, including droid and wookiee. She also has a power that allows her to communicate with other developers remotely and influence their decisions. She is not afraid of facing difficulties and bugs, and always ready to help her colleagues."
+                },
+            "Denis Bondarenko": {
+                    "name": "Denis Bondarenko",
+                    "description": "Can write code faster than Han Solo, can parse a GraphQl schema in less than twelve tries, even for a Millennium Falcon pilot! Just like R2-D2, this developer`s troubleshooting skills are legendary. Much like Obi-Wan Kenobi, this developer has a knack for mentoring and guiding junior team members, shaping them into Jedi knights of the coding realm."
+                },
+            "Aliaksei Balabushka":
+                {
+                    "name": "Aliaksei Balabushka",
+                    "description": "He also has a power that allows him to hack any security systems and control various mechanisms. He is not afraid of facing difficulties and bugs, and always ready to help his friends. He dreams of creating a program that can destroy the death star - the main weapon of the emperor."
+                }
+        }
     },
     "error": {
         "errorMainText": "Opps... Something went wrong.",

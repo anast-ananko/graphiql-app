@@ -17,6 +17,7 @@ const themeConfig: ThemeOptions = {
     },
     background: {
       paper: '#000000',
+      default: '#000000',
     },
   },
   typography: {
@@ -77,8 +78,16 @@ const themeConfig: ThemeOptions = {
       styleOverrides: {
         input: {
           '&:-webkit-autofill': {
-            '-webkit-box-shadow': '0 0 0 100px #0d0d0de3 inset',
+            WebkitBoxShadow: '0 0 0 100px #0d0d0de3 inset',
           },
+        },
+      },
+    },
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          backgroundColor: '#000000',
+          backgroundImage: 'inherit',
         },
       },
     },
