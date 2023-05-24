@@ -7,4 +7,6 @@ const gridExplorerStyle: object = {
   sx: { textAlign: 'center' },
 };
 
-export { gridExplorerStyle };
+const gridExplorerStylesSx = { textAlign: 'center' };
+
+export { gridExplorerStyle, gridExplorerStylesSx };

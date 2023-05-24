@@ -19,7 +19,6 @@ import { APP_ROUTE_PATHS } from '../../constants/appRoutingConstants.ts';
 
 const Welcome: FC = () => {
   const { uid } = useSelector((state: RootState) => state.auth);
-
   const { t: localize } = useTranslation();
 
   return (
