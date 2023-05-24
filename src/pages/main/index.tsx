@@ -49,6 +49,8 @@ const Main: FC = () => {
           })
         );
       }
+    } else {
+      variables = '';
     }
 
     return variables;
