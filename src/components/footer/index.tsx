@@ -11,7 +11,7 @@ import {
 
 const Footer: FC = () => {
   return (
-    <AppBar className="footer" {...footerBar}>
+    <AppBar className="footer" {...footerBar} component="footer">
       <Grid {...footerContainer}>
         <Grid {...footerYear}>
           <Typography>2023</Typography>
