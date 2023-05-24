@@ -61,6 +61,9 @@ const themeConfig: ThemeOptions = {
         fontSize: '0.9rem',
       },
     },
+    caption: {
+      fontSize: '14px',
+    },
     // For code: article header and etc.
     subtitle1: {
       fontSize: '1.1rem',
