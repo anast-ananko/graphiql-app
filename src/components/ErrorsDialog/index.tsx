@@ -69,7 +69,7 @@ const ErrorsDialog: FC = () => {
               <CloseIcon />
             </IconButton>
             <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
-              {localize('error.text-1')}
+              {localize('error.errorMainText')}
             </Typography>
             <Pagination
               className="error-dialog__pagination"

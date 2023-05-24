@@ -25,7 +25,7 @@ const Welcome: FC = () => {
   return (
     <Grid {...welcomeContainer}>
       <Grid {...welcomeHeader}>
-        <Typography variant="h2">{localize('welcome.text')}</Typography>
+        <Typography variant="h2">{localize('welcome.title')}</Typography>
       </Grid>
       {uid && (
         <Grid {...welcomeButtonContainer}>

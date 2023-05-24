@@ -42,7 +42,7 @@ const SignUpForm: FC = () => {
       }
     } catch (error) {
       if (error instanceof Error && error.message.includes('email-already-in-use')) {
-        setFirebaseError(`${localize('auth.error-1')}`);
+        setFirebaseError(`${localize('auth.errorUsedPassword')}`);
       }
     }
   };
