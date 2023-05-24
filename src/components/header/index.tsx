@@ -14,7 +14,6 @@ import {
   headerProduct,
   headerBar,
   headerMenuContainer,
-  headerLogoButtonStyle,
 } from './header.style.ts';
 import './header.scss';
 import { NavLink } from 'react-router-dom';
@@ -29,7 +28,7 @@ const Header: FC = () => {
         <Grid {...headerContainer}>
           <Grid {...headerLogo}>
             <NavLink to={APP_ROUTE_PATHS.ROOT}>
-              <Button className="logo-button" {...headerLogoButton} sx={headerLogoButtonStyle}>
+              <Button className="logo-button" {...headerLogoButton}>
                 <img className="logo-button__icon" src="logo.png" alt="GraphiQL logo" />
                 GraphiQL
               </Button>
