@@ -1,4 +1,6 @@
-const welcomeContainer: object = {
+import { GridProps } from '@mui/material/Grid';
+
+const welcomeContainer: GridProps = {
   container: true,
   direction: 'column',
   rowSpacing: {
@@ -17,7 +19,7 @@ const welcomeContainer: object = {
   },
 };
 
-const welcomeHeader: object = {
+const welcomeHeader: GridProps = {
   item: true,
   container: true,
   justifyContent: 'center',
@@ -31,7 +33,7 @@ const welcomeHeader: object = {
   },
 };
 
-const welcomeButtonContainer: object = {
+const welcomeButtonContainer: GridProps = {
   item: true,
   container: true,
   direction: 'row',
@@ -42,7 +44,7 @@ const welcomeButtonContainer: object = {
   },
 };
 
-const welcomeSection: object = {
+const welcomeSection: GridProps = {
   item: true,
   container: true,
   direction: 'column',
@@ -52,7 +54,7 @@ const welcomeSection: object = {
   },
 };
 
-const welcomeSectionHeader: object = {
+const welcomeSectionHeader: GridProps = {
   item: true,
   sx: {
     padding: '0 16px',

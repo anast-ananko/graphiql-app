@@ -1,4 +1,7 @@
-const footerBar: object = {
+import { AppBarProps } from '@mui/material/AppBar';
+import { GridProps } from '@mui/material/Grid';
+
+const footerBar: AppBarProps = {
   position: 'static',
   sx: {
     padding: {
@@ -8,7 +11,7 @@ const footerBar: object = {
   },
 };
 
-const footerContainer: object = {
+const footerContainer: GridProps = {
   container: true,
   direction: 'row',
   justifyContent: 'space-between',
@@ -16,7 +19,7 @@ const footerContainer: object = {
   padding: '0 10px',
 };
 
-const footerYear: object = {
+const footerYear: GridProps = {
   item: true,
   container: true,
   xs: true,
@@ -29,7 +32,7 @@ const footerYear: object = {
   },
 };
 
-const footerRSSchool: object = {
+const footerRSSchool: GridProps = {
   item: true,
   container: true,
   xs: 4,
@@ -41,7 +44,7 @@ const footerRSSchool: object = {
   },
 };
 
-const footerGithubProfiles: object = {
+const footerGithubProfiles: GridProps = {
   item: true,
   container: true,
   xs: true,

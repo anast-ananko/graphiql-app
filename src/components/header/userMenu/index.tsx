@@ -37,12 +37,12 @@ const UserMenu: FC<UserMenuType> = ({ uid }) => {
 
   const menuItems: Array<JSX.Element> = [
     <NavLink key="sign-in" to={APP_ROUTE_PATHS.LOGIN}>
-      <MenuItem onClick={handleClose} sx={menuItemStyle}>
+      <MenuItem onClick={handleClose} {...menuItemStyle}>
         {localize('auth.signIn')}
       </MenuItem>
     </NavLink>,
     <NavLink key="sign-up" to={APP_ROUTE_PATHS.SIGN_UP}>
-      <MenuItem onClick={handleClose} sx={menuItemStyle}>
+      <MenuItem onClick={handleClose} {...menuItemStyle}>
         {localize('auth.signUp')}
       </MenuItem>
     </NavLink>,
