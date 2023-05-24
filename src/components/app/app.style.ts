@@ -72,6 +72,17 @@ const themeConfig: ThemeOptions = {
       },
     },
   },
+  components: {
+    MuiOutlinedInput: {
+      styleOverrides: {
+        input: {
+          '&:-webkit-autofill': {
+            '-webkit-box-shadow': '0 0 0 100px #0d0d0de3 inset',
+          },
+        },
+      },
+    },
+  },
 };
 
 const appTheme = createTheme(themeConfig);
