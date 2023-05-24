@@ -4,7 +4,13 @@ import { Container, Grid, Typography, Button } from '@mui/material';
 
 import { AuthType } from '../../types';
 
-import { authContainer, authImage, authButton, authRedirectLink } from './auth.style.ts';
+import {
+  authContainer,
+  authImage,
+  authButton,
+  authRedirectLink,
+  preAuthButtonText,
+} from './auth.style.ts';
 import './auth.scss';
 import { NavLink } from 'react-router-dom';
 import { APP_ROUTE_PATHS } from '../../constants/appRoutingConstants.ts';
@@ -23,14 +29,14 @@ const Auth: FC<AuthType> = ({ form, isLogin }) => {
         <Grid item>{form}</Grid>
         <Grid {...authRedirectLink}>
           {isLogin ? (
-            <Typography variant="body1">
+            <Typography {...preAuthButtonText}>
               {localize('auth.pageLogin-1')}
               <NavLink to={APP_ROUTE_PATHS.SIGN_UP}>
                 <Button {...authButton}>{localize('auth.pageLogin-2')}</Button>
               </NavLink>
             </Typography>
           ) : (
-            <Typography variant="body1">
+            <Typography {...preAuthButtonText}>
               {localize('auth.pageRegistr-1')}
               <NavLink to={APP_ROUTE_PATHS.SIGN_IN}>
                 <Button {...authButton}>{localize('auth.pageRegistr-2')}</Button>

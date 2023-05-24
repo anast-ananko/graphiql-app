@@ -17,6 +17,7 @@ const themeConfig: ThemeOptions = {
     },
     background: {
       paper: '#000000',
+      default: '#000000',
     },
   },
   typography: {
@@ -61,11 +62,33 @@ const themeConfig: ThemeOptions = {
         fontSize: '0.9rem',
       },
     },
+    caption: {
+      fontSize: '14px',
+    },
     // For code: article header and etc.
     subtitle1: {
       fontSize: '1.1rem',
       '@media (max-width:600px)': {
         fontSize: '1.05rem',
+      },
+    },
+  },
+  components: {
+    MuiOutlinedInput: {
+      styleOverrides: {
+        input: {
+          '&:-webkit-autofill': {
+            WebkitBoxShadow: '0 0 0 100px #0d0d0de3 inset',
+          },
+        },
+      },
+    },
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          backgroundColor: '#000000',
+          backgroundImage: 'inherit',
+        },
       },
     },
   },

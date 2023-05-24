@@ -22,6 +22,11 @@ const welcomeSliderCarousel: CarouselProps = {
   animation: 'slide',
   duration: 750,
   navButtonsAlwaysVisible: true,
+  navButtonsWrapperProps: {
+    style: {
+      backgroundColor: '#000',
+    },
+  },
 };
 
 export { welcomeSliderContainer, welcomeSliderCarousel };
