@@ -28,7 +28,7 @@ const NotFound: FC = () => {
         </Grid>
       </Grid>
       <Container {...notFoundImage}>
-        <img className="not-found__img" src="not-found.png" alt="Not-found" />
+        <img className="not-found__img" src="../not-found.png" alt="Not-found" />
       </Container>
     </div>
   );

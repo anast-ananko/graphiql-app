@@ -29,13 +29,13 @@ const Header: FC = () => {
           <Grid {...headerLogo}>
             <NavLink to={APP_ROUTE_PATHS.ROOT}>
               <Button className="logo-button" {...headerLogoButton}>
-                <img className="logo-button__icon" src="logo.png" alt="GraphiQL logo" />
+                <img className="logo-button__icon" src="../logo.png" alt="GraphiQL logo" />
                 GraphiQL
               </Button>
             </NavLink>
           </Grid>
           <Grid {...headerProduct}>
-            <img className="header__product" src="logo-starwars.png" alt="Logo starwars" />
+            <img className="header__product" src="../logo-starwars.png" alt="Logo starwars" />
           </Grid>
           <Grid {...headerMenuContainer}>
             <Language />
