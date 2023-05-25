@@ -27,13 +27,11 @@ const SignInForm: FC = () => {
   const userSignIn = async (fields: FieldValues) => {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, fields.email, fields.password);
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      // TODO Eslint thinks, that userCredential don't have accessToken
-      const { accessToken, email, uid } = userCredential.user;
-
-      dispatch(authSignIn({ accessToken, email, uid }));
-      navigate('/main');
+      userCredential.user.getIdToken().then((accessToken) => {
+        const { email, uid } = userCredential.user;
+        dispatch(authSignIn({ accessToken, email, uid }));
+        navigate('/main');
+      });
     } catch (error) {
       if (error instanceof Error && error.message.includes('user-not-found')) {
         setEmailFirebaseError(`${localize('auth.errorEmail')}`);
