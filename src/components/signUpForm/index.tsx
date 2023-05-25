@@ -32,13 +32,11 @@ const SignUpForm: FC = () => {
           fields.password
         );
 
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        // TODO Eslint thinks, that userCredential don't have accessToken
-        const { email, uid, accessToken } = userCredential.user;
-
-        dispatch(authSignIn({ accessToken, email, uid }));
-        navigate('/main');
+        userCredential.user.getIdToken().then((accessToken) => {
+          const { email, uid } = userCredential.user;
+          dispatch(authSignIn({ accessToken, email, uid }));
+          navigate('/main');
+        });
       }
     } catch (error) {
       if (error instanceof Error && error.message.includes('email-already-in-use')) {

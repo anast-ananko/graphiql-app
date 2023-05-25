@@ -1,4 +1,6 @@
-const gridResponseStyle: object = {
+import { GridProps } from '@mui/material/Grid';
+
+const gridResponseStyle: GridProps = {
   item: true,
   xs: 12,
   md: 12,

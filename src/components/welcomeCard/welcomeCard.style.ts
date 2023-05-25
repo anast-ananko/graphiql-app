@@ -1,4 +1,7 @@
-const welcomeCardContainer: object = {
+import { GridProps } from '@mui/material/Grid';
+import { TypographyProps } from '@mui/material/Typography';
+
+const welcomeCardContainer: GridProps = {
   container: true,
   direction: 'row',
   justifyContent: 'space-between',
@@ -24,7 +27,7 @@ const welcomeCardImage: object = {
   },
 };
 
-const welcomeCardText: object = {
+const welcomeCardText: TypographyProps = {
   textAlign: 'justify',
   style: {
     padding: '5px 0',

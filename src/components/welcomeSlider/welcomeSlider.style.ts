@@ -1,4 +1,7 @@
-const welcomeSliderContainer: object = {
+import { GridProps } from '@mui/material/Grid';
+import { CarouselProps } from 'react-material-ui-carousel/dist/components/types';
+
+const welcomeSliderContainer: GridProps = {
   item: true,
   container: true,
   direction: 'column',
@@ -11,7 +14,7 @@ const welcomeSliderContainer: object = {
   },
 };
 
-const welcomeSliderCarousel: object = {
+const welcomeSliderCarousel: CarouselProps = {
   sx: {
     width: '100%',
   },

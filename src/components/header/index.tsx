@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { AppBar, Button, Grid } from '@mui/material';
 import { useSelector } from 'react-redux';
 
@@ -14,7 +14,6 @@ import {
   headerProduct,
   headerBar,
   headerMenuContainer,
-  headerLogoButtonStyle,
 } from './header.style.ts';
 import './header.scss';
 import { NavLink } from 'react-router-dom';
@@ -23,20 +22,26 @@ import { APP_ROUTE_PATHS } from '../../constants/appRoutingConstants.ts';
 const Header: FC = () => {
   const { uid } = useSelector((state: RootState) => state.auth);
 
+  const [isScroll, setIsScroll] = useState<boolean>(false);
+
   return (
-    <ElevationScroll>
+    <ElevationScroll setIsScroll={setIsScroll}>
       <AppBar className="header" {...headerBar}>
         <Grid {...headerContainer}>
           <Grid {...headerLogo}>
             <NavLink to={APP_ROUTE_PATHS.ROOT}>
-              <Button className="logo-button" {...headerLogoButton} sx={headerLogoButtonStyle}>
+              <Button className="logo-button" {...headerLogoButton}>
                 <img className="logo-button__icon" src="logo.png" alt="GraphiQL logo" />
                 GraphiQL
               </Button>
             </NavLink>
           </Grid>
           <Grid {...headerProduct}>
-            <img className="header__product" src="logo-starwars.png" alt="Logo starwars" />
+            <img
+              className="header__product"
+              src={isScroll ? 'logo-starwars-active.png' : 'logo-starwars.png'}
+              alt="Logo starwars"
+            />
           </Grid>
           <Grid {...headerMenuContainer}>
             <Language />
