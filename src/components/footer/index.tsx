@@ -19,7 +19,7 @@ const Footer: FC = () => {
         <Grid {...footerRSSchool}>
           <Button href="https://rs.school/react/" color="inherit" target="_blank">
             <img
-              src="rs-school.png"
+              src="../rs-school.png"
               style={{ height: '50px' }}
               alt="RS School React final project"
             />
