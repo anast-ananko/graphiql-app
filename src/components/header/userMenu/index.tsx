@@ -9,12 +9,13 @@ import { UserMenuType } from '../../../types';
 import { Button, MenuItem, Menu } from '@mui/material';
 import LogoutIcon from '@mui/icons-material/Logout';
 import KeyRoundedIcon from '@mui/icons-material/KeyRounded';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { APP_ROUTE_PATHS } from '../../../constants/appRoutingConstants.ts';
 import { menuItemStyle } from './userMenu.style.ts';
 
 const UserMenu: FC<UserMenuType> = ({ uid }) => {
   const dispatch = useAppDispatch();
+  const location = useLocation();
 
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -48,11 +49,23 @@ const UserMenu: FC<UserMenuType> = ({ uid }) => {
     </NavLink>,
   ];
 
-  const menuItemsForUser: Array<JSX.Element> = [
-    <MenuItem onClick={userSignOut} key="sign-out">
-      {localize('auth.signOut')}
-    </MenuItem>,
-  ];
+  const menuItemsForUser: Array<JSX.Element> =
+    uid && location.pathname === '/'
+      ? [
+          <NavLink key="main-page" to={APP_ROUTE_PATHS.MAIN}>
+            <MenuItem onClick={handleClose} {...menuItemStyle}>
+              {localize('header.toMainPage')}
+            </MenuItem>
+          </NavLink>,
+          <MenuItem onClick={userSignOut} key="sign-out">
+            {localize('auth.signOut')}
+          </MenuItem>,
+        ]
+      : [
+          <MenuItem onClick={userSignOut} key="sign-out">
+            {localize('auth.signOut')}
+          </MenuItem>,
+        ];
 
   return (
     <>

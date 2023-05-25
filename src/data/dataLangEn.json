@@ -29,6 +29,9 @@
         "errorWrongValue": "Wrong value",
         "errorUnknown": "Unknown error"
     },
+    "header": {
+        "toMainPage": "Go to main"
+    },
     "notFound": {
         "text": "Great shot kid. That was one in a million.",
         "button": "Let`s get you home"
