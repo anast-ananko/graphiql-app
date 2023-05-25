@@ -62,7 +62,7 @@ const UserMenu: FC<UserMenuType> = ({ uid }) => {
         aria-controls="menu-appbar"
         aria-haspopup="true"
         onClick={handleClick}
-        sx={menuItemStyle}
+        color="inherit"
       >
         {uid ? <LogoutIcon /> : <KeyRoundedIcon />}
       </Button>

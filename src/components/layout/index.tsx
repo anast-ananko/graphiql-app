@@ -21,11 +21,10 @@ const Layout: FC = () => {
       setLoading(true);
 
       if (authUser) {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        // TODO Eslint thinks, that userCredential don't have accessToken
-        const { accessToken, email, uid } = authUser;
-        dispatch(authSignIn({ accessToken, email, uid }));
+        authUser.getIdToken().then((accessToken) => {
+          const { email, uid } = authUser;
+          dispatch(authSignIn({ accessToken, email, uid }));
+        });
       }
 
       setLoading(false);
