@@ -5,7 +5,7 @@ import { signOut } from 'firebase/auth';
 import { auth } from '../../../firebase.ts';
 import { authSignOut } from '../../../store/features/authSlice.ts';
 import { updateQuery } from '../../../store/features/editorSlice.ts';
-import { UserMenuType } from '../../../types';
+import { UserMenuType } from '../../../interfaces/auth.interfaces.ts';
 import { Button, MenuItem, Menu } from '@mui/material';
 import LogoutIcon from '@mui/icons-material/Logout';
 import KeyRoundedIcon from '@mui/icons-material/KeyRounded';

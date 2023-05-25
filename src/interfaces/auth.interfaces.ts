@@ -1,18 +1,18 @@
-export type ProtectedRouteType = {
+type ProtectedRouteType = {
   permission: boolean;
   children: JSX.Element;
 };
 
-export type UserMenuType = {
+type UserMenuType = {
   uid: string | null;
 };
 
-export type AuthType = {
+type AuthType = {
   form: JSX.Element;
   isLogin: boolean;
 };
 
-export type WelcomeCardType = {
+type WelcomeCardType = {
   data: {
     name: string;
     description: string;
@@ -20,3 +20,5 @@ export type WelcomeCardType = {
     github: string;
   };
 };
+
+export type { ProtectedRouteType, UserMenuType, AuthType, WelcomeCardType };

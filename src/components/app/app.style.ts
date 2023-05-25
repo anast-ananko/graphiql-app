@@ -1,4 +1,9 @@
 import { ThemeOptions, createTheme } from '@mui/material/styles';
+import { createTheme as codeMirrorCreateTheme } from '@uiw/codemirror-themes';
+import { tags as t } from '@lezer/highlight';
+import red from '@mui/material/colors/red';
+import yellow from '@mui/material/colors/yellow';
+import common from '@mui/material/colors/common';
 
 import { PRIMARY_FONT, SECONDARY_FONT } from '../../constants/fontsConstants';
 
@@ -6,18 +11,18 @@ const themeConfig: ThemeOptions = {
   palette: {
     mode: 'dark',
     primary: {
-      main: '#d50032',
-      light: '#d50032',
-      dark: '#d50032',
-      contrastText: '#fff',
+      main: red[800],
+      light: red[800],
+      dark: red['A700'],
+      contrastText: common['white'],
     },
     secondary: {
-      main: '#ffe919',
-      contrastText: '#fff',
+      main: yellow[500],
+      contrastText: common['white'],
     },
     background: {
-      paper: '#000000',
-      default: '#000000',
+      paper: common['black'],
+      default: common['black'],
     },
   },
   typography: {
@@ -86,7 +91,7 @@ const themeConfig: ThemeOptions = {
     MuiPaper: {
       styleOverrides: {
         root: {
-          backgroundColor: '#000000',
+          backgroundColor: common['black'],
           backgroundImage: 'inherit',
         },
       },
@@ -96,4 +101,13 @@ const themeConfig: ThemeOptions = {
 
 const appTheme = createTheme(themeConfig);
 
-export { appTheme };
+const codeMirrorTheme = codeMirrorCreateTheme({
+  theme: 'dark',
+  settings: {
+    background: common['black'],
+    caret: common['white'],
+  },
+  styles: [{ tag: t.keyword, color: red['A700'] }],
+});
+
+export { appTheme, codeMirrorTheme };

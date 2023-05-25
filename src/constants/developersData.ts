@@ -7,7 +7,7 @@ const developersData = [
   },
   {
     idName: 'Denis Bondarenko',
-    imageUrl: 'https://www.sideshow.com/storage/product-images/400372/c-3po_star-wars_square.jpg',
+    imageUrl: 'public/Exixixs_jedi.jpeg',
     github: 'https://github.com/ExIxIxS',
   },
   {

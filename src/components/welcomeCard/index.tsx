@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Grid, Typography, Link } from '@mui/material';
-import { WelcomeCardType } from '../../types/index.ts';
+import { WelcomeCardType } from '../../interfaces/auth.interfaces.ts';
 import { welcomeCardContainer, welcomeCardImage, welcomeCardText } from './welcomeCard.style.ts';
 
 const WelcomeCard: FC<WelcomeCardType> = ({ data }) => {

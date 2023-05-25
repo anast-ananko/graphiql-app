@@ -1,5 +1,7 @@
 import { FC, useContext } from 'react';
 
+import Typography from '@mui/material/Typography';
+
 import { TypeDescriptionProps } from '../../interfaces/schemaList.interfaces';
 import { SchemaContext } from '.';
 
@@ -10,8 +12,12 @@ const TypeDescription: FC<TypeDescriptionProps> = ({ typeName }) => {
 
   return (
     <>
-      <h3 className="max-width">{`Metadata for ${typeName} type:`}</h3>
-      <p className="max-width">{description}</p>
+      <Typography variant="body2" align="center" className="max-width">
+        {`Metadata for ${typeName} type:`}
+      </Typography>
+      <Typography variant="body2" align="center" className="max-width">
+        {description}
+      </Typography>
     </>
   );
 };

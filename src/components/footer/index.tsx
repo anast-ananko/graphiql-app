@@ -14,13 +14,13 @@ const Footer: FC = () => {
     <AppBar className="footer" {...footerBar} component="footer">
       <Grid {...footerContainer}>
         <Grid {...footerYear}>
-          <Typography>2023</Typography>
+          <Typography variant="h4">2023</Typography>
         </Grid>
         <Grid {...footerRSSchool}>
           <Button href="https://rs.school/react/" color="inherit" target="_blank">
             <img
               src="../rs-school.png"
-              style={{ height: '50px ' }}
+              style={{ height: '50px' }}
               alt="RS School React final project"
             />
           </Button>
