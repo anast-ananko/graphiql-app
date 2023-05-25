@@ -1,5 +1,6 @@
 import { FC, useState, SyntheticEvent } from 'react';
 import { useTranslation } from 'react-i18next';
+import { v4 as uuid } from 'uuid';
 import { Accordion, AccordionDetails, AccordionSummary, Typography } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { welcomeAccordionText, welcomeAccordionArticleHeader } from './welcomeAccordion.style.ts';
@@ -19,35 +20,34 @@ const WelcomeAccordion: FC = () => {
     <>
       <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography {...welcomeAccordionArticleHeader}>
-            {localize('welcomeAccordion.project')}
-          </Typography>
-          <Typography sx={{ color: 'text.secondary' }}>
-            {localize('welcomeAccordion.text-1')}
-          </Typography>
+          <Typography {...welcomeAccordionArticleHeader}>{localize('project.title')}</Typography>
+          <Typography sx={{ color: 'text.secondary' }}>{localize('project.subTitle')}</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography {...welcomeAccordionText}>{localize('welcomeAccordion.text-2')}</Typography>
-          <Typography {...welcomeAccordionText}>{localize('welcomeAccordion.text-3')}</Typography>
-          <Typography {...welcomeAccordionText}>{localize('welcomeAccordion.text-4')}</Typography>
-          <Typography {...welcomeAccordionText}>{localize('welcomeAccordion.text-5')}</Typography>
-          <Typography {...welcomeAccordionText}>{localize('welcomeAccordion.text-6')}</Typography>
+          {(localize('project.description', { returnObjects: true }) as string[]).map(
+            (textLine) => {
+              return (
+                <Typography {...welcomeAccordionText} key={uuid()}>
+                  {textLine}
+                </Typography>
+              );
+            }
+          )}
         </AccordionDetails>
       </Accordion>
       <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography {...welcomeAccordionArticleHeader}>
-            {localize('welcomeAccordion.course-1')}
-          </Typography>
-          <Typography sx={{ color: 'text.secondary' }}>
-            {localize('welcomeAccordion.course-2')}
-          </Typography>
+          <Typography {...welcomeAccordionArticleHeader}>{localize('course.title')}</Typography>
+          <Typography sx={{ color: 'text.secondary' }}>{localize('course.subTitle')}</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography {...welcomeAccordionText}>{localize('welcomeAccordion.course-3')}</Typography>
-          <Typography {...welcomeAccordionText}>{localize('welcomeAccordion.text-7')}</Typography>
-          <Typography {...welcomeAccordionText}>{localize('welcomeAccordion.text-8')}</Typography>
-          <Typography {...welcomeAccordionText}>{localize('welcomeAccordion.text-9')}</Typography>
+          {(localize('course.description', { returnObjects: true }) as string[]).map((textLine) => {
+            return (
+              <Typography {...welcomeAccordionText} key={uuid()}>
+                {textLine}
+              </Typography>
+            );
+          })}
         </AccordionDetails>
       </Accordion>
     </>

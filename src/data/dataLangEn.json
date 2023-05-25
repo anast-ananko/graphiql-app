@@ -42,20 +42,26 @@
         "about": "About",
         "developers": "Developers"
     },
-    "welcomeAccordion": {
-        "project": "Project",
-        "course-1": "Course",
-        "course-2": "RS School React Course",
-        "course-3": "React Course is free and online!",
-        "text-1": "GraphQl StarWars Explorer",
-        "text-2": "Introducing the GraphQl StarWars Explorer project, a delightful journey where developers can traverse the vast reaches of the Star Wars universe with just a few keystrokes!",
-        "text-3": "Picture yourself wielding the power of GraphQL, the Jedi Knight of API query languages, as you delve into a galaxy filled with spaceships, droids, and lightsabers. With this project, you`ll feel like a Jedi librarian, effortlessly navigating through a treasure trove of Star Wars data.",
-        "text-4": "Explore characters like Luke Skywalker, Darth Vader, and Yoda with the grace of a Corellian smuggler, seamlessly traversing their connections, from their affiliations to their iconic quotes. Want to know which films R2-D2 made an appearance in? Simply summon the Force of GraphQL to retrieve the answer in an instant. But that`s not all!",
-        "text-5": "This project offers more twists than a Hutt`s tail. It allows you to unearth details about starships, planets, species, and even the ever-popular opening crawl of each Star Wars movie. You`ll feel like a protocol droid fluent in over six million forms of entertainment knowledge.",
-        "text-6": "So, embrace the GraphQl StarWars Explorer project, where coding meets the Force. It`s a whimsical adventure that will have you saying, `May the queries be with you` and laughing like a jovial Wookiee in no time.",
-        "text-7": "The RS School React course is working by the principle of pay it forward. Members of our community share their knowledge and check students tasks for free. And we hope our students will continue this work as our mentors in the future.",
-        "text-8": "Everyone can study at RS School, regardless of age, professional employment, or place of residence. However, you should have sufficient base knowledge before the program begins.",
-        "text-9": "After accomplishing an education, students will receive an electronic certificate of completion."
+    "project": {
+        "title": "Project",
+        "subTitle": "GraphQl StarWars Explorer",
+        "description": [
+            "Introducing the GraphQl StarWars Explorer project, a delightful journey where developers can traverse the vast reaches of the Star Wars universe with just a few keystrokes!",
+            "Picture yourself wielding the power of GraphQL, the Jedi Knight of API query languages, as you delve into a galaxy filled with spaceships, droids, and lightsabers. With this project, you`ll feel like a Jedi librarian, effortlessly navigating through a treasure trove of Star Wars data.",
+            "Explore characters like Luke Skywalker, Darth Vader, and Yoda with the grace of a Corellian smuggler, seamlessly traversing their connections, from their affiliations to their iconic quotes. Want to know which films R2-D2 made an appearance in? Simply summon the Force of GraphQL to retrieve the answer in an instant. But that`s not all!",
+            "This project offers more twists than a Hutt`s tail. It allows you to unearth details about starships, planets, species, and even the ever-popular opening crawl of each Star Wars movie. You`ll feel like a protocol droid fluent in over six million forms of entertainment knowledge.",
+            "So, embrace the GraphQl StarWars Explorer project, where coding meets the Force. It`s a whimsical adventure that will have you saying, `May the queries be with you` and laughing like a jovial Wookiee in no time."
+        ]
+    },
+    "course": {
+        "title": "Course",
+        "subTitle": "RS School React Course",
+        "description": [
+            "React Course is free and online!",
+            "The RS School React course is working by the principle of pay it forward. Members of our community share their knowledge and check students tasks for free. And we hope our students will continue this work as our mentors in the future.",
+            "Everyone can study at RS School, regardless of age, professional employment, or place of residence. However, you should have sufficient base knowledge before the program begins.",
+            "After accomplishing an education, students will receive an electronic certificate of completion."
+        ]
     },
     "welcomeSlider": {
         "developersDescription": "Introducing the project developers, a motley crew of code-wielding rebels and tech-savvy scoundrels! With their fingers flying across keyboards at hyperspeed, they bring forth a project that`s more powerful than an army of astromech droids and funnier than Jar Jar Binks clumsiness.",
@@ -86,5 +92,10 @@
         "errorAccessControlOr": "Invalid header Access-Control-Allow-Origin",
         "errorAccessControlCr": "Invalid header Access-Control-Allow-Credentials",
         "errorAccept": "Invalid header Accept"
+    },
+    "titles": {
+        "error": "Error",
+        "loading": "Loading...",
+        "results": "Results:"
     }
 }

@@ -5,6 +5,8 @@ import { selectQuery } from '../../store/features/editorSlice';
 import { useLazyGetSchemaQuery } from '../../store/services/graphQlApi';
 import SchemaList from '../schemaList';
 
+import Typography from '@mui/material/Typography';
+
 const DocumentationPanel: FC<{ openState: boolean }> = ({ openState }) => {
   const { t: localize } = useTranslation();
   const storedQuery = useAppSelector(selectQuery);
@@ -27,7 +29,9 @@ const DocumentationPanel: FC<{ openState: boolean }> = ({ openState }) => {
     <>
       {!isError && !isFetching && data && (
         <>
-          <h1 className="explorer__title">{localize('explorer.title')}</h1>
+          <Typography className="explorer__title" variant="h4" align="center">
+            {localize('explorer.title')}
+          </Typography>
           <SchemaList schema={data} />
         </>
       )}

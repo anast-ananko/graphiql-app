@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { ProtectedRouteType } from '../../types';
+import { ProtectedRouteType } from '../../interfaces/auth.interfaces';
 import { RootState } from '../../store';
 
 const ProtectedRoute: FC<ProtectedRouteType> = ({ permission, children }) => {

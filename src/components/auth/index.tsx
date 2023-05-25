@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Container, Grid, Typography, Button } from '@mui/material';
 
-import { AuthType } from '../../types';
+import { AuthType } from '../../interfaces/auth.interfaces';
 
 import {
   authContainer,
@@ -46,7 +46,7 @@ const Auth: FC<AuthType> = ({ form, isLogin }) => {
         </Grid>
       </Grid>
       <Container {...authImage}>
-        <img className="auth__img" src="auth.png" alt="Auth" />
+        <img className="auth__img" src="../auth.png" alt="Auth" />
       </Container>
     </div>
   );

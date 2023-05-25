@@ -20,7 +20,7 @@ const Fallback: FC<IFallbackProps> = ({ error, resetErrorBoundary }) => {
 
   return (
     <div role="alert" className="alert">
-      <h3 className="alert__title">Oops!</h3>
+      <h3 className="alert__title">{localize('error.errorMainText')}</h3>
       <div className="alert__text">{error.message}</div>
       <Button variant="outlined" onClick={handleReset}>
         {localize('buttons.reload')}

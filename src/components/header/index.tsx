@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 import { AppBar, Button, Grid } from '@mui/material';
-import { useSelector } from 'react-redux';
+import { useAppSelector } from '../../hooks/hook.ts';
 
 import UserMenu from './userMenu';
 import ElevationScroll from './elevationScroll';
@@ -20,7 +20,7 @@ import { NavLink } from 'react-router-dom';
 import { APP_ROUTE_PATHS } from '../../constants/appRoutingConstants.ts';
 
 const Header: FC = () => {
-  const { uid } = useSelector((state: RootState) => state.auth);
+  const { uid } = useAppSelector((state: RootState) => state.auth);
 
   const [isScroll, setIsScroll] = useState<boolean>(false);
 
@@ -31,7 +31,7 @@ const Header: FC = () => {
           <Grid {...headerLogo}>
             <NavLink to={APP_ROUTE_PATHS.ROOT}>
               <Button className="logo-button" {...headerLogoButton}>
-                <img className="logo-button__icon" src="logo.png" alt="GraphiQL logo" />
+                <img className="logo-button__icon" src="../logo.png" alt="GraphiQL logo" />
                 GraphiQL
               </Button>
             </NavLink>
@@ -39,7 +39,7 @@ const Header: FC = () => {
           <Grid {...headerProduct}>
             <img
               className="header__product"
-              src={isScroll ? 'logo-starwars-active.png' : 'logo-starwars.png'}
+              src={isScroll ? '../logo-starwars-active.png' : '../logo-starwars.png'}
               alt="Logo starwars"
             />
           </Grid>
