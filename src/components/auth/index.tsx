@@ -46,7 +46,7 @@ const Auth: FC<AuthType> = ({ form, isLogin }) => {
         </Grid>
       </Grid>
       <Container {...authImage}>
-        <img className="auth__img" src="auth.png" alt="Auth" />
+        <img className="auth__img" src="../auth.png" alt="Auth" />
       </Container>
     </div>
   );

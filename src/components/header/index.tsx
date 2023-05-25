@@ -31,7 +31,7 @@ const Header: FC = () => {
           <Grid {...headerLogo}>
             <NavLink to={APP_ROUTE_PATHS.ROOT}>
               <Button className="logo-button" {...headerLogoButton}>
-                <img className="logo-button__icon" src="logo.png" alt="GraphiQL logo" />
+                <img className="logo-button__icon" src="../logo.png" alt="GraphiQL logo" />
                 GraphiQL
               </Button>
             </NavLink>
@@ -39,7 +39,7 @@ const Header: FC = () => {
           <Grid {...headerProduct}>
             <img
               className="header__product"
-              src={isScroll ? 'logo-starwars-active.png' : 'logo-starwars.png'}
+              src={isScroll ? '../logo-starwars-active.png' : '../logo-starwars.png'}
               alt="Logo starwars"
             />
           </Grid>
