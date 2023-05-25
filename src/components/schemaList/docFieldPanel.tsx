@@ -3,6 +3,8 @@ import DocArgList from './docArgList';
 import TypeDescription from './typeDescription';
 import DocFieldsList from './docFieldsList';
 
+import Typography from '@mui/material/Typography';
+
 import {
   IntrospectionListTypeRef,
   IntrospectionNamedTypeRef,
@@ -18,7 +20,9 @@ const DocFieldPanel: FC<DocFieldPanelProps> = ({ schemaField }) => {
 
   return (
     <>
-      <h2 className="max-width">{`${fieldName}:${typeName}`}</h2>
+      <Typography variant="body1" align="center" className="max-width">
+        {`${fieldName}: ${typeName}`}
+      </Typography>
       <DocArgList field={schemaField} />
       <TypeDescription typeName={typeName} />
       <DocFieldsList typeName={typeName} />

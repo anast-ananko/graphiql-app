@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 import { AppBar, Button, Grid } from '@mui/material';
-import { useSelector } from 'react-redux';
+import { useAppSelector } from '../../hooks/hook.ts';
 
 import UserMenu from './userMenu';
 import ElevationScroll from './elevationScroll';
@@ -20,7 +20,7 @@ import { NavLink } from 'react-router-dom';
 import { APP_ROUTE_PATHS } from '../../constants/appRoutingConstants.ts';
 
 const Header: FC = () => {
-  const { uid } = useSelector((state: RootState) => state.auth);
+  const { uid } = useAppSelector((state: RootState) => state.auth);
 
   const [isScroll, setIsScroll] = useState<boolean>(false);
 
