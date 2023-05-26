@@ -4,7 +4,7 @@ import { ErrorBoundary } from 'react-error-boundary';
 import { onAuthStateChanged } from 'firebase/auth';
 
 import { auth } from '../../firebase.ts';
-import { authSignIn } from '../../store/features/authSlice.ts';
+import { authSignIn, authSignOut } from '../../store/features/authSlice.ts';
 import { useAppDispatch } from '../../hooks/hook.ts';
 import { CircularProgress, Grid } from '@mui/material';
 import { Fallback } from '../errorBoundary/index.tsx';
@@ -25,6 +25,8 @@ const Layout: FC = () => {
           const { email, uid } = authUser;
           dispatch(authSignIn({ accessToken, email, uid }));
         });
+      } else {
+        dispatch(authSignOut());
       }
 
       setLoading(false);
