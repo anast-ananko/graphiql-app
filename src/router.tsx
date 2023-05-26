@@ -4,7 +4,6 @@ import ProtectedRoute from './components/protectedRoute';
 import Main from './pages/main';
 import Welcome from './pages/welcome';
 import NotFound from './pages/notFound';
-import TestApi from './pages/testApi';
 import SignUp from './pages/signUp';
 import SignIn from './pages/signIn';
 
@@ -33,14 +32,6 @@ const router = createBrowserRouter(
         element={
           <ProtectedRoute permission={false}>
             <SignUp />
-          </ProtectedRoute>
-        }
-      />
-      <Route
-        path="testApi"
-        element={
-          <ProtectedRoute permission={true}>
-            <TestApi />
           </ProtectedRoute>
         }
       />
