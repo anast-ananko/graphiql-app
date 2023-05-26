@@ -7,11 +7,11 @@ import { authSignOut } from '../../../store/features/authSlice.ts';
 import { updateQuery } from '../../../store/features/editorSlice.ts';
 import { UserMenuType } from '../../../interfaces/auth.interfaces.ts';
 import { Button, MenuItem, Menu } from '@mui/material';
-import LogoutIcon from '@mui/icons-material/Logout';
 import KeyRoundedIcon from '@mui/icons-material/KeyRounded';
 import { NavLink, useLocation } from 'react-router-dom';
 import { APP_ROUTE_PATHS } from '../../../constants/appRoutingConstants.ts';
 import { menuItemStyle } from './userMenu.style.ts';
+import BrightnessHighIcon from '@mui/icons-material/BrightnessHigh';
 
 const UserMenu: FC<UserMenuType> = ({ uid }) => {
   const dispatch = useAppDispatch();
@@ -77,7 +77,7 @@ const UserMenu: FC<UserMenuType> = ({ uid }) => {
         onClick={handleClick}
         color="inherit"
       >
-        {uid ? <LogoutIcon /> : <KeyRoundedIcon />}
+        {uid ? <BrightnessHighIcon /> : <KeyRoundedIcon />}
       </Button>
       <Menu
         anchorEl={anchorEl}
