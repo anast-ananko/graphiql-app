@@ -7,7 +7,7 @@ const developersData = [
   },
   {
     idName: 'Denis Bondarenko',
-    imageUrl: 'public/Exixixs_jedi.jpeg',
+    imageUrl: '../Exixixs_jedi.jpeg',
     github: 'https://github.com/ExIxIxS',
   },
   {
