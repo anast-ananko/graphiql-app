@@ -1,0 +1,101 @@
+{
+    "explorer": {
+        "title": "Documentation"
+    },
+    "editor": {
+        "variables": "Variables",
+        "headers": "Headers"
+    },
+    "buttons": {
+        "reload": "Reload",
+        "openDocumentation": "Open documentation"
+    },
+    "auth": {
+        "pageLogin-1": "If you don`t have account,",
+        "pageLogin-2": "create account",
+        "pageRegistr-1": "If you have account, please",
+        "pageRegistr-2": "login",
+        "login": "Login",
+        "createAccount": "Create account",
+        "errorEmail": "Hmmm, user with current email not found",
+        "errorPassword": "Oops, your password is wrong",
+        "signIn": "Sign in",
+        "signUp": "Sign up",
+        "signOut": "Sign out",
+        "errorUsedPassword": "Hmmm, current email already in use",
+        "errorEmpty": "This field must not be empty",
+        "errorShort": "Value of this field too short",
+        "errorLong": "Value of this field too long",
+        "errorWrongValue": "Wrong value",
+        "errorUnknown": "Unknown error"
+    },
+    "header": {
+        "toMainPage": "Go to main"
+    },
+    "notFound": {
+        "text": "Great shot kid. That was one in a million.",
+        "button": "Let`s get you home"
+    },
+    "welcome": {
+        "title": "Welcome to StarWars GraphQl far, far away",
+        "button": "Jump to main",
+        "about": "About",
+        "developers": "Developers"
+    },
+    "project": {
+        "title": "Project",
+        "subTitle": "GraphQl StarWars Explorer",
+        "description": [
+            "Introducing the GraphQl StarWars Explorer project, a delightful journey where developers can traverse the vast reaches of the Star Wars universe with just a few keystrokes!",
+            "Picture yourself wielding the power of GraphQL, the Jedi Knight of API query languages, as you delve into a galaxy filled with spaceships, droids, and lightsabers. With this project, you`ll feel like a Jedi librarian, effortlessly navigating through a treasure trove of Star Wars data.",
+            "Explore characters like Luke Skywalker, Darth Vader, and Yoda with the grace of a Corellian smuggler, seamlessly traversing their connections, from their affiliations to their iconic quotes. Want to know which films R2-D2 made an appearance in? Simply summon the Force of GraphQL to retrieve the answer in an instant. But that`s not all!",
+            "This project offers more twists than a Hutt`s tail. It allows you to unearth details about starships, planets, species, and even the ever-popular opening crawl of each Star Wars movie. You`ll feel like a protocol droid fluent in over six million forms of entertainment knowledge.",
+            "So, embrace the GraphQl StarWars Explorer project, where coding meets the Force. It`s a whimsical adventure that will have you saying, `May the queries be with you` and laughing like a jovial Wookiee in no time."
+        ]
+    },
+    "course": {
+        "title": "Course",
+        "subTitle": "RS School React Course",
+        "description": [
+            "React Course is free and online!",
+            "The RS School React course is working by the principle of pay it forward. Members of our community share their knowledge and check students tasks for free. And we hope our students will continue this work as our mentors in the future.",
+            "Everyone can study at RS School, regardless of age, professional employment, or place of residence. However, you should have sufficient base knowledge before the program begins.",
+            "After accomplishing an education, students will receive an electronic certificate of completion."
+        ]
+    },
+    "welcomeSlider": {
+        "developersDescription": "Introducing the project developers, a motley crew of code-wielding rebels and tech-savvy scoundrels! With their fingers flying across keyboards at hyperspeed, they bring forth a project that`s more powerful than an army of astromech droids and funnier than Jar Jar Binks clumsiness.",
+        "developers": {
+            "Nastassia Ananka": {
+                    "name": "Nastassia Ananka",
+                    "description": "Developer who works in a secret organization that resists the evil emperor. She can write code in different languages, including droid and wookiee. She also has a power that allows her to communicate with other developers remotely and influence their decisions. She is not afraid of facing difficulties and bugs, and always ready to help her colleagues."
+                },
+            "Denis Bondarenko": {
+                    "name": "Denis Bondarenko",
+                    "description": "Can write code faster than Han Solo, can parse a GraphQl schema in less than twelve tries, even for a Millennium Falcon pilot! Just like R2-D2, this developer`s troubleshooting skills are legendary. Much like Obi-Wan Kenobi, this developer has a knack for mentoring and guiding junior team members, shaping them into Jedi knights of the coding realm."
+                },
+            "Aliaksei Balabushka":
+                {
+                    "name": "Aliaksei Balabushka",
+                    "description": "He also has a power that allows him to hack any security systems and control various mechanisms. He is not afraid of facing difficulties and bugs, and always ready to help his friends. He dreams of creating a program that can destroy the death star - the main weapon of the emperor."
+                }
+        }
+    },
+    "error": {
+        "errorMainText": "Opps... Something went wrong.",
+        "variablesError": "Variables Error",
+        "wrongObjectOfVariables": "Invalid object of variables",
+        "headersError": "Headers Error",
+        "errorAuthBearer": "Header Authorization must start with Bearer",
+        "errorShortAuth": "Token in header Authorization must be longer then 10 symbols",
+        "errorLongAuth": "Token in header Authorization must be shorter then 20 symbols",
+        "errorAccessControlOr": "Invalid header Access-Control-Allow-Origin",
+        "errorAccessControlCr": "Invalid header Access-Control-Allow-Credentials",
+        "errorAccept": "Invalid header Accept"
+    },
+    "titles": {
+        "error": "Error",
+        "loading": "Loading...",
+        "results": "Results:"
+    }
+}
