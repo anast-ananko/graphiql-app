@@ -78,8 +78,7 @@ const Main: FC = () => {
           value as { [key: string]: string },
           headersObject as { [key: string]: string }
         ) &&
-        Object.keys(value!).length !== 0 &&
-        Object.keys(headersObject!).length !== 0
+        (Object.keys(value!).length !== 0 || Object.keys(headersObject!).length !== 0)
       ) {
         try {
           refetch();
