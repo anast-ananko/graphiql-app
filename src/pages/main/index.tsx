@@ -81,7 +81,12 @@ const Main: FC = () => {
         Object.keys(value!).length !== 0 &&
         Object.keys(headersObject!).length !== 0
       ) {
-        refetch();
+        try {
+          refetch();
+        } catch (error) {
+          error instanceof Error &&
+            dispatch(addError({ name: `${localize('titles.error')}`, message: error.message }));
+        }
       } else {
         setVariables(convertedVariables);
         setGraphqlQuery(query);
