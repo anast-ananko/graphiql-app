@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { useAppDispatch } from '../../../hooks/hook.ts';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../../firebase.ts';
+import { addError } from '../../../store/features/errorsSlice.ts';
 import { authSignOut } from '../../../store/features/authSlice.ts';
-import { updateQuery } from '../../../store/features/editorSlice.ts';
 import { UserMenuType } from '../../../interfaces/auth.interfaces.ts';
 import { Button, MenuItem, Menu } from '@mui/material';
 import KeyRoundedIcon from '@mui/icons-material/KeyRounded';
@@ -32,7 +32,13 @@ const UserMenu: FC<UserMenuType> = ({ uid }) => {
       await signOut(auth);
       dispatch(authSignOut());
     } catch (error) {
-      error instanceof Error && dispatch(updateQuery(error.message));
+      error instanceof Error &&
+        dispatch(
+          addError({
+            name: `${localize('titles.error')}`,
+            message: error.message,
+          })
+        );
     }
   };
 

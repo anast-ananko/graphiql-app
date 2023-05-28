@@ -74,7 +74,12 @@ const Main: FC = () => {
 
     if (!errors.length) {
       if (
-        !deepCompare(value as { [key: string]: string }, headersObject as { [key: string]: string })
+        !deepCompare(
+          value as { [key: string]: string },
+          headersObject as { [key: string]: string }
+        ) &&
+        value &&
+        Object.keys(value).length !== 0
       ) {
         refetch();
       } else {
