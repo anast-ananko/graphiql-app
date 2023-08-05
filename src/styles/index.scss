@@ -1,0 +1,10 @@
+@import './normalize';
+@import './variables';
+
+body {
+  font-family: 'Rubik', 'sans serif';
+  font-weight: $font-weight-normal;
+  font-size: $font-size-sm;
+  height: 100vh;
+  background-color: $background-color-base;
+}

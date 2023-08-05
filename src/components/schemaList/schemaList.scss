@@ -1,0 +1,24 @@
+.documentation-panel {
+  display: flex;
+  flex-direction: column;
+  //title height = 32px
+  height: calc(100% - 32px);
+  border-radius: 5px;
+  overflow: auto;  
+  background-color: black;
+  margin-right: 10px;
+
+  & &__content {
+    margin: 5px 0;
+    overflow: auto;
+    padding: 0 10px;
+  }
+
+  &__breadcrumbs {
+    padding: 0 5px;
+  }
+}
+
+.max-width {
+  max-width: 320px;
+}

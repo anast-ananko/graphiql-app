@@ -1,0 +1,87 @@
+@import '../../styles/variables';
+
+.editor {
+  border-radius: 5px;
+  overflow: hidden;
+  height: 100%;
+  padding: 10px 10px 0 5px;
+  padding-top: 10px;
+  align-content: space-between;
+  overflow: auto;
+
+  &__codemirror {
+    height: 85%;
+    position: relative;
+    transition: 0.5s;
+
+    &_open {
+      height: 60%;
+    }
+  }
+
+  &__options {
+    border-top: 1px solid $border-color-grey;
+    margin-bottom: 0;
+    transition: 0.5s;
+    height: 60px;
+
+    &_open {
+      height: 200px;
+    }
+  }
+}
+
+.codemirror {
+  margin-left: 10px;
+  overflow: auto;
+  height: 100%;
+}
+
+.codemirror__loading {
+  margin-left: 10px;
+}
+
+.options {
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+  }
+
+  &__buttons-section {
+    display: flex;
+  }
+
+  &__button-close {
+    visibility: hidden;
+
+    &_open {
+      visibility: visible;
+    }
+  }
+
+  &__content {
+    margin: 10px;
+    display: none;
+
+    &_open {
+      display: block;
+    }
+  }
+}
+
+.headers {
+  display: flex;
+  flex-direction: column;
+  height: 130px;
+  overflow-y: auto;
+
+  &__header {
+    margin-bottom: 10px;
+  }
+}
+
+.header__label {
+  display: inline-block;
+  width: 230px;
+}
